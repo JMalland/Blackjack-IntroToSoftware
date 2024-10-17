@@ -1,4 +1,6 @@
 # This is our .gitignore file to ignore any files
+
+# Ignore a config.json file.
 config.json
 
 # Ignore all .in files
