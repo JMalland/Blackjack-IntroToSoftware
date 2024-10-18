@@ -2918,3 +2918,411 @@ Received Import Request.
 Start importing Assets/TextMesh Pro/Shaders/TMP_SDF-HDRP UNLIT.shadergraph using Guid(f63d574838ccfb44f84acc05fed0af48) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5afe5b860980c56c0c0d116658443a51') in 0.0167751 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
 
+========================================================================
+Received Import Request.
+  Time since last request: 10398.097589 seconds.
+  path: Assets/Cards/2_of_diamonds.svg
+  artifactKey: Guid(6519139f29b7e88428cab7cf38e4daa4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cards/2_of_diamonds.svg using Guid(6519139f29b7e88428cab7cf38e4daa4) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd7808eefc46e43937e59024124a90ef3') in 0.3676977 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000165 seconds.
+  path: Assets/Cards/5_of_clubs.svg
+  artifactKey: Guid(70e444e76fcf37e4498658bd44c27847) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cards/5_of_clubs.svg using Guid(70e444e76fcf37e4498658bd44c27847) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '663ebe0af6c5ef71490cce754ecad4c0') in 0.0525006 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000063 seconds.
+  path: Assets/Cards/3_of_clubs.svg
+  artifactKey: Guid(aff109138b2320b448bafcfab5db63c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cards/3_of_clubs.svg using Guid(aff109138b2320b448bafcfab5db63c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3889253668e2a47ad91858045fd95d99') in 0.0643711 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000046 seconds.
+  path: Assets/Cards/6_of_clubs.svg
+  artifactKey: Guid(145a415e5bf922c49ae07aa11f5d7f51) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cards/6_of_clubs.svg using Guid(145a415e5bf922c49ae07aa11f5d7f51) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '80b426dc3946cbfa09ae3a1a72405220') in 0.0660713 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000060 seconds.
+  path: Assets/Cards/3_of_spades.svg
+  artifactKey: Guid(77722164ba222ea46afb980c31bafec8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cards/3_of_spades.svg using Guid(77722164ba222ea46afb980c31bafec8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c8a1496738fe82f6e06e68fe2d8535cd') in 0.0692012 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000045 seconds.
+  path: Assets/Cards/3_of_diamonds.svg
+  artifactKey: Guid(cb08584a8f47f364e85e9fb5e9a13e8d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cards/3_of_diamonds.svg using Guid(cb08584a8f47f364e85e9fb5e9a13e8d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '04f117bf8ed2650681a87e8add4f28df') in 0.0631095 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000071 seconds.
+  path: Assets/Cards/2_of_hearts.svg
+  artifactKey: Guid(d1d979ab12511234cbb6a070e8794575) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cards/2_of_hearts.svg using Guid(d1d979ab12511234cbb6a070e8794575) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd2c55ecfd962f35e79117a8ddfce1c48') in 0.1104037 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000052 seconds.
+  path: Assets/Cards/5_of_diamonds.svg
+  artifactKey: Guid(69c34840540c63842b304b03dcb0a13d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cards/5_of_diamonds.svg using Guid(69c34840540c63842b304b03dcb0a13d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3e721d2039779574ba55c5dd8462c17f') in 0.1792717 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000060 seconds.
+  path: Assets/Cards/8_of_clubs.svg
+  artifactKey: Guid(ed72e8ad98923434bb5def4d100978e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cards/8_of_clubs.svg using Guid(ed72e8ad98923434bb5def4d100978e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5d0a77e13e26e7479ad002a13384eaa1') in 0.1165886 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000048 seconds.
+  path: Assets/Cards/6_of_hearts.svg
+  artifactKey: Guid(e3118efc850477b4d9f7805ce54f5001) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cards/6_of_hearts.svg using Guid(e3118efc850477b4d9f7805ce54f5001) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0c945766c7ff4c4203f96f07ab6e0ad4') in 0.0945058 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000063 seconds.
+  path: Assets/Cards/8_of_diamonds.svg
+  artifactKey: Guid(dc5852b80c749ea449509c1342242666) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cards/8_of_diamonds.svg using Guid(dc5852b80c749ea449509c1342242666) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0221ea2244364ccfa40c2c0c59a5a48d') in 0.0713192 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000052 seconds.
+  path: Assets/Cards/ace_of_clubs.svg
+  artifactKey: Guid(f368079cd00ac8e41a24cdbbb6bcd10e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cards/ace_of_clubs.svg using Guid(f368079cd00ac8e41a24cdbbb6bcd10e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '033386d55cb7a5cf7aa3a8d7b09eb908') in 0.0981236 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000081 seconds.
+  path: Assets/Cards/jack_of_hearts.svg
+  artifactKey: Guid(a96d1906c1083f04db941f43cd075ffc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cards/jack_of_hearts.svg using Guid(a96d1906c1083f04db941f43cd075ffc) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'af7c5e3c8557058f38e0fffb912e8c64') in 0.1740145 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000046 seconds.
+  path: Assets/Cards/king_of_diamonds.svg
+  artifactKey: Guid(5f4a54faea981534eb25d323d1d34a55) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cards/king_of_diamonds.svg using Guid(5f4a54faea981534eb25d323d1d34a55) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c81ec0d856cfecbbf5940c3ade745098') in 0.1119833 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000074 seconds.
+  path: Assets/Cards/queen_of_hearts.svg
+  artifactKey: Guid(af9095618291f824485c3e91b8c5fce6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cards/queen_of_hearts.svg using Guid(af9095618291f824485c3e91b8c5fce6) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a052b48b12756171d1e52d764c2a5ead') in 0.0951785 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000068 seconds.
+  path: Assets/Cards/10_of_diamonds.svg
+  artifactKey: Guid(24754e29e339a2a4eaac225185120609) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cards/10_of_diamonds.svg using Guid(24754e29e339a2a4eaac225185120609) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6c2040e80936be08ec54032809ed2dac') in 0.1191148 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000062 seconds.
+  path: Assets/Cards/9_of_diamonds.svg
+  artifactKey: Guid(fadee62e860781f4596f7263b7daac7a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cards/9_of_diamonds.svg using Guid(fadee62e860781f4596f7263b7daac7a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '02741cca9da6aa9dbc21bc8fbd19ce24') in 0.0903172 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000054 seconds.
+  path: Assets/Cards/8_of_spades.svg
+  artifactKey: Guid(1eab67d118581ba41bfe585e64e5560f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cards/8_of_spades.svg using Guid(1eab67d118581ba41bfe585e64e5560f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '00804fc2687be95a148d922a90e3e3c2') in 0.0639435 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000077 seconds.
+  path: Assets/Cards/jack_of_diamonds.svg
+  artifactKey: Guid(9c26d03bdb93593469b056b619083802) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cards/jack_of_diamonds.svg using Guid(9c26d03bdb93593469b056b619083802) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'bae0580d4c109c839c4ee91f0a0b14ad') in 0.3962034 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000063 seconds.
+  path: Assets/Cards/k_of_spades.svg
+  artifactKey: Guid(e9242544261f40e4486b3f28e100136b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cards/k_of_spades.svg using Guid(e9242544261f40e4486b3f28e100136b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2103eb1da4d24582182f35c6c6c80edc') in 0.121073 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000072 seconds.
+  path: Assets/Cards/empty_card.svg
+  artifactKey: Guid(d94475a504ded964c9414460836975a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cards/empty_card.svg using Guid(d94475a504ded964c9414460836975a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2fb6135db7bdba3dcd13f67e032d01e8') in 0.0496641 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000064 seconds.
+  path: Assets/Cards/6_of_diamonds.svg
+  artifactKey: Guid(87e07b580e5e60d47a9b30c8d7968df3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cards/6_of_diamonds.svg using Guid(87e07b580e5e60d47a9b30c8d7968df3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b79d927ff810e524e76bc6bce83cece1') in 0.1051158 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000073 seconds.
+  path: Assets/Cards/9_of_spades.svg
+  artifactKey: Guid(80157a084f4c47e419fb9f15efa1ca7b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cards/9_of_spades.svg using Guid(80157a084f4c47e419fb9f15efa1ca7b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '19afb9da7860eccbaa3835a7ca6573c1') in 0.2515159 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000067 seconds.
+  path: Assets/Cards/queen_of_clubs.svg
+  artifactKey: Guid(54736a8842e0b9942b444e6d467e6e5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cards/queen_of_clubs.svg using Guid(54736a8842e0b9942b444e6d467e6e5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ba874d699a64d041e9278c9fb04390b9') in 0.2873532 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000058 seconds.
+  path: Assets/Cards/10_of_clubs.svg
+  artifactKey: Guid(927305b55b240814fb86e7055cd0a11a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cards/10_of_clubs.svg using Guid(927305b55b240814fb86e7055cd0a11a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ab0b226940b0627ac4235f9e88eb340a') in 0.0891179 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000042 seconds.
+  path: Assets/Cards/3_of_hearts.svg
+  artifactKey: Guid(4771463a4edbde24f82a19472bcbcda9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cards/3_of_hearts.svg using Guid(4771463a4edbde24f82a19472bcbcda9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9a6585e50e46d346d63d3894df7bc230') in 0.1646539 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000061 seconds.
+  path: Assets/Cards/jack_of_clubs.svg
+  artifactKey: Guid(70e6b7e9a39ba4645b7b2fb754e5bd2a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cards/jack_of_clubs.svg using Guid(70e6b7e9a39ba4645b7b2fb754e5bd2a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '14ce2d479667999fb35f361f7b995ef2') in 0.0733225 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 124.696610 seconds.
+  path: Assets/Cards/6_of_diamonds.svg
+  artifactKey: Guid(87e07b580e5e60d47a9b30c8d7968df3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cards/6_of_diamonds.svg using Guid(87e07b580e5e60d47a9b30c8d7968df3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3a5f809498bf4e21a36249bab800de4f') in 0.0254736 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Cards/8_of_hearts.svg
+  artifactKey: Guid(f64352f768c0fc64ba11c32f3f01bc0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cards/8_of_hearts.svg using Guid(f64352f768c0fc64ba11c32f3f01bc0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a413e86b8afaa7fac510ef473f7c9af0') in 0.0217555 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000049 seconds.
+  path: Assets/Cards/jack_of_hearts.svg
+  artifactKey: Guid(a96d1906c1083f04db941f43cd075ffc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cards/jack_of_hearts.svg using Guid(a96d1906c1083f04db941f43cd075ffc) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7f95d12e9414373a92775655da450db0') in 0.033355 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000057 seconds.
+  path: Assets/Cards/ace_of_clubs.svg
+  artifactKey: Guid(f368079cd00ac8e41a24cdbbb6bcd10e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cards/ace_of_clubs.svg using Guid(f368079cd00ac8e41a24cdbbb6bcd10e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ec32ce12881c4dfcd2e07da3176ef867') in 0.0545927 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000048 seconds.
+  path: Assets/Cards/ace_of_hearts.svg
+  artifactKey: Guid(107a4aab865c2d14f8ced2db329c4d9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cards/ace_of_hearts.svg using Guid(107a4aab865c2d14f8ced2db329c4d9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '1b939ceeb5ff6289deae9d989e62edeb') in 0.0768132 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000405 seconds.
+  path: Assets/Cards/10_of_diamonds.svg
+  artifactKey: Guid(24754e29e339a2a4eaac225185120609) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cards/10_of_diamonds.svg using Guid(24754e29e339a2a4eaac225185120609) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '08b5923dd32b813bf822d54e06d9d68a') in 0.0371303 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000042 seconds.
+  path: Assets/Cards/7_of_clubs.svg
+  artifactKey: Guid(53a975d7b5a32c142a262d8eb38f67d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cards/7_of_clubs.svg using Guid(53a975d7b5a32c142a262d8eb38f67d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd3a631718ce03ce9dcb621e905558a02') in 0.0385186 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/Cards/9_of_diamonds.svg
+  artifactKey: Guid(fadee62e860781f4596f7263b7daac7a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cards/9_of_diamonds.svg using Guid(fadee62e860781f4596f7263b7daac7a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3a0ceff36a8a27fe9c015959f1c503f1') in 0.0345836 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000047 seconds.
+  path: Assets/Cards/8_of_spades.svg
+  artifactKey: Guid(1eab67d118581ba41bfe585e64e5560f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cards/8_of_spades.svg using Guid(1eab67d118581ba41bfe585e64e5560f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '32b796a95867fac949e79e75c2a3a6b3') in 0.0344228 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000057 seconds.
+  path: Assets/Cards/black_joker.svg
+  artifactKey: Guid(9c31e2c5f28bf2c4d8f0cbe637ab35fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cards/black_joker.svg using Guid(9c31e2c5f28bf2c4d8f0cbe637ab35fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'eae6dae003aec714b44a9d4ef093b4cd') in 0.0238006 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 7
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000046 seconds.
+  path: Assets/Cards/7_of_hearts.svg
+  artifactKey: Guid(37f660c31ddf83b4e9b6f75475483d08) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cards/7_of_hearts.svg using Guid(37f660c31ddf83b4e9b6f75475483d08) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '07d986cd3a013e323c2c6a35093c3628') in 0.0329527 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000059 seconds.
+  path: Assets/Cards/jack_of_diamonds.svg
+  artifactKey: Guid(9c26d03bdb93593469b056b619083802) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cards/jack_of_diamonds.svg using Guid(9c26d03bdb93593469b056b619083802) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '144360175790a2104181244714f11aa4') in 0.0323113 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Cards/k_of_spades.svg
+  artifactKey: Guid(e9242544261f40e4486b3f28e100136b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cards/k_of_spades.svg using Guid(e9242544261f40e4486b3f28e100136b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6cad4dcb35dc2e213e02bfbab1bcaa96') in 0.0416428 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Cards/empty_card.svg
+  artifactKey: Guid(d94475a504ded964c9414460836975a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cards/empty_card.svg using Guid(d94475a504ded964c9414460836975a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '999768d154968581fc5bed4cf61b7b0b') in 0.0270607 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000046 seconds.
+  path: Assets/Cards/9_of_spades.svg
+  artifactKey: Guid(80157a084f4c47e419fb9f15efa1ca7b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cards/9_of_spades.svg using Guid(80157a084f4c47e419fb9f15efa1ca7b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ae5bd0cb3f5f036302fec37b2b6bd1b6') in 0.031769 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000049 seconds.
+  path: Assets/Cards/10_of_clubs.svg
+  artifactKey: Guid(927305b55b240814fb86e7055cd0a11a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cards/10_of_clubs.svg using Guid(927305b55b240814fb86e7055cd0a11a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'baed0303b78a941dfccdd2c51024844f') in 0.0373258 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.304288 seconds.
+  path: Assets/Cards/2_of_diamonds.svg
+  artifactKey: Guid(6519139f29b7e88428cab7cf38e4daa4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cards/2_of_diamonds.svg using Guid(6519139f29b7e88428cab7cf38e4daa4) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '61ae7765202b18583571a403d675e472') in 0.0540093 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000056 seconds.
+  path: Assets/Cards/4_of_clubs.svg
+  artifactKey: Guid(acd74bf1e433b12419ec1f94415db685) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cards/4_of_clubs.svg using Guid(acd74bf1e433b12419ec1f94415db685) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9d3a162e7ce5b6a2e2d6a91fb9eb4297') in 0.0515317 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000056 seconds.
+  path: Assets/Cards/4_of_diamonds.svg
+  artifactKey: Guid(94044f0b88e54a646bd52313473ee386) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cards/4_of_diamonds.svg using Guid(94044f0b88e54a646bd52313473ee386) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '01091f1bf4f33830a59c8222833cb2b9') in 0.0454843 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Assets/Cards/3_of_spades.svg
+  artifactKey: Guid(77722164ba222ea46afb980c31bafec8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cards/3_of_spades.svg using Guid(77722164ba222ea46afb980c31bafec8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '43181608aafc3e6b9f0e152a8733c1f3') in 0.050077 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000047 seconds.
+  path: Assets/Cards/4_of_spades.svg
+  artifactKey: Guid(ab695a2a08bfdce40a1c8065d4ee8225) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cards/4_of_spades.svg using Guid(ab695a2a08bfdce40a1c8065d4ee8225) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '057dbf729030581501aee8f2e3c0f493') in 0.0361891 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000057 seconds.
+  path: Assets/Cards/5_of_hearts.svg
+  artifactKey: Guid(15633ffcd8c88314daf0239bf05963fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cards/5_of_hearts.svg using Guid(15633ffcd8c88314daf0239bf05963fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9ca6735eb7567cd42507c244774d18f8') in 0.0442186 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000046 seconds.
+  path: Assets/Cards/3_of_hearts.svg
+  artifactKey: Guid(4771463a4edbde24f82a19472bcbcda9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cards/3_of_hearts.svg using Guid(4771463a4edbde24f82a19472bcbcda9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '22230452d319975e201b00b431060b54') in 0.0483687 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.781917 seconds.
+  path: Assets/Cards/k_of_spades.svg
+  artifactKey: Guid(e9242544261f40e4486b3f28e100136b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cards/k_of_spades.svg using Guid(e9242544261f40e4486b3f28e100136b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '191f04ef3a2eab9ad3df4eb090966da8') in 0.0495397 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
