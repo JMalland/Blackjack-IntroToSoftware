@@ -12,8 +12,7 @@ public class CardDisplay : MonoBehaviour
 
     // The front & back images
     public SpriteRenderer _frontCardImage;
-    //public Image _backCardImage;
-
+    
     // Array of the Card ScriptableObjects
     public CardModelSO[] cards;
 
@@ -47,10 +46,7 @@ public class CardDisplay : MonoBehaviour
         // The child variable "_frontCardImage" exists
         else {
             _frontCardImage.GetComponent<SpriteRenderer>().sprite = cards[index].frontCardImage;
-            //_frontCardImage = Instantiate(cards[index].frontCardImage, transform.position, Quaternion.identity);
         }
-        
-        //_backCardImage.sprite = cards[index].frontCardImage;
     }
 
     // Reset is called every time a component is added, or reset. This way changes appear in the editor.
@@ -59,8 +55,7 @@ public class CardDisplay : MonoBehaviour
         _cardSuit = GameObject.Find("_cardSuit").GetComponent<TextMeshProUGUI>();
         _cardType = GameObject.Find("_cardType").GetComponent<TextMeshProUGUI>();
         _frontCardImage = GameObject.Find("_frontCardImage").GetComponent<SpriteRenderer>();
-        //transform.Find("_frontCardImage").gameObject;
-
+        
         // Load all of the CardModel objects
         this.cards = Resources.LoadAll<CardModelSO>("ScriptableObjects/PlayingCards");
         
@@ -77,6 +72,6 @@ public class CardDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        LoadSelectedCard(UnityEngine.Random.Range(0, cards.Length));
     }
 }
