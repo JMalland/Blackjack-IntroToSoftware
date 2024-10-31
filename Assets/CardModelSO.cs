@@ -14,4 +14,9 @@ public class CardModelSO : ScriptableObject
 
     // The back card image
     public Sprite backCardImage;
+
+    // Override the ToString method
+    override public string ToString() {
+        return(cardType + "-" + cardSuit.ToUpper());
+    }
 }

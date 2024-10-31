@@ -11,7 +11,7 @@ public class CardDisplay : MonoBehaviour
     public TextMeshProUGUI _cardType;
 
     // The front & back images
-    public SpriteRenderer _frontCardImage;
+    public SpriteRenderer _cardImage;
     
     // Array of the Card ScriptableObjects
     public CardModelSO[] cards;
@@ -40,12 +40,12 @@ public class CardDisplay : MonoBehaviour
         }
         
         // Check if _frontCardImage exists
-        if (_frontCardImage == null) {
-            Debug.LogError("_frontCardImage is not assigned in " + gameObject.name);
+        if (_cardImage == null) {
+            Debug.LogError("_cardImage is not assigned in " + gameObject.name);
         }
         // The child variable "_frontCardImage" exists
         else {
-            _frontCardImage.GetComponent<SpriteRenderer>().sprite = cards[index].frontCardImage;
+            _cardImage.GetComponent<SpriteRenderer>().sprite = cards[index].frontCardImage;
         }
     }
 
@@ -54,7 +54,7 @@ public class CardDisplay : MonoBehaviour
     {
         _cardSuit = GameObject.Find("_cardSuit").GetComponent<TextMeshProUGUI>();
         _cardType = GameObject.Find("_cardType").GetComponent<TextMeshProUGUI>();
-        _frontCardImage = GameObject.Find("_frontCardImage").GetComponent<SpriteRenderer>();
+        _cardImage = GameObject.Find("_cardImage").GetComponent<SpriteRenderer>();
         
         // Load all of the CardModel objects
         this.cards = Resources.LoadAll<CardModelSO>("ScriptableObjects/PlayingCards");

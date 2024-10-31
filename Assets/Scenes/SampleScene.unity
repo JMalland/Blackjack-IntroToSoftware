@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 319196819}
   - component: {fileID: 319196820}
   m_Layer: 0
-  m_Name: _frontCardImage
+  m_Name: _cardImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -274,7 +274,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3286163911610860551, guid: 37f660c31ddf83b4e9b6f75475483d08, type: 3}
+  m_Sprite: {fileID: 3286163911610860551, guid: 94044f0b88e54a646bd52313473ee386, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -342,7 +342,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hearts
+  m_text: Diamonds
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -565,7 +565,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 7
+  m_text: 4
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -830,7 +830,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cardSuit: {fileID: 393319067}
   _cardType: {fileID: 1095927360}
-  _frontCardImage: {fileID: 319196820}
+  _cardImage: {fileID: 319196820}
   cards:
   - {fileID: 11400000, guid: 8c1d39d24d50b314e9307aa7af845cb1, type: 2}
   - {fileID: 11400000, guid: c7c085aa02c7d4f47bb007f6966b3f43, type: 2}
