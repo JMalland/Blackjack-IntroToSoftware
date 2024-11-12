@@ -68,7 +68,7 @@ public class HandModelSO : ScriptableObject
         hand_count += 1;
 
         // Calculate the value of the hand
-        AddValue(card, out this.value);
+        AddValue(card);
 
         // Invoke the CardAdded eventlistener
         CardAdded.Invoke(card);
@@ -80,43 +80,43 @@ public class HandModelSO : ScriptableObject
     }
 
     // Add a card's value to the hand value
-    private void AddValue(CardModelSO card, out int result) {
+    private void AddValue(CardModelSO card) {
         // Add card values from 2 to 10
-        if (int.TryParse(card.cardType, out int value)) {
+        if (int.TryParse(card.cardType, out int cValue)) {
             // Add the card value
-            result += value;
+            this.value += cValue;
         }
         // The card is a Jack
         else if (card.cardType == "J") {
-            result += 11;
+            this.value += 11;
         }
         // The card is a Queen
         else if (card.cardType == "Q") {
-            result += 12;
+            this.value += 12;
         }
         // The card is a King
         else if (card.cardType == "K") {
-            result += 13;
+            this.value += 13;
         }
         // The card is an Ace
         else {
             // Can add an Ace as 11 without busting.
-            if (result + 11 <= 21) {
+            if (this.value + 11 <= 21) {
                 // Mark that an Ace has been counted as 11
-                this.eleven_ace = true
+                this.eleven_ace = true;
                 // Add Ace value
-                result += 11;
+                this.value += 11;
             }
             // Can't add an Ace as 11
             else {
                 // Add [this] added Ace
-                result += 1;
+                this.value += 1;
 
                 // The hand is a bust, but another Ace has been counted as 11
-                if (this.eleven_ace && result > 21) {
+                if (this.eleven_ace && this.value > 21) {
                     // Change the 11 value Ace to 1
                     this.eleven_ace = false;
-                    result -= 10;
+                    this.value -= 10;
                 }
             }
         }
