@@ -68,7 +68,7 @@ public class HandModelSO : ScriptableObject
         hand_count += 1;
 
         // Calculate the value of the hand
-        AddValue(card, value);
+        AddValue(card, out this.value);
 
         // Invoke the CardAdded eventlistener
         CardAdded.Invoke(card);
