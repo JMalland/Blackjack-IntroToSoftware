@@ -18,6 +18,13 @@ public class HandModelSO : ScriptableObject
     // The number of cards in the hand
     public int hand_count = 0;
 
+    // Whether an Ace has been counted as 11.
+    // Can't have more than one 11 value Ace because 2*11=22
+    private bool eleven_ace = false;
+    
+    // The total value of the cards in the hand
+    private int value = 0;
+    
     // Whether the hand can be split.
     public bool CanSplit() {
         return(hand.Length == 2 && hand[0].cardType == hand[1].cardType);
@@ -60,59 +67,56 @@ public class HandModelSO : ScriptableObject
         // Increment the hand count
         hand_count += 1;
 
+        // Calculate the value of the hand
+        AddValue(card, value);
+
         // Invoke the CardAdded eventlistener
         CardAdded.Invoke(card);
     }
 
-    public int CalcValue() {
-        // Count the aces to be added at the end
-        int aces = 0;
-        // The total sum of the hand
-        int total = 0;
+    // Return the calculated hand value
+    public int GetValue() {
+        return(value);
+    }
 
-        foreach (CardModelSO card in hand) {
-            // Add card values from 2 to 10
-            if (int.TryParse(card.cardType, out int value)) {
-                // Add the card value
-                total += value;
+    // Add a card's value to the hand value
+    private void AddValue(CardModelSO card, out int result) {
+        // Add card values from 2 to 10
+        if (int.TryParse(card.cardType, out int value)) {
+            // Add the card value
+            result += value;
+        }
+        // The card is a Jack
+        else if (card.cardType == "J") {
+            result += 11;
+        }
+        // The card is a Queen
+        else if (card.cardType == "Q") {
+            result += 12;
+        }
+        // The card is a King
+        else if (card.cardType == "K") {
+            result += 13;
+        }
+        // The card is an Ace
+        else {
+            // Can add an Ace as 11 without busting.
+            if (result + 11 <= 21) {
+                result += 11;
             }
-            // The card is a Jack
-            else if (card.cardType == "J") {
-                total += 11;
-            }
-            // The card is a Queen
-            else if (card.cardType == "Q") {
-                total += 12;
-            }
-            // The card is a King
-            else if (card.cardType == "K") {
-                total += 13;
-            }
-            // The card is an Ace
+            // Can't add an Ace as 11
             else {
-                // Add to the aces counter
-                aces += 1;
+                // Add [this] added Ace
+                result += 1;
 
-                // Keep going
-                continue;
+                // The hand is a bust, but another Ace has been counted as 11
+                if (this.eleven_ace && result > 21) {
+                    // Change the 11 value Ace to 1
+                    this.eleven_ace = false;
+                    result -= 10;
+                }
             }
         }
-
-        // The total hand value is less than if aces were 
-        if (aces > 0) {
-            // The hand value can include an ace as 11.
-            // Only use one ace as 11 because can't have two aces as 11 (22). 
-            if (total + 11 + aces - 1 <= 21) {
-                total += 11 + aces - 1;
-            }
-            // Aces can only be counted as 1.
-            else {
-                total += aces;
-            }
-        }
-
-        // Return the hand value
-        return(total);
     }
 
     // Constructor for the Deck object. 
