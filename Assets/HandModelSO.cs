@@ -102,6 +102,9 @@ public class HandModelSO : ScriptableObject
         else {
             // Can add an Ace as 11 without busting.
             if (result + 11 <= 21) {
+                // Mark that an Ace has been counted as 11
+                this.eleven_ace = true
+                // Add Ace value
                 result += 11;
             }
             // Can't add an Ace as 11
