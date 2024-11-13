@@ -4,10 +4,10 @@ using UnityEngine;
 public class CardModelSO : ScriptableObject
 {
     // The suit of the card
-    public string cardSuit;
+    public string suit;
     
     // The string value of the card (2,3,4 ... A, J, Q, K)
-    public string cardType;
+    public string rank;
     
     // The card image
     public Sprite frontCardImage;
@@ -17,6 +17,6 @@ public class CardModelSO : ScriptableObject
 
     // Override the ToString method
     override public string ToString() {
-        return(cardType + "-" + cardSuit.ToUpper());
+        return(rank + "-" + suit.ToUpper());
     }
 }

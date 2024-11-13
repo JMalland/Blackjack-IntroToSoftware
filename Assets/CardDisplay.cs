@@ -7,8 +7,8 @@ using UnityEngine;
 public class CardDisplay : MonoBehaviour
 {
     // The card Suit & Type
-    public TextMeshProUGUI _cardSuit;
-    public TextMeshProUGUI _cardType;
+    public TextMeshProUGUI _suit;
+    public TextMeshProUGUI _rank;
 
     // The front & back images
     public SpriteRenderer _cardImage;
@@ -18,25 +18,25 @@ public class CardDisplay : MonoBehaviour
 
     // Each Card has an index that will be used to load the card properties
     void LoadSelectedCard(int index) {
-        Debug.Log("Card Suit: " + cards[index].cardSuit);
-        Debug.Log("Card Type: " + cards[index].cardType);
+        Debug.Log("Card Suit: " + cards[index].suit);
+        Debug.Log("Card Type: " + cards[index].rank);
 
-        // Check if _cardSuit exists
-        if (_cardSuit == null) {
-            Debug.LogError("_cardSuit is not assigned in " + gameObject.name);
+        // Check if _suit exists
+        if (_suit == null) {
+            Debug.LogError("_suit is not assigned in " + gameObject.name);
         }
-        // The child variable "_cardSuit" exists
+        // The child variable "_suit" exists
         else {
-            _cardSuit.text = cards[index].cardSuit;
+            _suit.text = cards[index].suit;
         }
 
-        // Check if _cardType exists
-        if (_cardType == null) {
-            Debug.LogError("_cardType is not assigned in " + gameObject.name);
+        // Check if _rank exists
+        if (_rank == null) {
+            Debug.LogError("_rank is not assigned in " + gameObject.name);
         }
-        // The child variable "_cardType" exists
+        // The child variable "_rank" exists
         else {
-            _cardType.text = cards[index].cardType;
+            _rank.text = cards[index].rank;
         }
         
         // Check if _frontCardImage exists
@@ -52,8 +52,8 @@ public class CardDisplay : MonoBehaviour
     // Reset is called every time a component is added, or reset. This way changes appear in the editor.
     void Reset()
     {
-        _cardSuit = GameObject.Find("_cardSuit").GetComponent<TextMeshProUGUI>();
-        _cardType = GameObject.Find("_cardType").GetComponent<TextMeshProUGUI>();
+        _suit = GameObject.Find("_suit").GetComponent<TextMeshProUGUI>();
+        _rank = GameObject.Find("_rank").GetComponent<TextMeshProUGUI>();
         _cardImage = GameObject.Find("_cardImage").GetComponent<SpriteRenderer>();
         
         // Load all of the CardModel objects
