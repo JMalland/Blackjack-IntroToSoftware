@@ -1,9 +1,11 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEditor.VersionControl;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "DeckModelSO", menuName = "New Deck")]
-public class DeckModelSO : ScriptableObject
-{
+public class DeckModelSO : ScriptableObject {
     /*
     ##################
     ## KEEP IN MIND ##
@@ -12,43 +14,11 @@ public class DeckModelSO : ScriptableObject
         Singleplayer:   All the cards must be stored in a shuffled deck
     */
 
+    // Events that can be listened for by the Deck display manager
+    public event Action<CardModelSO> CardDrawn;
+
     // The array of all cards
-    public CardModelSO[] deck;
-
-    // The deck display image
-    public Sprite image;
-
-    // Whether the game is online or offline
-    public bool isOnline;
-
-    // Constructor for the Deck object. 
-    // Online mode is false, on default.
-    public void InitializeDeck(bool online = false) {
-        Debug.Log("new DeckModelSO()");
-        
-        // Save whether the game is single/multiplayer
-        this.isOnline = online;
-
-        Debug.Log("Online: " + online);
-
-        // The game is in singleplayer mode
-        if (!this.isOnline) {
-            // Create the array of all cards
-            deck = Resources.LoadAll<CardModelSO>("ScriptableObjects/PlayingCards");
-
-            // Shuffle the cards
-            this.Shuffle();
-
-            Debug.Log("Cards: [" + this.deck[0] + ", ..., " + this.deck[this.deck.Length/2 - 1] + ", ..., " + this.deck[this.deck.Length - 1] + "]");
-        }
-        // The game is in multiplayer mode
-        else {
-            // Create an empty array with no cards
-            deck = new CardModelSO[0];
-
-            Debug.Log("Cards: []");
-        }
-    }
+    public List<CardModelSO> deck;
 
     // Method to shuffle the deck
     // If not specified, default index value is -1
@@ -64,9 +34,44 @@ public class DeckModelSO : ScriptableObject
         this.deck[random] = temp_card;
 
         // There are more cards to be shuffled
-        if (index + 1 < this.deck.Length) {
+        if (index + 1 < this.deck.Count) {
             // Shuffle the next card
             Shuffle(++ index);
+        }
+    }
+
+    public CardModelSO NextCard() {
+        // Get the top card from the deck
+        CardModelSO top_card = deck[0];
+
+        // Remove the top card from the deck
+        deck.RemoveAt(0);
+
+        // Return the top card.
+        return(top_card);
+    }
+
+    // Constructor for the Deck object. 
+    // Online mode is false, on default.
+    public void Initialize() {
+        Debug.Log("new DeckModelSO()");
+        
+        // The game is in singleplayer mode
+        if (!false) {
+            // Create the array of all cards
+            deck = Resources.LoadAll<CardModelSO>("ScriptableObjects/PlayingCards").ToList();
+
+            // Shuffle the cards
+            this.Shuffle();
+
+            Debug.Log("Cards: [" + this.deck[0] + ", ..., " + this.deck[this.deck.Count/2 - 1] + ", ..., " + this.deck[this.deck.Count - 1] + "]");
+        }
+        // The game is in multiplayer mode
+        else {
+            // Create an empty array with no cards
+            deck = new List<CardModelSO>();
+
+            Debug.Log("Cards: []");
         }
     }
 }
