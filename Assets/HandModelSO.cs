@@ -49,7 +49,7 @@ public class HandModelSO : ScriptableObject
         }
 
         // Instantiate the split hand.
-        HandModelSO split = new HandModelSO();
+        HandModelSO split = ScriptableObject.CreateInstance<HandModelSO>();
         
         // Set the primary card.
         split.SetCard(0, hand[1]);

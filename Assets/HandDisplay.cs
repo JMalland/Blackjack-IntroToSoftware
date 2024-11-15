@@ -53,7 +53,7 @@ public class HandDisplay : MonoBehaviour
         cardSprite.sprite = Resources.Load<Sprite>("Cards/" + card.rank.ToLower() + "_of_" + card.suit.ToLower());
         
         // Set the draw mode
-        cardSprite.drawMode = SpriteDrawMode.Simple;
+        cardSprite.drawMode = SpriteDrawMode.Simple; 
 
         // Load the proper shader for drawing the sprite
         cardSprite.material = Resources.Load<Material>("Materials/Unlit_VectorGradient");
