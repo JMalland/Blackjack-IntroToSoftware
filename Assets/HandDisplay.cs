@@ -48,15 +48,8 @@ public class HandDisplay : MonoBehaviour
         cardObject.transform.localPosition = new Vector3(x_pos, y_pos, -1 * count);
 
 
-        // Create the Card sprite
+        // Create the Card SpriteRenderer
         SpriteRenderer cardSprite = cardObject.AddComponent<SpriteRenderer>();
-        cardSprite.sprite = Resources.Load<Sprite>("Cards/" + card.rank.ToLower() + "_of_" + card.suit.ToLower());
-        
-        // Set the draw mode
-        cardSprite.drawMode = SpriteDrawMode.Simple; 
-
-        // Load the proper shader for drawing the sprite
-        cardSprite.material = Resources.Load<Material>("Materials/Unlit_VectorGradient");
     }
 
     // The hand was split
@@ -91,7 +84,7 @@ public class HandDisplay : MonoBehaviour
     // Reset is called every time a component is added, or reset. This way changes appear in the editor.
     void Reset() {
         hand = ScriptableObject.CreateInstance<HandModelSO>();
-        hand.InitializeHand();
+        hand.Initialize();
 
         array = new("CardStack");
         
@@ -141,6 +134,12 @@ public class HandDisplay : MonoBehaviour
 
             // Set the Sprite of the card
             card.sprite = Resources.Load<Sprite>("Cards/" + cardList[i].rank.ToLower() + "_of_" + cardList[i].suit.ToLower());
+        
+            // Set the draw mode
+            card.drawMode = SpriteDrawMode.Simple; 
+
+            // Load the proper shader for drawing the sprite
+            card.material = Resources.Load<Material>("Materials/Unlit_VectorGradient");
         }
     }
 }

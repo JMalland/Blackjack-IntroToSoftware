@@ -149,7 +149,7 @@ public class HandModelSO : ScriptableObject
 
     // Constructor for the Deck object. 
     // Online mode is false, on default.
-    public void InitializeHand() {
+    public void Initialize() {
         Debug.Log("new HandModelSO()");
 
         // Instantiate the main hand.
