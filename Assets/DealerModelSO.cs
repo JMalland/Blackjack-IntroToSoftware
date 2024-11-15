@@ -21,8 +21,8 @@ public class DealerModelSO : PlayerModelSO
 
     // Give the card to the player
     // Should run every time the player chooses Hit
-    private void GiveCard(PlayerModelSO player) {
-        // Give the player their fucking card
+    private void GiveCard(HandModelSO hand) {
+        // Give the player their  card
     }
 
     private void NoMoreCards(PlayerModelSO player) {

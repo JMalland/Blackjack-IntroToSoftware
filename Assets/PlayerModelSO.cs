@@ -8,8 +8,8 @@ using Unity.VisualScripting;
 [CreateAssetMenu(fileName = "PlayerModelSO", menuName = "New Player")]
 public class PlayerModelSO : ScriptableObject
 {
-    // Events that can be listened for by the Hand display manager
-    public event Action<PlayerModelSO> PlayerHit;
+    // Events that can be listened for by the Player display manager
+    public event Action<HandModelSO> PlayerHit;
     public event Action<PlayerModelSO> PlayerStand;
     
     // The player's name
@@ -21,7 +21,7 @@ public class PlayerModelSO : ScriptableObject
     // Handle the PlayerHit event
     public void Hit() {
         // Invoke the PlayerHit event
-        PlayerHit.Invoke(this);
+        PlayerHit.Invoke(this.hand);
     }
 
     // Handle the PlayerStand event
