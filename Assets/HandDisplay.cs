@@ -14,6 +14,11 @@ public class HandDisplay : MonoBehaviour
     // The object that holds all the cards.
     public GameObject cardStack;
 
+    // Set a specific Hand to be displayed
+    public void Initialize(HandModelSO newHand) {
+        hand = newHand;
+    }
+
     // A card was added to the hand
     /*
     * NEED to get the gameObject of the "dealt" card
@@ -82,9 +87,6 @@ public class HandDisplay : MonoBehaviour
 
     // Reset is called every time a component is added, or reset. This way changes appear in the editor.
     void Reset() {
-        hand = ScriptableObject.CreateInstance<HandModelSO>();
-        hand.Initialize();
-
         // Create the CardStack object
         cardStack = new GameObject("CardStack");
 
