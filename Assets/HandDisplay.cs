@@ -90,7 +90,7 @@ public class HandDisplay : MonoBehaviour
         // Delete any existing children
         foreach (Transform child in gameObject.transform) {
             // Delete the child
-            GameObject.Destroy(child.gameObject);
+            GameObject.DestroyImmediate(child.gameObject);
         }
 
         // Create the CardStack object

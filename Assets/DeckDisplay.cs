@@ -28,9 +28,9 @@ public class DeckDisplay : MonoBehaviour
         // Delete any existing children
         foreach (Transform child in gameObject.transform) {
             // Delete the child
-            GameObject.Destroy(child.gameObject);
+            GameObject.DestroyImmediate(child.gameObject);
         }
-        
+
         deck = ScriptableObject.CreateInstance<DeckModelSO>();
         deck.Initialize();
     
