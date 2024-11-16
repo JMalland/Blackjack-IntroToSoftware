@@ -22,13 +22,9 @@ public class CardDisplay : MonoBehaviour
 
     // Reset is called every time a component is added, or reset. This way changes appear in the editor.
     void Reset() {
-        // Get the SpriteRenderer if it exists
-        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        if (spriteRenderer == null) {
-            // Create the SpriteRenderer
-            spriteRenderer = gameObject.AddComponent<SpriteRenderer>();
-        }
-
+        // Get or create the SpriteRenderer
+        spriteRenderer = gameObject.AddComponent<SpriteRenderer>() ?? gameObject.GetComponent<SpriteRenderer>();
+        
         // Draw the sprite, keeping its natural dimensions
         spriteRenderer.drawMode = SpriteDrawMode.Simple;
 
