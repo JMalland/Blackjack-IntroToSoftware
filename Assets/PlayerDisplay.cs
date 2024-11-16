@@ -60,8 +60,6 @@ public class PlayerDisplay : MonoBehaviour {
         // Might cause an issue if Object is an extension of Player class (Polymorphism)
         player.Initialize();
 
-
-
         // Set the width and height
         gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(52 + 12*5, 82 + 12*5 + 24);
         // Set the relative position
@@ -72,6 +70,11 @@ public class PlayerDisplay : MonoBehaviour {
 
         // Create the GameObject to hold Player Hands
         display_hands = new GameObject("Hands");
+
+        // Set the display layout of the two hands.
+        HorizontalLayoutGroup layout = display_hands.AddComponent<HorizontalLayoutGroup>();
+        layout.spacing = 30f;
+        layout.childAlignment = TextAnchor.MiddleLeft;
 
         // Create the first hand (Game Object)
         GameObject hand_1 = new GameObject("Hand 1");

@@ -118,6 +118,19 @@ public class HandDisplay : MonoBehaviour
         // Create a generic Hand
         hand = ScriptableObject.CreateInstance<HandModelSO>();
 
+        // Create the RectTransform component (to act as a UI.Panel component)
+        RectTransform rect = gameObject.AddComponent<RectTransform>();
+        // Couldn't add a RectTransform component
+        if (rect == null) {
+            // Get the existing component
+            rect = gameObject.transform.GetComponent<RectTransform>();
+        }
+
+        // Set the width and height
+        rect.sizeDelta = new Vector2(52 + 12*5, 82 + 12*5 + 24);
+        // Set the relative position
+        gameObject.transform.localPosition = Vector3.zero;
+
         // Create the CardStack object
         cardStack = new GameObject("CardStack");
         
