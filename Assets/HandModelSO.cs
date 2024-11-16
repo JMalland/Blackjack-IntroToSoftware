@@ -4,6 +4,7 @@ using System;
 using UnityEngine.InputSystem.Controls;
 using UnityEngine.XR;
 using Unity.VisualScripting;
+using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "HandModelSO", menuName = "New Hand")]
 public class HandModelSO : ScriptableObject
@@ -16,9 +17,7 @@ public class HandModelSO : ScriptableObject
     public event Action<HandModelSO> SplitHand;
 
     // The array of cards in the hand
-    private CardModelSO[] hand;
-    // The number of cards in the hand
-    public int hand_count = 0;
+    private List<CardModelSO> hand = new List<CardModelSO>();
 
     // Whether an Ace has been counted as 11.
     // Can't have more than one 11 value Ace because 2*11=22
@@ -38,7 +37,7 @@ public class HandModelSO : ScriptableObject
     
     // Whether the hand can be split.
     public bool CanSplit() {
-        return(hand.Length == 2 && hand[0].rank == hand[1].rank);
+        return(hand.Count == 2 && hand[0].rank == hand[1].rank);
     }
 
     // SplitHand event should take into account the position of the two cards, and animate one being split to the position of the second hand.
@@ -52,34 +51,27 @@ public class HandModelSO : ScriptableObject
         HandModelSO split = ScriptableObject.CreateInstance<HandModelSO>();
         
         // Set the primary card.
-        split.SetCard(0, hand[1]);
-
-        // Decrement the hand count
-        hand_count -= 1;
+        split.AddCard(hand[1]);
         
         // Set the second card as null.
-        hand.SetValue(null, 1);
+        hand.RemoveAt(1);
 
         // Invoke the Split eventlistener
         SplitHand.Invoke(split);
     }
 
-    public void SetCard(int index, CardModelSO card) {
-        Debug.Log("Card-Suit: " + card.suit);
-        Debug.Log("Card-Rank: " + card.rank);
-
-        // Set the card at the index
-        hand.SetValue(card.ConvertTo<object>(), index);    
-    }
-
 
     // CardAdded event should take into account the position of the deck, and animate a card moving from the deck to the calculated destination position.
     public void AddCard(CardModelSO card) {
-        // Set the card
-        SetCard(hand_count, card);
+        // The hand card limit will be exceeded
+        if (hand.Count == HandModelSO.maxCardLimit) {
+            Debug.LogError("Hand Limit Exceeded By " + (hand.Count + 1 - HandModelSO.maxCardLimit) + "Cards");
+            // SHOULD END THE PROGRAM WITH THIS ERROR
+            // FOR TESTING SAKE, WILL NOT
+        }
 
-        // Increment the hand count
-        hand_count += 1;
+        // Set the card
+        hand.Add(card);
 
         // Calculate the value of the hand
         AddValue(card);
@@ -96,7 +88,7 @@ public class HandModelSO : ScriptableObject
 
     // Number of cards in the hand
     public int GetCount() {
-        return(hand_count);
+        return(hand.Count);
     }
 
     // Return the calculated hand value
@@ -145,14 +137,5 @@ public class HandModelSO : ScriptableObject
                 }
             }
         }
-    }
-
-    // Constructor for the Deck object. 
-    // Online mode is false, on default.
-    public void Initialize() {
-        Debug.Log("new HandModelSO()");
-
-        // Instantiate the main hand.
-        hand = new CardModelSO[HandModelSO.maxCardLimit];
     }
 }
