@@ -5,6 +5,7 @@ using NUnit.Framework.Constraints;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.XR;
 
 public class PlayerDisplay : MonoBehaviour {
@@ -23,7 +24,9 @@ public class PlayerDisplay : MonoBehaviour {
     }
 
     // The hand was split
-    void SplitHand(HandModelSO split) {
+    void SplitHand(CardModelSO card) {
+        Debug.Log("PlayerDisplay: SplitHand");
+
         // Create the second hand GameObject
         GameObject hand_2 = new GameObject("Hand 2");
         
@@ -32,7 +35,11 @@ public class PlayerDisplay : MonoBehaviour {
 
         // Get the HandDisplay object
         HandDisplay hand = hand_2.AddComponent<HandDisplay>();
-        hand.Initialize(split);
+        
+        // Add the split card to the hand
+        hand.hand.AddCard(card);
+
+        hand.TestHand(false);
         
         // Set the second hand
         player_hands[1] = hand.hand;
@@ -73,13 +80,14 @@ public class PlayerDisplay : MonoBehaviour {
         hand_1.transform.SetParent(display_hands.transform);
         
         // Add the HandDisplay Component to the hand
-        HandModelSO hand = hand_1.AddComponent<HandDisplay>().hand;
+        HandDisplay hand = hand_1.AddComponent<HandDisplay>();
         // The function to be called if the SplitHand event is triggered
-        hand.SplitHand += SplitHand;
+        hand.hand.SplitHand += SplitHand;
 
         // Set the primary hand
-        player_hands[0] = hand;
+        player_hands[0] = hand.hand;
 
+        hand.TestHand(true);
 
 
         // Add the Hands object to the gameObject

@@ -14,7 +14,7 @@ public class HandModelSO : ScriptableObject
 
     // Events that can be listened for by the Hand display manager
     public event Action<CardModelSO> CardAdded;
-    public event Action<HandModelSO> SplitHand;
+    public event Action<CardModelSO> SplitHand;
 
     // The array of cards in the hand
     private List<CardModelSO> hand = new List<CardModelSO>();
@@ -42,24 +42,20 @@ public class HandModelSO : ScriptableObject
 
     // SplitHand event should take into account the position of the two cards, and animate one being split to the position of the second hand.
     public void Split() {
+        // Can't split the hand
         if (!this.CanSplit()) {
             Debug.LogError("This hand can not be split.");
             return;
         }
 
-        // Instantiate the split hand.
-        HandModelSO split = ScriptableObject.CreateInstance<HandModelSO>();
+        CardModelSO splitCard = hand[1];
         
-        // Set the primary card.
-        split.AddCard(hand[1]);
-        
-        // Set the second card as null.
+        // Remove the second card.
         hand.RemoveAt(1);
 
         // Invoke the Split eventlistener
-        SplitHand.Invoke(split);
+        SplitHand.Invoke(splitCard);
     }
-
 
     // CardAdded event should take into account the position of the deck, and animate a card moving from the deck to the calculated destination position.
     public void AddCard(CardModelSO card) {
@@ -76,6 +72,8 @@ public class HandModelSO : ScriptableObject
         // Calculate the value of the hand
         AddValue(card);
 
+        Debug.Log(card.suit + " " + card.rank);
+
         // Invoke the CardAdded eventlistener
         CardAdded.Invoke(card);
     }
@@ -84,6 +82,17 @@ public class HandModelSO : ScriptableObject
     public CardModelSO[] GetCards() {
         // Return a copy of the cards
         return((CardModelSO[]) hand.AsReadOnlyList<CardModelSO>());
+    }
+
+    // The card at a given location in the hand, as a copy
+    public CardModelSO GetCard(int index) {
+        // The index is out of bounds
+        if (index >= hand.Count) {
+            Debug.Log("Hand.GetCard("+index+"): Invalid Index");
+        }
+
+        // Return a copy of the card
+        return(GetCards()[index]);
     }
 
     // Number of cards in the hand

@@ -16,7 +16,14 @@ public class HandDisplay : MonoBehaviour
 
     // Set a specific Hand to be displayed
     public void Initialize(HandModelSO newHand) {
+        // Remove the events
+        hand.CardAdded -= CardAdded;
+        hand.SplitHand -= SplitHand;
+        // Assign the new hand
         hand = newHand;
+        // Add the events
+        hand.CardAdded += CardAdded;
+        hand.SplitHand += SplitHand;
     }
 
     // A card was added to the hand
@@ -57,32 +64,47 @@ public class HandDisplay : MonoBehaviour
     }
 
     // The hand was split
-    void SplitHand(HandModelSO split) {
-
+    void SplitHand(CardModelSO card) {
+        // Destroy the card
+        GameObject.DestroyImmediate(cardStack.transform.Find("Card 2").gameObject);
     }
 
-    private IEnumerator WaitAndExecute() {
-        // Wait for 10 seconds
-        yield return new WaitForSecondsRealtime(1f);
+    public void TestHand(bool split=false) {
+        CardModelSO first = ScriptableObject.CreateInstance<CardModelSO>();
+        CardModelSO second = ScriptableObject.CreateInstance<CardModelSO>();
 
-        // This line will be executed after 10 seconds
-        Debug.Log("12 seconds have passed!");
+        if (split) {
+            first.rank = "2";
+            first.suit = "SPADES";
+            hand.AddCard(first);
 
-        // Create a new card
-        CardModelSO card = ScriptableObject.CreateInstance<CardModelSO>();
+            second.rank = "2";
+            second.suit = "HEARTS";
+            hand.AddCard(second);
 
-        // Generate a random Rank
-        card.rank = "" + UnityEngine.Random.Range(2, 11);
+            Debug.Log("Added both 2s to Hand");
 
-        // Generate a random Suit
-        if (UnityEngine.Random.Range(0, 2)%2 == 0) {
-            card.suit = UnityEngine.Random.Range(0, 2)%2 == 0 ? "HEARTS" : "DIAMONDS";
+            Debug.Log("Can Split? " + hand.CanSplit());
+
+            hand.Split();
         }
-        else {
-            card.suit = UnityEngine.Random.Range(0, 2)%2 == 0 ? "CLUBS" : "SPADES";
-        }
 
-        this.hand.AddCard(card);
+        for (int i=0; i<UnityEngine.Random.Range(1,11); i++) {
+            // Create a new card
+            CardModelSO card = ScriptableObject.CreateInstance<CardModelSO>();
+
+            card.rank = "" + UnityEngine.Random.Range(2, 11);
+
+            // Generate a random Suit
+            if (UnityEngine.Random.Range(0, 2)%2 == 0) {
+                card.suit = UnityEngine.Random.Range(0, 2)%2 == 0 ? "HEARTS" : "DIAMONDS";
+            }
+            else {
+                card.suit = UnityEngine.Random.Range(0, 2)%2 == 0 ? "CLUBS" : "SPADES";
+            }
+
+            this.hand.AddCard(card);
+        }
     }
 
     // Reset is called every time a component is added, or reset. This way changes appear in the editor.
@@ -117,15 +139,6 @@ public class HandDisplay : MonoBehaviour
 
         // Set the SplitHand event to be triggered
         hand.SplitHand += SplitHand;
-
-        Debug.Log("Waiting and Executing...");
-
-        StartCoroutine(WaitAndExecute());
-
-        // Add a random amount of cards
-        for (int i=0; i<UnityEngine.Random.Range(1, 11); i++) {
-            StartCoroutine(WaitAndExecute());
-        }
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
