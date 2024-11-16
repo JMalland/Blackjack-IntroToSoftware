@@ -86,17 +86,18 @@ public class HandDisplay : MonoBehaviour
     }
 
     // Reset is called every time a component is added, or reset. This way changes appear in the editor.
-    void Reset() {
+    void Reset() {        
         // Delete any existing children
         foreach (Transform child in gameObject.transform) {
             // Delete the child
             GameObject.DestroyImmediate(child.gameObject);
         }
 
+        // Create a generic Hand
+        hand = ScriptableObject.CreateInstance<HandModelSO>();
+
         // Create the CardStack object
         cardStack = new GameObject("CardStack");
-
-        cardStack = gameObject.transform.Find("CardStack").gameObject;
         
         // There is no CardStack GameObject
         if (cardStack == null) {
