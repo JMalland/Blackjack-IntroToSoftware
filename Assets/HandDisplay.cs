@@ -12,7 +12,7 @@ public class HandDisplay : MonoBehaviour
     public HandModelSO hand;
 
     // The object that holds all the cards.
-    public GameObject array;
+    public GameObject cardStack;
 
     // A card was added to the hand
     /*
@@ -26,10 +26,10 @@ public class HandDisplay : MonoBehaviour
         int count = this.hand.GetCount();
 
         // Create the Card object
-        GameObject cardObject = new("Card " + hand.GetCount());
+        GameObject cardObject = new GameObject("Card " + hand.GetCount());
 
         // Add cardObject to arrray (CardStack)
-        cardObject.transform.SetParent(array.transform);
+        cardObject.transform.SetParent(cardStack.transform);
 
         // Set the card to be 10x10 scale.
         cardObject.transform.localScale = new Vector3(10, 10, 1);
@@ -85,21 +85,29 @@ public class HandDisplay : MonoBehaviour
         hand = ScriptableObject.CreateInstance<HandModelSO>();
         hand.Initialize();
 
-        array = new("CardStack");
+        // Create the CardStack object
+        cardStack = new GameObject("CardStack");
+
+        cardStack = gameObject.transform.Find("CardStack").gameObject;
+        
+        // There is no CardStack GameObject
+        if (cardStack == null) {
+            // Create a new CardStack GameObject
+            cardStack = new GameObject("CardStack");
+        }
         
         // Add the CardStack object to the gameObject
-        array.transform.SetParent(gameObject.transform);
+        cardStack.transform.SetParent(gameObject.transform);
 
-        // Set the array (CardStack) locational display information
-        array.transform.localPosition = new Vector3(0, 0, -1);
-        array.transform.localScale = new Vector3(1, 1, 1);
+        // Set the CardStack display location
+        cardStack.transform.localPosition = new Vector3(0, 0, -1);
+        cardStack.transform.localScale = new Vector3(1, 1, 1);
 
         // Set the CardAdded event to be triggered
         hand.CardAdded += CardAdded;
 
         // Set the SplitHand event to be triggered
         hand.SplitHand += SplitHand;
-
 
         Debug.Log("Waiting and Executing...");
 
@@ -113,32 +121,12 @@ public class HandDisplay : MonoBehaviour
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start() {
-        // Display a random card
+        
     }
 
     // Update is called once per frame
-    // For every card in the hand, refresh the image.
     void Update() {
-        // Get a list of the cards
-        CardModelSO[] cardList = this.hand.GetCards();
-        
-        // Go through each card
-        for (int i=0; i<cardList.Length; i++) {
-            SpriteRenderer card = this.array.GetComponentAtIndex<SpriteRenderer>(i);
-
-            // The card object should exist at this point. 
-            if (card == null) {
-                Debug.LogError("Card Object not yet rendered on Hand. Index: " + i);
-            }
-
-            // Set the Sprite of the card
-            card.sprite = Resources.Load<Sprite>("Cards/" + cardList[i].rank.ToLower() + "_of_" + cardList[i].suit.ToLower());
-        
-            // Set the draw mode
-            card.drawMode = SpriteDrawMode.Simple; 
-
-            // Load the proper shader for drawing the sprite
-            card.material = Resources.Load<Material>("Materials/Unlit_VectorGradient");
-        }
+        // Shouldn't have to do anything
+        // The cards will be updated themselves.
     }
 }
