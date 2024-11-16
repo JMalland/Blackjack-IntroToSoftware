@@ -25,6 +25,12 @@ public class DeckDisplay : MonoBehaviour
 
     // Reset is called every time a component is added, or reset. This way changes appear in the editor.
     void Reset() {
+        // Delete any existing children
+        foreach (Transform child in gameObject.transform) {
+            // Delete the child
+            GameObject.Destroy(child.gameObject);
+        }
+        
         deck = ScriptableObject.CreateInstance<DeckModelSO>();
         deck.Initialize();
     

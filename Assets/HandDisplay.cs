@@ -87,6 +87,12 @@ public class HandDisplay : MonoBehaviour
 
     // Reset is called every time a component is added, or reset. This way changes appear in the editor.
     void Reset() {
+        // Delete any existing children
+        foreach (Transform child in gameObject.transform) {
+            // Delete the child
+            GameObject.Destroy(child.gameObject);
+        }
+
         // Create the CardStack object
         cardStack = new GameObject("CardStack");
 
@@ -104,12 +110,6 @@ public class HandDisplay : MonoBehaviour
         // Set the CardStack display location
         cardStack.transform.localPosition = new Vector3(0, 0, -1);
         cardStack.transform.localScale = new Vector3(1, 1, 1);
-
-        // Delete any existing Cards
-        foreach (Transform child in cardStack.transform) {
-            // Delete the child
-            GameObject.Destroy(child.gameObject);
-        }
 
         // Set the CardAdded event to be triggered
         hand.CardAdded += CardAdded;

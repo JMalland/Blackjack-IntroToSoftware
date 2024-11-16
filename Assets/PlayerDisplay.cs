@@ -24,13 +24,8 @@ public class PlayerDisplay : MonoBehaviour {
 
     // The hand was split
     void SplitHand(HandModelSO split) {
-        // The second hand GameObject
-        GameObject hand_2 = gameObject.transform.Find("Hand 2").gameObject;
-        // There is no hand GameObject
-        if (hand_2 == null) {
-            // Create the hand GameObject
-            hand_2 = new GameObject("Hand 2");
-        }
+        // Create the second hand GameObject
+        GameObject hand_2 = new GameObject("Hand 2");
         
         // Add the HandDisplay to the GameObjects
         hand_2.transform.SetParent(display_hands.transform);
@@ -45,6 +40,12 @@ public class PlayerDisplay : MonoBehaviour {
 
     // Reset is called every time a component is added, or reset. This way changes appear in the editor.
     void Reset() {
+        // Delete any existing children
+        foreach (Transform child in gameObject.transform) {
+            // Delete the child
+            GameObject.Destroy(child.gameObject);
+        }
+
         // Create the Player 
         player = ScriptableObject.CreateInstance<PlayerModelSO>();
         
@@ -65,14 +66,9 @@ public class PlayerDisplay : MonoBehaviour {
         // Create the GameObject to hold Player Hands
         display_hands = new GameObject("Hands");
 
-        // The first hand (Game Object)
-        GameObject hand_1 = gameObject.transform.Find("Hand 1").gameObject;
-        // There is no hand GameObject
-        if (hand_1 == null) {
-            // Create the first hand GameObject
-            hand_1 = new GameObject("Hand 1");
-        }
-
+        // Create the first hand (Game Object)
+        GameObject hand_1 = new GameObject("Hand 1");
+        
         // Add the HandDisplay to the GameObjects
         hand_1.transform.SetParent(display_hands.transform);
         
