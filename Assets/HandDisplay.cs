@@ -105,6 +105,12 @@ public class HandDisplay : MonoBehaviour
         cardStack.transform.localPosition = new Vector3(0, 0, -1);
         cardStack.transform.localScale = new Vector3(1, 1, 1);
 
+        // Delete any existing Cards
+        foreach (Transform child in cardStack.transform) {
+            // Delete the child
+            GameObject.Destroy(child.gameObject);
+        }
+
         // Set the CardAdded event to be triggered
         hand.CardAdded += CardAdded;
 
