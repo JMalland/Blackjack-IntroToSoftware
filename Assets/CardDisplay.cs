@@ -18,25 +18,22 @@ public class CardDisplay : MonoBehaviour
 
         // Set the Sprite to be rendered
         spriteRenderer.sprite = Resources.Load<Sprite>("Cards/"+newCard.rank.ToLower()+"_of_"+newCard.suit.ToLower());
-
-        // Draw the sprite, keeping its natural dimensions
-        spriteRenderer.drawMode = SpriteDrawMode.Simple;
-
-        // Load the proper shader for drawing the sprite
-        spriteRenderer.material = Resources.Load<Material>("Materials/Unlit_VectorGradient");
     }
 
     // Reset is called every time a component is added, or reset. This way changes appear in the editor.
     void Reset() {
-        // Create the card object
-        card = ScriptableObject.CreateInstance<CardModelSO>();
-
         // Get the SpriteRenderer if it exists
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         if (spriteRenderer == null) {
             // Create the SpriteRenderer
             spriteRenderer = gameObject.AddComponent<SpriteRenderer>();
         }
+
+        // Draw the sprite, keeping its natural dimensions
+        spriteRenderer.drawMode = SpriteDrawMode.Simple;
+
+        // Load the proper shader for drawing the sprite
+        spriteRenderer.material = Resources.Load<Material>("Materials/Unlit_VectorGradient");
 
         // Set the card to be 13*13 scale.
         gameObject.transform.localScale = new Vector3(13, 13, 1);
@@ -49,6 +46,12 @@ public class CardDisplay : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
+        // Don't display anything if the card is null
+        if (card == null) {
+            Debug.LogError("There is no Card set.");
+            return;
+        }
+
         // Set the Sprite to be rendered
         spriteRenderer.sprite = Resources.Load<Sprite>("Cards/"+card.rank.ToLower()+"_of_"+card.suit.ToLower());
     }
