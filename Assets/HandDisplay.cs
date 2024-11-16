@@ -47,9 +47,8 @@ public class HandDisplay : MonoBehaviour
         // Set the position of the card
         cardObject.transform.localPosition = new Vector3(x_pos, y_pos, -1 * count);
 
-
-        // Create the Card SpriteRenderer
-        SpriteRenderer cardSprite = cardObject.AddComponent<SpriteRenderer>();
+        // Create the CardDisplay component
+        cardObject.AddComponent<CardDisplay>().Initialize(card);
     }
 
     // The hand was split
