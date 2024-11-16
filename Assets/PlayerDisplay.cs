@@ -7,8 +7,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.XR;
 
-public class PlayerDisplay : MonoBehaviour
-{
+public class PlayerDisplay : MonoBehaviour {
     // The Player object
     public PlayerModelSO player;
 
@@ -25,12 +24,20 @@ public class PlayerDisplay : MonoBehaviour
 
     // The hand was split
     void SplitHand(HandModelSO split) {
-        // The second hand (Game Object)
-        GameObject hand_2 = new GameObject("Hand 2");
+        // The second hand GameObject
+        GameObject hand_2 = gameObject.transform.Find("Hand 2").gameObject;
+        // There is no hand GameObject
+        if (hand_2 == null) {
+            // Create the hand GameObject
+            hand_2 = new GameObject("Hand 2");
+        }
+        
+        // Add the HandDisplay to the GameObjects
+        hand_2.transform.SetParent(display_hands.transform);
+
         // Get the HandDisplay object
         HandDisplay hand = hand_2.AddComponent<HandDisplay>();
-        // Assign the split Hand to the Hand
-        hand.hand = split;
+        hand.Initialize(split);
         
         // Set the second hand
         player_hands[1] = hand.hand;
@@ -47,23 +54,28 @@ public class PlayerDisplay : MonoBehaviour
 
 
 
-        // Create a RectTransform component to act as a UI.Panel element
-        RectTransform rect = gameObject.AddComponent<RectTransform>();
         // Set the width and height
-        rect.sizeDelta = new Vector2(52 + 12*5, 82 + 12*5 + 24);
+        gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(52 + 12*5, 82 + 12*5 + 24);
         // Set the relative position
-        rect.localPosition = Vector3.zero;
+        gameObject.transform.localPosition = Vector3.zero;
 
         // Only able to hold 2 Hands, maximum
         player_hands = new HandModelSO[2];
-
-
 
         // Create the GameObject to hold Player Hands
         display_hands = new GameObject("Hands");
 
         // The first hand (Game Object)
-        GameObject hand_1 = new GameObject("Hand 1");
+        GameObject hand_1 = gameObject.transform.Find("Hand 1").gameObject;
+        // There is no hand GameObject
+        if (hand_1 == null) {
+            // Create the first hand GameObject
+            hand_1 = new GameObject("Hand 1");
+        }
+
+        // Add the HandDisplay to the GameObjects
+        hand_1.transform.SetParent(display_hands.transform);
+        
         // Add the HandDisplay Component to the hand
         HandModelSO hand = hand_1.AddComponent<HandDisplay>().hand;
         // The function to be called if the SplitHand event is triggered
