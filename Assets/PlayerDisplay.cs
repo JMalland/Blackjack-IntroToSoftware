@@ -64,9 +64,15 @@ public class PlayerDisplay : MonoBehaviour {
         RectTransform rect = gameObject.AddComponent<RectTransform>() ?? gameObject.GetComponent<RectTransform>();
         
         // Set the width and height
-        rect.sizeDelta = new Vector2(52 + 12*5, 82 + 12*5 + 24);
+        rect.sizeDelta = new Vector2(2*(52 + 12*5) + 30, 82 + 12*5 + 24);
         // Set the relative position
         rect.localPosition = Vector3.zero;
+
+        // Set the display layout of the Player object.
+        HorizontalLayoutGroup self_layout = gameObject.AddComponent<HorizontalLayoutGroup>() ?? gameObject.GetComponent<HorizontalLayoutGroup>();
+        // Set the child alignment
+        self_layout.childAlignment = TextAnchor.LowerLeft;
+
 
         // Only able to hold 2 Hands, maximum
         player_hands = new HandModelSO[2];
@@ -75,11 +81,11 @@ public class PlayerDisplay : MonoBehaviour {
         display_hands = new GameObject("Hands");
 
         // Set the display layout of the two hands.
-        HorizontalLayoutGroup layout = display_hands.AddComponent<HorizontalLayoutGroup>();
+        HorizontalLayoutGroup hands_layout = display_hands.AddComponent<HorizontalLayoutGroup>();
         // Set the spacing between elements
-        layout.spacing = 30f;
+        hands_layout.spacing = 30f;
         // Set the child alignment
-        layout.childAlignment = TextAnchor.MiddleLeft;
+        hands_layout.childAlignment = TextAnchor.MiddleLeft;
 
         // Create the first hand (Game Object)
         GameObject hand_1 = new GameObject("Hand 1");
