@@ -101,6 +101,7 @@ public class PlayerDisplay : MonoBehaviour {
         // Set the primary hand
         player_hands[0] = hand.hand;
 
+        // Test the hand display, and splitting
         hand.TestHand(true);
 
 

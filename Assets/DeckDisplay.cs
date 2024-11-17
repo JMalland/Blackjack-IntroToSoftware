@@ -36,6 +36,12 @@ public class DeckDisplay : MonoBehaviour
     
         // Make the Deck GameObject act as a UI Panel
         SpriteRenderer image = gameObject.AddComponent<SpriteRenderer>();
+        
+        // Draw the sprite, keeping its natural dimensions
+        image.drawMode = SpriteDrawMode.Simple;
+
+        // Load the proper shader for drawing the sprite
+        image.material = Resources.Load<Material>("Materials/Unlit_VectorGradient");
 
         // WILL HAVE TO SET THE DEFAULT DECK TRANSFORM PROPERTIES
         // FOR MANAGING LOCATION WITHIN AN OBJECT
@@ -50,11 +56,5 @@ public class DeckDisplay : MonoBehaviour
     void Update() {
         // Load the Deck Sprite
         image.sprite = Resources.Load<Sprite>("Cards/backside");
-        
-        // Draw the sprite, keeping its natural dimensions
-        image.drawMode = SpriteDrawMode.Simple;
-
-        // Load the proper shader for drawing the sprite
-        image.material = Resources.Load<Material>("Materials/Unlit_VectorGradient");
     }
 }
