@@ -35,6 +35,6 @@ public class DealerModelSO : PlayerModelSO
 
     public override void Initialize() {
         base.Initialize();
-        this.deck = ScriptableObject.CreateInstance<DeckModelSO>();
+        deck = ScriptableObject.CreateInstance<DeckModelSO>();
     }
 }
