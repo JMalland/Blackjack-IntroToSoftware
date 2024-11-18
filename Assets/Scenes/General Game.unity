@@ -235,8 +235,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suit: SPADES
   rank: 2
-  frontCardImage: {fileID: 0}
-  backCardImage: {fileID: 3286163911610860551, guid: 02d7a0102bb236447ba2fc2e75d8c106, type: 3}
 --- !u!114 &32658660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -679,8 +677,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suit: CLUBS
   rank: 4
-  frontCardImage: {fileID: 0}
-  backCardImage: {fileID: 3286163911610860551, guid: 02d7a0102bb236447ba2fc2e75d8c106, type: 3}
 --- !u!1 &159153985
 GameObject:
   m_ObjectHideFlags: 0
@@ -1113,8 +1109,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suit: SPADES
   rank: 10
-  frontCardImage: {fileID: 0}
-  backCardImage: {fileID: 3286163911610860551, guid: 02d7a0102bb236447ba2fc2e75d8c106, type: 3}
 --- !u!1 &202246087
 GameObject:
   m_ObjectHideFlags: 0
@@ -1473,8 +1467,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suit: SPADES
   rank: 2
-  frontCardImage: {fileID: 0}
-  backCardImage: {fileID: 3286163911610860551, guid: 02d7a0102bb236447ba2fc2e75d8c106, type: 3}
 --- !u!114 &341462909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1489,8 +1481,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suit: DIAMONDS
   rank: 6
-  frontCardImage: {fileID: 0}
-  backCardImage: {fileID: 3286163911610860551, guid: 02d7a0102bb236447ba2fc2e75d8c106, type: 3}
 --- !u!1001 &396962545
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1875,8 +1865,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suit: HEARTS
   rank: 6
-  frontCardImage: {fileID: 0}
-  backCardImage: {fileID: 3286163911610860551, guid: 02d7a0102bb236447ba2fc2e75d8c106, type: 3}
 --- !u!1 &548239435
 GameObject:
   m_ObjectHideFlags: 0
@@ -1924,8 +1912,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suit: HEARTS
   rank: 2
-  frontCardImage: {fileID: 0}
-  backCardImage: {fileID: 3286163911610860551, guid: 02d7a0102bb236447ba2fc2e75d8c106, type: 3}
 --- !u!1 &589456324
 GameObject:
   m_ObjectHideFlags: 0
@@ -2586,8 +2572,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suit: CLUBS
   rank: 9
-  frontCardImage: {fileID: 0}
-  backCardImage: {fileID: 3286163911610860551, guid: 02d7a0102bb236447ba2fc2e75d8c106, type: 3}
 --- !u!1 &699140771
 GameObject:
   m_ObjectHideFlags: 0
@@ -2704,8 +2688,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suit: SPADES
   rank: 2
-  frontCardImage: {fileID: 0}
-  backCardImage: {fileID: 3286163911610860551, guid: 02d7a0102bb236447ba2fc2e75d8c106, type: 3}
 --- !u!1 &715229649
 GameObject:
   m_ObjectHideFlags: 0
@@ -2845,8 +2827,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suit: SPADES
   rank: 2
-  frontCardImage: {fileID: 0}
-  backCardImage: {fileID: 3286163911610860551, guid: 02d7a0102bb236447ba2fc2e75d8c106, type: 3}
 --- !u!114 &742220534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2861,8 +2841,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suit: SPADES
   rank: 4
-  frontCardImage: {fileID: 0}
-  backCardImage: {fileID: 3286163911610860551, guid: 02d7a0102bb236447ba2fc2e75d8c106, type: 3}
 --- !u!114 &746102443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2889,8 +2867,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suit: HEARTS
   rank: 9
-  frontCardImage: {fileID: 0}
-  backCardImage: {fileID: 3286163911610860551, guid: 02d7a0102bb236447ba2fc2e75d8c106, type: 3}
 --- !u!1 &797722292
 GameObject:
   m_ObjectHideFlags: 0
@@ -3154,8 +3130,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suit: CLUBS
   rank: 4
-  frontCardImage: {fileID: 0}
-  backCardImage: {fileID: 3286163911610860551, guid: 02d7a0102bb236447ba2fc2e75d8c106, type: 3}
 --- !u!114 &860779685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3170,8 +3144,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suit: HEARTS
   rank: 2
-  frontCardImage: {fileID: 0}
-  backCardImage: {fileID: 3286163911610860551, guid: 02d7a0102bb236447ba2fc2e75d8c106, type: 3}
 --- !u!114 &874253306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3186,8 +3158,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suit: CLUBS
   rank: 6
-  frontCardImage: {fileID: 0}
-  backCardImage: {fileID: 3286163911610860551, guid: 02d7a0102bb236447ba2fc2e75d8c106, type: 3}
 --- !u!1 &883526923
 GameObject:
   m_ObjectHideFlags: 0
@@ -3405,8 +3375,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suit: SPADES
   rank: 2
-  frontCardImage: {fileID: 0}
-  backCardImage: {fileID: 3286163911610860551, guid: 02d7a0102bb236447ba2fc2e75d8c106, type: 3}
 --- !u!114 &962931265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3421,8 +3389,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suit: DIAMONDS
   rank: 4
-  frontCardImage: {fileID: 0}
-  backCardImage: {fileID: 3286163911610860551, guid: 02d7a0102bb236447ba2fc2e75d8c106, type: 3}
 --- !u!1 &973509391
 GameObject:
   m_ObjectHideFlags: 0
@@ -3785,8 +3751,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suit: HEARTS
   rank: 8
-  frontCardImage: {fileID: 0}
-  backCardImage: {fileID: 3286163911610860551, guid: 02d7a0102bb236447ba2fc2e75d8c106, type: 3}
 --- !u!1 &1055369982
 GameObject:
   m_ObjectHideFlags: 0
@@ -4017,8 +3981,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suit: DIAMONDS
   rank: 10
-  frontCardImage: {fileID: 0}
-  backCardImage: {fileID: 3286163911610860551, guid: 02d7a0102bb236447ba2fc2e75d8c106, type: 3}
 --- !u!114 &1092870051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4033,8 +3995,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suit: SPADES
   rank: 3
-  frontCardImage: {fileID: 0}
-  backCardImage: {fileID: 3286163911610860551, guid: 02d7a0102bb236447ba2fc2e75d8c106, type: 3}
 --- !u!114 &1096951947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4125,8 +4085,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suit: CLUBS
   rank: 4
-  frontCardImage: {fileID: 0}
-  backCardImage: {fileID: 3286163911610860551, guid: 02d7a0102bb236447ba2fc2e75d8c106, type: 3}
 --- !u!114 &1109223956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4141,8 +4099,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suit: CLUBS
   rank: 9
-  frontCardImage: {fileID: 0}
-  backCardImage: {fileID: 3286163911610860551, guid: 02d7a0102bb236447ba2fc2e75d8c106, type: 3}
 --- !u!1 &1125270641
 GameObject:
   m_ObjectHideFlags: 0
@@ -4960,8 +4916,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suit: HEARTS
   rank: 5
-  frontCardImage: {fileID: 0}
-  backCardImage: {fileID: 3286163911610860551, guid: 02d7a0102bb236447ba2fc2e75d8c106, type: 3}
 --- !u!1 &1273568966
 GameObject:
   m_ObjectHideFlags: 0
@@ -5444,8 +5398,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suit: HEARTS
   rank: 2
-  frontCardImage: {fileID: 0}
-  backCardImage: {fileID: 3286163911610860551, guid: 02d7a0102bb236447ba2fc2e75d8c106, type: 3}
 --- !u!1 &1341847426
 GameObject:
   m_ObjectHideFlags: 0
@@ -6150,8 +6102,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suit: DIAMONDS
   rank: 10
-  frontCardImage: {fileID: 0}
-  backCardImage: {fileID: 3286163911610860551, guid: 02d7a0102bb236447ba2fc2e75d8c106, type: 3}
 --- !u!1 &1447061649
 GameObject:
   m_ObjectHideFlags: 0
@@ -6268,8 +6218,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suit: HEARTS
   rank: 2
-  frontCardImage: {fileID: 0}
-  backCardImage: {fileID: 3286163911610860551, guid: 02d7a0102bb236447ba2fc2e75d8c106, type: 3}
 --- !u!114 &1479685799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6284,8 +6232,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suit: HEARTS
   rank: 3
-  frontCardImage: {fileID: 0}
-  backCardImage: {fileID: 3286163911610860551, guid: 02d7a0102bb236447ba2fc2e75d8c106, type: 3}
 --- !u!114 &1502913352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6501,8 +6447,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suit: CLUBS
   rank: 3
-  frontCardImage: {fileID: 0}
-  backCardImage: {fileID: 3286163911610860551, guid: 02d7a0102bb236447ba2fc2e75d8c106, type: 3}
 --- !u!114 &1527369408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6610,8 +6554,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suit: SPADES
   rank: 2
-  frontCardImage: {fileID: 0}
-  backCardImage: {fileID: 3286163911610860551, guid: 02d7a0102bb236447ba2fc2e75d8c106, type: 3}
 --- !u!114 &1558890852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6626,8 +6568,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suit: HEARTS
   rank: 9
-  frontCardImage: {fileID: 0}
-  backCardImage: {fileID: 3286163911610860551, guid: 02d7a0102bb236447ba2fc2e75d8c106, type: 3}
 --- !u!1 &1565263124
 GameObject:
   m_ObjectHideFlags: 0
@@ -7201,8 +7141,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suit: SPADES
   rank: 9
-  frontCardImage: {fileID: 0}
-  backCardImage: {fileID: 3286163911610860551, guid: 02d7a0102bb236447ba2fc2e75d8c106, type: 3}
 --- !u!1 &1668933397
 GameObject:
   m_ObjectHideFlags: 0
@@ -7656,8 +7594,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suit: SPADES
   rank: 9
-  frontCardImage: {fileID: 0}
-  backCardImage: {fileID: 3286163911610860551, guid: 02d7a0102bb236447ba2fc2e75d8c106, type: 3}
 --- !u!1 &1736548078
 GameObject:
   m_ObjectHideFlags: 0
@@ -7876,8 +7812,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suit: HEARTS
   rank: 2
-  frontCardImage: {fileID: 0}
-  backCardImage: {fileID: 3286163911610860551, guid: 02d7a0102bb236447ba2fc2e75d8c106, type: 3}
 --- !u!1 &1753079757
 GameObject:
   m_ObjectHideFlags: 0
@@ -8290,8 +8224,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suit: DIAMONDS
   rank: 5
-  frontCardImage: {fileID: 0}
-  backCardImage: {fileID: 3286163911610860551, guid: 02d7a0102bb236447ba2fc2e75d8c106, type: 3}
 --- !u!114 &1818949013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8306,8 +8238,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suit: CLUBS
   rank: 5
-  frontCardImage: {fileID: 0}
-  backCardImage: {fileID: 3286163911610860551, guid: 02d7a0102bb236447ba2fc2e75d8c106, type: 3}
 --- !u!1 &1839954114
 GameObject:
   m_ObjectHideFlags: 0
@@ -8424,8 +8354,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suit: HEARTS
   rank: 2
-  frontCardImage: {fileID: 0}
-  backCardImage: {fileID: 3286163911610860551, guid: 02d7a0102bb236447ba2fc2e75d8c106, type: 3}
 --- !u!1 &1874440354
 GameObject:
   m_ObjectHideFlags: 0
@@ -8799,8 +8727,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suit: HEARTS
   rank: 10
-  frontCardImage: {fileID: 0}
-  backCardImage: {fileID: 3286163911610860551, guid: 02d7a0102bb236447ba2fc2e75d8c106, type: 3}
 --- !u!1 &1963740960
 GameObject:
   m_ObjectHideFlags: 0
@@ -8916,8 +8842,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suit: SPADES
   rank: 2
-  frontCardImage: {fileID: 0}
-  backCardImage: {fileID: 3286163911610860551, guid: 02d7a0102bb236447ba2fc2e75d8c106, type: 3}
 --- !u!1 &2034642057
 GameObject:
   m_ObjectHideFlags: 0
@@ -9068,8 +8992,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suit: CLUBS
   rank: 2
-  frontCardImage: {fileID: 0}
-  backCardImage: {fileID: 3286163911610860551, guid: 02d7a0102bb236447ba2fc2e75d8c106, type: 3}
 --- !u!1 &2063138373
 GameObject:
   m_ObjectHideFlags: 0
@@ -9254,8 +9176,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suit: CLUBS
   rank: 8
-  frontCardImage: {fileID: 0}
-  backCardImage: {fileID: 3286163911610860551, guid: 02d7a0102bb236447ba2fc2e75d8c106, type: 3}
 --- !u!1 &2084952566
 GameObject:
   m_ObjectHideFlags: 0
