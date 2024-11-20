@@ -47,17 +47,26 @@ public class HandDisplay : MonoBehaviour
         cardObject.transform.localScale = new Vector3(10, 10, 1);
     
         // Calculate the relative X position
-        float x_pos = Math.Max(0, (count - 1)%6) * 12;
-        float y_pos = Math.Max(0, (count - 1)%6) * 12;
+        float x_pos = (count - 1) * 12;
+        float y_pos = 0;//Math.Max(0, (count - 1)%6) * 12;
 
         // There should be a second diagonal list of cards
         if (count >= 7) {
             // Place the second diagonal row down by 24
-            y_pos -= 24;
+            y_pos -= 0;//24;
         }
 
         // Set the position of the card
         cardObject.transform.localPosition = new Vector3(x_pos, y_pos, -1 * count);
+
+        // Adjust the card rotation
+        for (int i=0; i<hand.GetCount(); i++) {
+            float angle = 33f * (((count - 1) / 2f - i) / (count / 2f));
+            // Alter the rotation for each card in the hand.
+            Debug.Log("Card #" + i + ": Z=" + angle);
+            cardStack.transform.GetChild(i).localRotation = Quaternion.Euler(0, 0, angle);
+            cardStack.transform.GetChild(i).localPosition = new Vector3(cardStack.transform.GetChild(i).localPosition.x, Mathf.Abs(Mathf.Tan(Mathf.Deg2Rad * angle)) * -13, cardStack.transform.GetChild(i).localPosition.z);
+        }
 
         // Create the CardDisplay component
         cardObject.AddComponent<CardDisplay>().Initialize(card);
