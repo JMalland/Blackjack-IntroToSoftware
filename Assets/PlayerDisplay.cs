@@ -83,7 +83,7 @@ public class PlayerDisplay : MonoBehaviour {
         // Set the display layout of the two hands.
         HorizontalLayoutGroup hands_layout = display_hands.AddComponent<HorizontalLayoutGroup>();
         // Set the spacing between elements
-        hands_layout.spacing = 30f;
+        hands_layout.spacing = 130f;
         // Set the child alignment
         hands_layout.childAlignment = TextAnchor.MiddleLeft;
 
