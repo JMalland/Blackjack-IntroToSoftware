@@ -47,7 +47,7 @@ public class HandDisplay : MonoBehaviour
         cardObject.transform.localScale = new Vector3(10, 10, 1);
     
         // Calculate the relative X position
-        float x_pos = (count - 1) * 12;
+        float x_pos = (count - 1) * 8;
         float y_pos = 0;//Math.Max(0, (count - 1)%6) * 12;
 
         // There should be a second diagonal list of cards
@@ -98,7 +98,7 @@ public class HandDisplay : MonoBehaviour
             hand.Split();
         }
 
-        for (int i=0; i<UnityEngine.Random.Range(1,11); i++) {
+        for (int i=0; i<10; i++) {//UnityEngine.Random.Range(1,11); i++) {
             // Create a new card
             CardModelSO card = ScriptableObject.CreateInstance<CardModelSO>();
 
