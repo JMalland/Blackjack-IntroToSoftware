@@ -34,6 +34,10 @@ public class PlayerModelSO : ScriptableObject
     public string GetName() {
         return name;
     }
+    
+    public HandModelSO GetHand() {
+        return hand;
+    }
 
     // Initialize the player's Hand
     public virtual void Initialize() {
