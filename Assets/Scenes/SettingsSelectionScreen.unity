@@ -343,47 +343,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8742538545776668643, guid: d97cb5723ab44354f95346f84784ea3f, type: 3}
   m_PrefabInstance: {fileID: 179877932}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &237630300
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
-    - _WidthHeightRadius: {r: 1395, g: 708.75, b: 50, a: 0}
-  m_BuildTextureStacks: []
-  m_AllowLocking: 1
 --- !u!1001 &280913425
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -648,7 +607,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8742538545776668643, guid: 101e78b1d48c0aa4c9aa488674be9b2a, type: 3}
   m_PrefabInstance: {fileID: 540550044}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &559272481
+--- !u!21 &544468875
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
@@ -686,7 +645,7 @@ Material:
     - _UseUIAlphaClip: 0
     m_Colors:
     - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
-    - _WidthHeightRadius: {r: 860, g: 300, b: 30, a: 0}
+    - _WidthHeightRadius: {r: 1395, g: 708.75, b: 50, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!1 &646709421
@@ -1064,43 +1023,23 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Rules:\nObjective To beat the dealer by having a higher card total without
-    going over 21\nCards:\nValues 2 to 10 = Face Value J, Q, K = 10 Ace = 1 or 11
-    **Note: The card suits are irrelevant in Blackjack.**\nDefinitions Blackjack
-    = an Ace and a card worth 10 points (21 total) Hole = the dealer\u2019s card
-    that is face down Hit = draw another card Stand = take no more cards Bust = going
-    over 21\nHow to Play - Players place bets by putting the desired number of chips
-    in the circle in front of their seat. - The dealer deals two cards face up to
-    each player. The dealer receives one card face up and one face down. - The dealer
-    asks each player, in turn, whether they want to hit or stand. - Base your decision
-    on the assumption that the dealer has a card worth 10 points in the hole. - Indicate
-    that you want a hit by tapping the table or making a motion to beckon another
-    card (as if motioning someone to \u201Ccome on back\u201D). Continue until you
-    desire no more cards. **Note: Most casinos do not allow you to touch the cards.**
-    - If you don\u2019t want a hit (or are finished hitting), indicate so by waving
-    your hand back and forth face down over your cards. - Once all players have made
-    their decisions, the dealer reveals his hole card and hits or stands as appropriate.
-    - Payouts are issued based on the outcome.\nWinning If your total is higher than
-    the dealer\u2019s (or if the dealer busts), you win.\nPayouts - If you get Blackjack,
-    the dealer pays you 3 to 2. - If you and the dealer both get Blackjack, it is
-    a push and no chips are given or taken away.\n- If you have a higher total than
-    the dealer (or the dealer busts), the dealer matches the amount of your chips.
-    - If you have a lower total than the dealer (or you bust), the dealer takes your
-    chips.\nDoubling\nDown You are allowed to double your bet after receiving your
-    first two cards. You do this by placing the additional chips next to your original
-    bet. If you decide to do this, you receive only one additional card.\nSplitting
-    If you receive two cards of the same number, you can split them into two separate
-    hands. Do this by placing another equal bet alongside your first bet. The dealer
-    will separate your cards and give you an additional card to make each one a complete
-    hand by itself. You will then play each hand separately as you normally would.\nInsurance
-    If the dealer\u2019s face up card is an ace, he will offer players the option
-    of buying insurance. If you choose to do so you can then wager half your original
-    bet (in addition to it) that the dealer does have Blackjack. If he does, your
-    insurance is paid 2 to 1 but your original bet is lost (meaning you break even
-    for the hand). If he does not have Blackjack, you lose your insurance.\nEven
-    Money: If you have Blackjack and the dealer has an ace showing, the dealer will
-    offer you even money for your Blackjack (instead of 3 to 2). If you do not take
-    it and the dealer also has Blackjack, you will have a push just like normal."
+  m_text: 'Text Size: SMALL MEDIUM LARGE
+
+
+    Volume: SLIDER
+
+
+    SFX: ON OFF
+
+
+    Background
+    Noise: ON OFF
+
+
+    Theme: DEFAULT
+
+
+    Music: ON OFF'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1127,15 +1066,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 12
-  m_fontSizeBase: 12
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -1663,7 +1602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 237630300}
+  m_Material: {fileID: 544468875}
   m_Color: {r: 0.13725491, g: 0.29411766, b: 0.14901961, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -1914,7 +1853,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: HOW TO PLAY
+  m_text: SETTINGS
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1941,8 +1880,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 74
-  m_fontSizeBase: 74
+  m_fontSize: 84
+  m_fontSizeBase: 84
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2256,7 +2195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 559272481}
+  m_Material: {fileID: 2040990021}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -3021,6 +2960,47 @@ Transform:
   - {fileID: 1397362131}
   m_Father: {fileID: 1068075474}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &2040990021
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
+    - _WidthHeightRadius: {r: 860, g: 300, b: 30, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &2074674393
 GameObject:
   m_ObjectHideFlags: 0
