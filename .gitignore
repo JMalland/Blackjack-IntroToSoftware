@@ -9,6 +9,9 @@ Assets/AssetStoreTools*
 # Visual Studio cache directory
 .vs/
 
+UserSettings/Layouts/default-6000.dwlt
+
+
 # Visual Studio Code cache directory
 .vscode/
 
