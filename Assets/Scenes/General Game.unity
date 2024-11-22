@@ -824,7 +824,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 159153985}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19ecbe754b46aa3478c4f6b1dbfa192e, type: 3}
+  m_Script: {fileID: 11500000, guid: 8ada30e4ef866e644b5d26910487ed97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &171864444
@@ -2098,7 +2098,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 159153990}
-        m_TargetAssemblyTypeName: GameMenu, Assembly-CSharp
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: ExitToMain
         m_Mode: 1
         m_Arguments:
@@ -2428,7 +2428,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: -1487783879
   m_SortingOrder: 0

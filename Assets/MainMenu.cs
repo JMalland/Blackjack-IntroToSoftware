@@ -15,14 +15,22 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadSceneAsync("General Game");
     }
 
+    // Open the How To Play menu
     public void HowToPlay() {
         Debug.Log("\tLoading Scene: 'How To Play'");
         SceneManager.LoadSceneAsync("How To Play");
     }
 
+    // Open the Settings menu
     public void Settings() {
         Debug.Log("\tLoading Scene: 'Settings'");
         SceneManager.LoadSceneAsync("Settings");
+    }
+
+    // Exit to the main menu
+    public void ExitToMain() {
+        Debug.Log("\tLoading Scene: 'Main Menu'");
+        SceneManager.LoadSceneAsync("Main Menu");
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

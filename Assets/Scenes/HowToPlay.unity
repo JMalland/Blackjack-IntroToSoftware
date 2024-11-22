@@ -2942,8 +2942,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameMenu, Assembly-CSharp
+      - m_Target: {fileID: 1073787555}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: ExitToMain
         m_Mode: 1
         m_Arguments:

@@ -55,6 +55,5 @@ public class DeckDisplay : MonoBehaviour
     // Update is called once per frame
     void Update() {
         // Load the Deck Sprite
-        image.sprite = Resources.Load<Sprite>("Cards/backside");
     }
 }
