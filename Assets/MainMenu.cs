@@ -1,16 +1,21 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
-{
+public class MainMenu : MonoBehaviour {
     /*  Function to load any SinglePlayer specific options  */
-    public void SinglePlayer() {
-        Debug.Log("\tLoading Scene: 'General Game'");
-        SceneManager.LoadSceneAsync("General Game");
+    public void Singleplayer() {
+        Debug.Log("\tLoading Scene: 'Singleplayer'");
+        SceneManager.LoadSceneAsync("Singleplayer");
     }
     
     /*  Function to load any MultiPlayer specific options  */
-    public void MultiPlayer() {
+    public void Multiplayer() {
+        Debug.Log("\tLoading Scene: 'Multiplayer'");
+        SceneManager.LoadSceneAsync("Multiplayer");
+    }
+
+    // Load the General Game scene
+    public void Game() {
         Debug.Log("\tLoading Scene: 'General Game'");
         SceneManager.LoadSceneAsync("General Game");
     }
@@ -19,6 +24,12 @@ public class MainMenu : MonoBehaviour
     public void HowToPlay() {
         Debug.Log("\tLoading Scene: 'How To Play'");
         SceneManager.LoadSceneAsync("How To Play");
+    }
+
+    // Open the Modifiers menu
+    public void Modifiers() {
+        Debug.Log("\tLoading Scene: 'Modifiers'");
+        SceneManager.LoadSceneAsync("Modifiers");
     }
 
     // Open the Settings menu
