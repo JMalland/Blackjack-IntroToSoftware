@@ -5,14 +5,14 @@ public class MainMenu : MonoBehaviour
 {
     /*  Function to load any SinglePlayer specific options  */
     public void SinglePlayer() {
-        Debug.Log("\tLoading Scene: 'General Game'");
-        SceneManager.LoadSceneAsync("General Game");
+        Debug.Log("\tLoading Scene: 'SinglePlayer'");
+        SceneManager.LoadSceneAsync("SinglePlayer");
     }
     
     /*  Function to load any MultiPlayer specific options  */
     public void MultiPlayer() {
-        Debug.Log("\tLoading Scene: 'General Game'");
-        SceneManager.LoadSceneAsync("General Game");
+        Debug.Log("\tLoading Scene: 'MultiPlayer'");
+        SceneManager.LoadSceneAsync("MultiPlayer");
     }
 
     // Open the How To Play menu
