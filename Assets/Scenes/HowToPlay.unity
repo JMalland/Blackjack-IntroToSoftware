@@ -1150,7 +1150,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 196592302}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.24422887
+  m_Size: 0.15201496
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1270,6 +1270,183 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8742538545776668643, guid: 6354eee2f48262a49a0f5cbdd5cec29f, type: 3}
   m_PrefabInstance: {fileID: 822018232}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &855438244
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 855438245}
+  - component: {fileID: 855438247}
+  - component: {fileID: 855438246}
+  m_Layer: 5
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &855438245
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855438244}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1706970600}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &855438246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855438244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: X
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4281479730
+  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 64
+  m_fontSizeBase: 64
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 1
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &855438247
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855438244}
+  m_CullTransparentMesh: 1
+--- !u!21 &910193623
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
+    - _WidthHeightRadius: {r: 1395, g: 708.75, b: 50, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &1068075473
 GameObject:
   m_ObjectHideFlags: 0
@@ -1497,47 +1674,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ada30e4ef866e644b5d26910487ed97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!21 &1088861383
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
-    - _WidthHeightRadius: {r: 1395, g: 708.75, b: 50, a: 0}
-  m_BuildTextureStacks: []
-  m_AllowLocking: 1
 --- !u!1 &1088886189
 GameObject:
   m_ObjectHideFlags: 0
@@ -1672,6 +1808,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1706970600}
   - {fileID: 1318870056}
   m_Father: {fileID: 1088886193}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1692,7 +1829,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 1088861383}
+  m_Material: {fileID: 910193623}
   m_Color: {r: 0.13725491, g: 0.29411766, b: 0.14901961, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -2722,6 +2859,139 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1706970599
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1706970600}
+  - component: {fileID: 1706970603}
+  - component: {fileID: 1706970602}
+  - component: {fileID: 1706970601}
+  m_Layer: 5
+  m_Name: Exit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1706970600
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1706970599}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -970}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 855438245}
+  m_Father: {fileID: 1220981377}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -150, y: 118.125}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1706970601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1706970599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 0.8784314, g: 0.09411765, b: 0.09411765, a: 1}
+    m_HighlightedColor: {r: 0.7529412, g: 0, b: 0, a: 1}
+    m_PressedColor: {r: 0.87843144, g: 0.09411766, b: 0.09411766, a: 0.8784314}
+    m_SelectedColor: {r: 0.87843144, g: 0.09411766, b: 0.09411766, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1706970602}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: GameMenu, Assembly-CSharp
+        m_MethodName: ExitToMain
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1706970602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1706970599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 1
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1706970603
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1706970599}
+  m_CullTransparentMesh: 1
 --- !u!1 &1724058753
 GameObject:
   m_ObjectHideFlags: 0
@@ -2780,43 +3050,43 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Rules:\nObjective To beat the dealer by having a higher card total without
-    going over 21\nCards:\nValues 2 to 10 = Face Value J, Q, K = 10 Ace = 1 or 11
-    **Note: The card suits are irrelevant in Blackjack.**\nDefinitions Blackjack
-    = an Ace and a card worth 10 points (21 total) Hole = the dealer\u2019s card
-    that is face down Hit = draw another card Stand = take no more cards Bust = going
-    over 21\nHow to Play - Players place bets by putting the desired number of chips
-    in the circle in front of their seat. - The dealer deals two cards face up to
-    each player. The dealer receives one card face up and one face down. - The dealer
-    asks each player, in turn, whether they want to hit or stand. - Base your decision
-    on the assumption that the dealer has a card worth 10 points in the hole. - Indicate
-    that you want a hit by tapping the table or making a motion to beckon another
-    card (as if motioning someone to \u201Ccome on back\u201D). Continue until you
-    desire no more cards. **Note: Most casinos do not allow you to touch the cards.**
-    - If you don\u2019t want a hit (or are finished hitting), indicate so by waving
-    your hand back and forth face down over your cards. - Once all players have made
-    their decisions, the dealer reveals his hole card and hits or stands as appropriate.
-    - Payouts are issued based on the outcome.\nWinning If your total is higher than
-    the dealer\u2019s (or if the dealer busts), you win.\nPayouts - If you get Blackjack,
-    the dealer pays you 3 to 2. - If you and the dealer both get Blackjack, it is
-    a push and no chips are given or taken away.\n- If you have a higher total than
-    the dealer (or the dealer busts), the dealer matches the amount of your chips.
-    - If you have a lower total than the dealer (or you bust), the dealer takes your
-    chips.\nDoubling\nDown You are allowed to double your bet after receiving your
-    first two cards. You do this by placing the additional chips next to your original
-    bet. If you decide to do this, you receive only one additional card.\nSplitting
-    If you receive two cards of the same number, you can split them into two separate
-    hands. Do this by placing another equal bet alongside your first bet. The dealer
-    will separate your cards and give you an additional card to make each one a complete
-    hand by itself. You will then play each hand separately as you normally would.\nInsurance
-    If the dealer\u2019s face up card is an ace, he will offer players the option
-    of buying insurance. If you choose to do so you can then wager half your original
-    bet (in addition to it) that the dealer does have Blackjack. If he does, your
-    insurance is paid 2 to 1 but your original bet is lost (meaning you break even
-    for the hand). If he does not have Blackjack, you lose your insurance.\nEven
-    Money: If you have Blackjack and the dealer has an ace showing, the dealer will
-    offer you even money for your Blackjack (instead of 3 to 2). If you do not take
-    it and the dealer also has Blackjack, you will have a push just like normal."
+  m_text: "Objective:\r\n\tBeat the Dealer by having a higher card total, not exceeding
+    21.\r\n\r\nCards:\r\n\t**Note: The card suits are irrelevant in Blackjack.**\r\n\t2
+    to 10 = Face Value \r\n\tJ, Q, K = 10\r\n\tAce = 1 or 11\r\n\r\nDefinitions:\r\n\tBlackjack
+    = Cards totaling 21 by an Ace and a face card (J, Q, K)\r\n\tHole = The dealer\u2019s
+    card that is face down\r\n\tHit = Draw another card\r\n\tStand = take no more
+    cards\r\n\tBust = going over 21\r\n\r\nHow to Play: \r\n\tPlayers place bets
+    by putting the desired number of chips in the\r\n\tcircle in front of their seat.
+    \r\n\r\n\tThe dealer deals two cards face up to each player. \r\n\t\t- The dealer
+    receives one card face up and one face down.\r\n\r\n\tThe dealer asks each player,
+    in turn, whether they want to hit or\r\n\tstand. \r\n\t\t- Indicate that you
+    want a hit by selecting the Hit button.\r\n\t\t  Continue until you desire no
+    more cards. \r\n\t\t- If you don\u2019t want a hit (or are finished hitting),
+    indicate so \r\n\t\t  by selecting Stand.\r\n\r\n\tOnce all players have made
+    their decisions, the dealer reveals his\r\n\thole card and hits/stands as appropriate.
+    \r\n\t\t- Payouts are issued based on the outcome.\r\n\r\nWinning:\r\n\tIf your
+    total is higher than the dealer\u2019s (or the dealer busts), you win.\r\n\r\nPayouts:\r\n\tBlackjack:\r\n\t\t-
+    The dealer pays you 3 to 2. \r\n\t\t- If you and the dealer both get Blackjack,
+    it is a push and\r\n\t\t  no chips are given or taken away.\r\n\r\n\tHigher Total
+    / Dealer Bust:\r\n\t\t- The dealer matches the amount of your bet.\r\n\r\n\tLower
+    Total / Player Bust:\r\n\t\t- The dealer takes your bet.\r\n\r\nDoubling Down:\r\n\tYou
+    are allowed to double your bet after receiving your first two\r\n\tcards. You
+    do this by selecting the Double Down button. \r\n\r\n\tIf you decide to do this,
+    you receive only one additional card.\r\n\r\nSplitting:\r\n\tIf you receive two
+    cards of the same number, you can split them\r\n\tinto two separate hands. Do
+    this by placing another equal bet\r\n\talongside your first bet. \r\n\r\n\tThe
+    dealer will separate your cards and give you an additional\r\n\tcard to make
+    each one a complete hand by itself. You will then\r\n\tplay each hand separately
+    as you normally would.\r\n\r\nInsurance:\r\n\tIf the dealer\u2019s face up card
+    is an ace, he will offer players the\r\n\toption of buying insurance. If you
+    choose to do so you can then\r\n\twager half your original bet (in addition to
+    it) that the dealer does have Blackjack. \r\n\t\t- If he does, your insurance
+    is paid 2 to 1 but your original bet is lost (meaning you break even for the
+    hand). \r\n\t\t- If he does not have Blackjack, you lose your insurance.\r\n\r\nEven
+    Money: \r\n\tIf you have Blackjack and the dealer has an ace showing, the dealer
+    will offer you even money for your Blackjack (instead of 3 to 2). \r\n\t\t- If
+    you do not take it and the dealer also has Blackjack, you will have a push just
+    like normal."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
