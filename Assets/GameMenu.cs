@@ -6,9 +6,6 @@ public class GameMenu : MonoBehaviour
     /*  Function to exit game to Main Menu  */
     public void ExitToMain()
     {
-        Debug.Log("\tGameMenu.ExitToMain()");
-        Debug.Log("\tDoing stuff to quit the game...");
-
         Debug.Log("\tLoading Scene: 'Main Menu'");
         SceneManager.LoadSceneAsync("Main Menu");
     }
