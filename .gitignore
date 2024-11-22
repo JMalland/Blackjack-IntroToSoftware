@@ -48,3 +48,5 @@ sysinfo.txt
 Assets/StreamingAssets/crashlytics-build.properties
 
 /Logs/*.log
+UserSettings/Layouts/CurrentMaximizeLayout.dwlt
+UserSettings/Layouts/default-6000.dwlt
