@@ -7,14 +7,20 @@ using TMPro;
 
 public class GameUI : MonoBehaviour
 {
-    private int bet;
     public TMP_InputField BetInput;
+    Game currentGame = new Game();
 
     public void SetPlayerBet()
     {
         string stringBet = BetInput.text;
         int bet = Int32.Parse(stringBet);
-        this.bet = bet;
+        currentGame.StartRound(bet);
+    }
+
+    public void EndRoundUI()
+    {
+        //[todo] clear cards from screen
+        currentGame.EndRound();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
