@@ -6,14 +6,8 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "DeckModelSO", menuName = "New Deck")]
 public class DeckModelSO : ScriptableObject {
-    /*
-    ##################
-    ## KEEP IN MIND ##
-    ##################
-        Multiplayer:    Game has no knowledge of next card(s) in deck. Card information must be received from server
-        Singleplayer:   All the cards must be stored in a shuffled deck
-    */
-
+     public Boolean debug = false;
+    
     // Events that can be listened for by the Deck display manager
     public event Action<CardModelSO> CardDrawn;
 
@@ -54,7 +48,7 @@ public class DeckModelSO : ScriptableObject {
     // Constructor for the Deck object. 
     // Online mode is false, on default.
     public void Initialize() {
-        Debug.Log("new DeckModelSO()");
+        if (debug) Debug.Log("new DeckModelSO()");
         
         // The game is in singleplayer mode
         if (!false) {
@@ -64,14 +58,14 @@ public class DeckModelSO : ScriptableObject {
             // Shuffle the cards
             this.Shuffle();
 
-            Debug.Log("Cards: [" + this.deck[0] + ", ..., " + this.deck[this.deck.Count/2 - 1] + ", ..., " + this.deck[this.deck.Count - 1] + "]");
+            if (debug) Debug.Log("Cards: [" + this.deck[0] + ", ..., " + this.deck[this.deck.Count/2 - 1] + ", ..., " + this.deck[this.deck.Count - 1] + "]");
         }
         // The game is in multiplayer mode
         else {
             // Create an empty array with no cards
             deck = new List<CardModelSO>();
 
-            Debug.Log("Cards: []");
+            if (debug) Debug.Log("Cards: []");
         }
     }
 }
