@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Microsoft.Unity.VisualStudio.Editor;
 using TMPro;
 using UnityEditor;
@@ -6,42 +7,48 @@ using UnityEngine;
 
 public class DeckDisplay : MonoBehaviour
 {
+    public Boolean debug = false;
+    
     // The Deck object
     public DeckModelSO deck;
 
     // The image that represents the deck
     private SpriteRenderer image;
 
-    /**
-            // Load the Card Backside image
-            _image.sprite = Resources.Load<Sprite>("Cards/backside");
+    // A Delete function that deletes each child, outside 
+    // the scope of the gameObject iterative list
+    void KillChildren() {
+        // Create a temporary list to cage the children
+        var children = new List<Transform>();
+        foreach (Transform child in gameObject.transform) {
+            // Add the child to the list
+            children.Add(child);
+        }
 
-            // Draw the sprite, keeping its natural dimensions
-            _image.drawMode = SpriteDrawMode.Simple;
-
-            // Load the proper shader for drawing the sprite
-            _image.material = Resources.Load<Material>("Materials/Unlit_VectorGradient");
-    */
+        // Now destroy each child in the cage
+        foreach (Transform child in children) {
+            if (debug) Debug.Log($"Destroying: {child.name}");
+            GameObject.DestroyImmediate(child.gameObject);
+        }
+    }
 
     // Reset is called every time a component is added, or reset. This way changes appear in the editor.
     void Reset() {
-        // Delete any existing children
-        foreach (Transform child in gameObject.transform) {
-            // Delete the child
-            GameObject.DestroyImmediate(child.gameObject);
-        }
+        KillChildren();
 
         deck = ScriptableObject.CreateInstance<DeckModelSO>();
         deck.Initialize();
     
         // Make the Deck GameObject act as a UI Panel
-        SpriteRenderer image = gameObject.AddComponent<SpriteRenderer>();
-        
+        SpriteRenderer image = gameObject.AddComponent<SpriteRenderer>() ?? gameObject.GetComponent<SpriteRenderer>();
+
         // Draw the sprite, keeping its natural dimensions
         image.drawMode = SpriteDrawMode.Simple;
 
         // Load the proper shader for drawing the sprite
         image.material = Resources.Load<Material>("Materials/Unlit_VectorGradient");
+
+        image.sprite = Resources.Load<Sprite>("Cards/backside");
 
         // WILL HAVE TO SET THE DEFAULT DECK TRANSFORM PROPERTIES
         // FOR MANAGING LOCATION WITHIN AN OBJECT
