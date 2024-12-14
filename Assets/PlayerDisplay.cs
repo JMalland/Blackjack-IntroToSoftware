@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using Microsoft.Unity.VisualStudio.Editor;
 using NUnit.Framework.Constraints;
 using TMPro;
@@ -45,13 +46,27 @@ public class PlayerDisplay : MonoBehaviour {
         player_hands[1] = hand.hand;
     }
 
+    // A Delete function that deletes each child, outside 
+    // the scope of the gameObject iterative list
+    void KillChildren() {
+        // Create a temporary list to cage the children
+        var children = new List<Transform>();
+        foreach (Transform child in gameObject.transform) {
+            // Add the child to the list
+            children.Add(child);
+        }
+
+        // Now destroy each child in the cage
+        foreach (Transform child in children) {
+            Debug.Log($"Destroying: {child.name}");
+            GameObject.DestroyImmediate(child.gameObject);
+        }
+    }
+
     // Reset is called every time a component is added, or reset. This way changes appear in the editor.
     void Reset() {
         // Delete any existing children
-        foreach (Transform child in gameObject.transform) {
-            // Delete the child
-            GameObject.DestroyImmediate(child.gameObject);
-        }
+        KillChildren();
 
         // Create the Player 
         player = ScriptableObject.CreateInstance<PlayerModelSO>();
