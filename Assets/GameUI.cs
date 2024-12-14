@@ -7,6 +7,18 @@ using TMPro;
 
 public class GameUI : MonoBehaviour
 {
+    /*TODO:
+     * HitUI()
+     * StandUI()
+     * InsuranceUI()
+     * DoubleDownUI()
+     * SplitUI()
+     * ----Above fxns will activate visuals when the button is hit, will also activate associated fxn in GameScript.cs----
+     * ----Visuals include cards being moved around (such as into two hands for a split), bet doubling, button pressing inwards, etc----
+     * 
+     * DealerUI() - Activates when it is dealer's turn. Visually will show their cards moving and being revealed. Also triggers associated GameScript fxn
+    */
+
     public TMP_InputField BetInput;
     Game currentGame = new Game();
 

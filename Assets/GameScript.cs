@@ -6,6 +6,14 @@ using UnityEngine.XR;
 
 public class Game : MonoBehaviour
 {
+    /*TODO:
+     * Hit()
+     * Stand()
+     * Insurance()
+     * DoubleDown()
+     * Split()
+     * DealerTurn() - This will be when the dealer reveals their card and draws if necessary
+    */
     private int score;
     private int currentBet;
     HandModelSO currentHand = new HandModelSO();
