@@ -14,11 +14,11 @@ public class Game : MonoBehaviour
     private int currentBet;
     private int sideBet;
     private bool isSplit;
-    public HandModelSO currentHand = new HandModelSO();
-    public HandModelSO splitHand = new HandModelSO();
-    public HandModelSO dealerHand = new HandModelSO();
-    DeckModelSO deck = new DeckModelSO();
-    CardModelSO mostRecentCard = new CardModelSO();
+    public HandModelSO currentHand = ScriptableObject.CreateInstance<HandModelSO>();
+    public HandModelSO splitHand = ScriptableObject.CreateInstance<HandModelSO>();
+    public HandModelSO dealerHand = ScriptableObject.CreateInstance<HandModelSO>();
+    DeckModelSO deck = ScriptableObject.CreateInstance<DeckModelSO>();
+    CardModelSO mostRecentCard = ScriptableObject.CreateInstance<CardModelSO>();
 
 
     //Triggered at beginning of each round. Removes bet from player score. 
