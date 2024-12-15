@@ -13,7 +13,10 @@ public class Game : MonoBehaviour
     private int score;
     private int currentBet;
     private int sideBet;
-    private bool isSplit;
+    private int insuranceBetAmount = 0;
+    private bool insuranceBetPlaced = false;
+    public bool isSplit;
+    public bool isSplitStand;
     public HandModelSO currentHand = ScriptableObject.CreateInstance<HandModelSO>();
     public HandModelSO splitHand = ScriptableObject.CreateInstance<HandModelSO>();
     public HandModelSO dealerHand = ScriptableObject.CreateInstance<HandModelSO>();
@@ -24,6 +27,10 @@ public class Game : MonoBehaviour
     //Triggered at beginning of each round. Removes bet from player score. 
     public void StartRound(int playerBet) 
     {
+        this.currentHand.ResetHand();
+        this.splitHand.ResetHand();
+        this.dealerHand.ResetHand();
+
         this.currentBet = playerBet;
         this.score -= playerBet;
         this.isSplit = false;
@@ -93,28 +100,57 @@ public class Game : MonoBehaviour
     //EndRound: Resets hands (player, dealer), deck, bet, and adds winnings if applicable.
     public void EndRound()
     {
-        bool blackjack = isBlackJack(this.currentHand);
-        int result = roundResult(this.currentHand);
+        if (!(this.isSplitStand) && !(this.isSplit))
+        {
+            bool blackjack = isBlackJack(this.currentHand);
+            int result = roundResult(this.currentHand);
 
-        if (result == 1)
-        {
-            UpdatePoints(blackjack, this.currentBet);
-            if (!(this.isSplit))
+            if (result == 1)
             {
-                UpdatePoints(blackjack, this.sideBet);
+                UpdatePoints(blackjack, this.currentBet);
+                if (!(this.isSplit))
+                {
+                    UpdatePoints(blackjack, this.sideBet);
+                }
             }
-        }
-        else if (result == 2)
-        {
-            this.score += this.currentBet;
-            if (!(this.isSplit))
+            else if (result == 2)
             {
-                this.score += this.sideBet;
+                this.score += this.currentBet;
+                if (!(this.isSplit))
+                {
+                    this.score += this.sideBet;
+                }
             }
+
+            this.currentBet = 0;
+            this.sideBet = 0;
+            this.isSplit = false;
+            this.isSplitStand = false;
+            this.deck = new DeckModelSO();
         }
 
-        if (this.isSplit)
+        else if (this.isSplitStand && this.isSplit)
         {
+            bool blackjack = isBlackJack(this.currentHand);
+            int result = roundResult(this.currentHand);
+
+            if (result == 1)
+            {
+                UpdatePoints(blackjack, this.currentBet);
+                if (!(this.isSplit))
+                {
+                    UpdatePoints(blackjack, this.sideBet);
+                }
+            }
+            else if (result == 2)
+            {
+                this.score += this.currentBet;
+                if (!(this.isSplit))
+                {
+                    this.score += this.sideBet;
+                }
+            }
+
             int splitResult = roundResult(this.splitHand);
             bool isSplitBlackjack = isBlackJack(this.splitHand);
             if (splitResult == 1)
@@ -125,16 +161,17 @@ public class Game : MonoBehaviour
             {
                 this.score += this.sideBet;
             }
+
+            this.currentBet = 0;
+            this.sideBet = 0;
+            this.isSplit = false;
+            this.isSplitStand = false;
+            this.deck = new DeckModelSO();
         }
-
-        this.currentBet = 0;
-        this.sideBet = 0;
-        this.isSplit = false;
-        //[todo] RESET PLAYER HAND
-        //[todo] RESET SPLIT HAND
-        //[todo] RESET DEALER HAND
-        //[todo] RESET DECK
-
+        else if (!(this.isSplitStand) && this.isSplit)
+        {
+            this.isSplitStand = true;
+        }
     }
 
     //isBlackJack: Determines if hand is a valid blackjack. Valid blackjacks are 21 off deal. Determines if a hand has 1 Ace and 1 Face card/10 card
@@ -205,6 +242,45 @@ public class Game : MonoBehaviour
         }
         else return 2;
 
+    }
+     //Insurance(): determines if player wants to use insurance and calculate the bet amount
+    public void Insurance(bool playerUsesInsurance){
+        if(dealerHand.GetCard()[0].ToString(0).EndsWith("A")){
+            if(playerUsesInsurance){
+                insuranceBetAmount = currentBet / 2;
+                score -= insuranceBetAmount;
+                insuranceBetPlaced = true;
+            }
+        }
+        else{
+            Debug.Log("Insurance is not available, dealer's up card is not an Ace.")
+        }
+    }
+    public void DealerTurn(){
+        Debug.Log("Dealer reveals their second card");
+        while(dealerHand.GetValue() < 17){
+            Hit(dealerHand);
+            Debug.Log("Dealer draws a card.");
+        }
+        if(dealerHand.GetValue() > 21){
+            Debug.Log("Dealer busts!");
+            EndRound(roundResult());
+        }
+        else{
+            int result = roundResult(currentHand);
+            if (insuranceBetPlaced){
+                if (isBlackJack(dealerHand)){
+                    Debug.Log("Dealer has a Blackjack! Insurance wins.");
+                    score += insuranceBetAmount * 2;
+                    
+                }
+                else{
+                    Debug.Log("Dealer does not have a Blackjack. Insurance lost.")
+                }
+                
+            }
+            EndRound(roundResult());
+        }
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
