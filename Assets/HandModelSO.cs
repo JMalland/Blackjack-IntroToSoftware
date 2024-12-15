@@ -121,15 +121,9 @@ public class HandModelSO : ScriptableObject
             this.value += cValue;
         }
         // The card is a Jack
-        else if (card.rank == "J") {
-            this.value += 10;
-        }
         // The card is a Queen
-        else if (card.rank == "Q") {
-            this.value += 10;
-        }
         // The card is a King
-        else if (card.rank == "K") {
+        else if (card.rank == "J" || card.rank == "Q" || card.rank == "K") {
             this.value += 10;
         }
         // The card is an Ace
@@ -161,8 +155,8 @@ public class HandModelSO : ScriptableObject
         //resets the value of the hand to 0
         value = 0;
         // resets the eleven_ace flag
-        eleven_ace = false
-        Debug.log("Hand has been Reset.")
+        eleven_ace = false;
+        Debug.Log("Hand has been Reset.");
     }
 }
 
