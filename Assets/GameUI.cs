@@ -21,35 +21,85 @@ public class GameUI : MonoBehaviour
     */
 
     public TMP_InputField BetInput;
-    Game currentGame = new Game();
     HandDisplay uiHand = new HandDisplay();
+    HandDisplay uiSplitHand = new HandDisplay();
+    Game game;
 
     public void SetPlayerBet()
     {
         string stringBet = BetInput.text;
         int bet = Int32.Parse(stringBet);
-        currentGame.StartRound(bet);
+        game.StartRound(bet);
+
+        //[todo] disable betting UI (text box, button) until round has ended.
     }
 
     public void HitUI()
     {
-        currentGame.Hit(currentGame.currentHand);
+        if (!(game.isSplit))
+        {
+            game.Hit(game.currentHand);
+            uiHand.hand.AddCard(game.GetMostRecentCard());
+            int handValue = game.currentHand.GetValue();
+            if (handValue > 21)
+            {
+                Stand();
+            }
+        }
+        else if (game.isSplit)
+        {
+            if (!(game.isSplitStand))
+            {
+                game.Hit(game.currentHand);
+                uiHand.hand.AddCard(game.GetMostRecentCard());
+            }
+            else if (game.isSplitStand)
+            {
+                game.Hit(game.splitHand);
+                uiHand.hand.AddCard(game.GetMostRecentCard());
+                int handValue = game.currentHand.GetValue();
+                if (handValue > 21)
+                {
+                    Stand();
+                }
+            }
+        }
     }
 
-    public void EndRoundUI()
+    public void Stand()
     {
-        //[todo] clear cards from screen
-        currentGame.EndRound();
-        //currentGame.currentHand.reset
-        //uiHand.hand.reset
+        int handValue = game.currentHand.GetValue();
+        if (handValue > 21) {
+            //[todo] display bust
+        }
+        else {
+            //[todo] display stand
+            //[todo] game.DealerTurn
+        }
+        EndRoundUI();
     }
 
+    public void EndRoundUI(){
+        //[todo] clear cards from screen
+        game.EndRound();
+        uiHand.hand.ResetHand();
+        uiSplitHand.hand.ResetHand();
+        //[todo] re-enable betting ui (text box, button)
+    }
 
+    void Reset() {
+        // Create PlayerDisplay object --> Send Player to Game
+        // Create DealerDisplay object --> Send DealerHand to Game; Send Deck to Game;
+        
+        
+
+        //game = new Game(playerHand, DealerHand, Deck);
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        //[todo] all buttons should be disabled
     }
 
     // Update is called once per frame
