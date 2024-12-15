@@ -7,12 +7,7 @@ using UnityEngine.XR;
 public class Game : MonoBehaviour
 {
     /*TODO:
-     * Hit() - DONE(EP)
-     * Stand() - DONE(EP)
-     * ^actually, we'll just use EndRound() instead of making a seperate stand function, since it'll functionally do the same thing.
      * Insurance()
-     * DoubleDown()
-     * Split()
      * DealerTurn() - This will be when the dealer reveals their card and draws if necessary
     */
     private int score;
@@ -23,6 +18,7 @@ public class Game : MonoBehaviour
     HandModelSO splitHand = new HandModelSO();
     HandModelSO dealerHand = new HandModelSO();
     DeckModelSO deck = new DeckModelSO();
+    CardModelSO mostRecentCard = new CardModelSO();
 
 
     //Triggered at beginning of each round. Removes bet from player score. 
@@ -41,11 +37,17 @@ public class Game : MonoBehaviour
     {
         CardModelSO newCard = deck.NextCard();
         hand.AddCard(newCard);
-        int handValue = EvaluateHandValue(hand);
-        if (score > 21)
+        int handValue = hand.GetValue();
+        this.mostRecentCard = newCard;
+        if (handValue > 21)
         {
             EndRound();
         }
+    }
+
+    public CardModelSO GetMostRecentCard()
+    {
+        return this.mostRecentCard;
     }
 
     //Doubles player's bet and forces them to draw one card before force-ending the round.
@@ -88,30 +90,6 @@ public class Game : MonoBehaviour
             this.score += (playerBet * 2);
         }
     }
-    //Calculates Player's hand value
-    public int EvaluateHandValue(HandModelSO hand)
-    {
-        CardModelSO[] playersHand = hand.GetCards();
-        int playerScore = 0;
-        int playerAces = 0;
-
-        for (int i = 0; i < playersHand.Count(); i++)
-        {
-            int cardValue = playersHand[i].RankToInt();
-            playerScore += cardValue;
-            if (cardValue == 11)
-            {
-                playerAces += 1;
-            }
-            while (playerScore > 21 && playerAces > 0)
-            {
-                playerScore -= 10;
-                playerAces -= 1;
-            }
-        }
-
-        return playerScore;
-    }
     //EndRound: Resets hands (player, dealer), deck, bet, and adds winnings if applicable.
     public void EndRound()
     {
@@ -150,7 +128,7 @@ public class Game : MonoBehaviour
         }
 
 
-        // [todo] clear currentHand, reset deck
+        //[todo] clear currentHand, reset deck
         this.currentBet = 0;
         this.sideBet = 0;
         this.isSplit = false;
@@ -212,43 +190,9 @@ public class Game : MonoBehaviour
     //roundResult: Determines if player has won or not. 1 = win, 0 = loss, 2 = push
     public int roundResult(HandModelSO hand)
     {
-        CardModelSO[] playersHand = hand.GetCards();
-        CardModelSO[] dealersHand = dealerHand.GetCards();
-        int playerScore = 0;
-        int playerAces = 0;
-        int dealerAces = 0;
-        int dealerScore = 0;
+        int playerScore = hand.GetValue();
+        int dealerScore = dealerHand.GetValue();
 
-        //Evaluates Player's hand
-        for (int i = 0; i < playersHand.Count(); i++)
-        {
-            int cardValue = playersHand[i].RankToInt();
-            playerScore += cardValue;
-            if (cardValue == 11)
-            {
-                playerAces += 1; 
-            }
-            while (playerScore > 21 && playerAces > 0)
-            {
-                playerScore -= 10;
-                playerAces -= 1;
-            }
-        }
-        //Evaluates Dealer's hand
-        for (int i = 0; i < dealersHand.Count(); i++)
-        {
-            int cardValue = dealersHand[i].RankToInt();
-            dealerScore += cardValue;
-            if (cardValue == 11)
-            {
-                dealerAces += 1;
-            }
-            while (playerScore > 21 && playerAces > 0)
-            {
-                dealerScore -= 10;
-                dealerAces -= 1;
-            }
-        }
         if (playerScore > dealerScore && playerScore < 22 || dealerScore > 21 && playerScore < 22)
         {
             return 1;

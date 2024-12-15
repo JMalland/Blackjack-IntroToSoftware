@@ -122,15 +122,15 @@ public class HandModelSO : ScriptableObject
         }
         // The card is a Jack
         else if (card.rank == "J") {
-            this.value += 11;
+            this.value += 10;
         }
         // The card is a Queen
         else if (card.rank == "Q") {
-            this.value += 12;
+            this.value += 10;
         }
         // The card is a King
         else if (card.rank == "K") {
-            this.value += 13;
+            this.value += 10;
         }
         // The card is an Ace
         else {
