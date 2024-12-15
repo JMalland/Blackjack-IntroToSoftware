@@ -13,7 +13,8 @@ public class Game : MonoBehaviour
     private int score;
     private int currentBet;
     private int sideBet;
-    private bool isSplit;
+    public bool isSplit;
+    public bool isSplitStand;
     public HandModelSO currentHand = new HandModelSO();
     public HandModelSO splitHand = new HandModelSO();
     public HandModelSO dealerHand = new HandModelSO();
@@ -24,6 +25,10 @@ public class Game : MonoBehaviour
     //Triggered at beginning of each round. Removes bet from player score. 
     public void StartRound(int playerBet) 
     {
+        this.currentHand.ResetHand();
+        this.splitHand.ResetHand();
+        this.dealerHand.ResetHand();
+
         this.currentBet = playerBet;
         this.score -= playerBet;
         this.isSplit = false;
@@ -93,28 +98,57 @@ public class Game : MonoBehaviour
     //EndRound: Resets hands (player, dealer), deck, bet, and adds winnings if applicable.
     public void EndRound()
     {
-        bool blackjack = isBlackJack(this.currentHand);
-        int result = roundResult(this.currentHand);
+        if (!(this.isSplitStand) && !(this.isSplit))
+        {
+            bool blackjack = isBlackJack(this.currentHand);
+            int result = roundResult(this.currentHand);
 
-        if (result == 1)
-        {
-            UpdatePoints(blackjack, this.currentBet);
-            if (!(this.isSplit))
+            if (result == 1)
             {
-                UpdatePoints(blackjack, this.sideBet);
+                UpdatePoints(blackjack, this.currentBet);
+                if (!(this.isSplit))
+                {
+                    UpdatePoints(blackjack, this.sideBet);
+                }
             }
-        }
-        else if (result == 2)
-        {
-            this.score += this.currentBet;
-            if (!(this.isSplit))
+            else if (result == 2)
             {
-                this.score += this.sideBet;
+                this.score += this.currentBet;
+                if (!(this.isSplit))
+                {
+                    this.score += this.sideBet;
+                }
             }
+
+            this.currentBet = 0;
+            this.sideBet = 0;
+            this.isSplit = false;
+            this.isSplitStand = false;
+            this.deck = new DeckModelSO();
         }
 
-        if (this.isSplit)
+        else if (this.isSplitStand && this.isSplit)
         {
+            bool blackjack = isBlackJack(this.currentHand);
+            int result = roundResult(this.currentHand);
+
+            if (result == 1)
+            {
+                UpdatePoints(blackjack, this.currentBet);
+                if (!(this.isSplit))
+                {
+                    UpdatePoints(blackjack, this.sideBet);
+                }
+            }
+            else if (result == 2)
+            {
+                this.score += this.currentBet;
+                if (!(this.isSplit))
+                {
+                    this.score += this.sideBet;
+                }
+            }
+
             int splitResult = roundResult(this.splitHand);
             bool isSplitBlackjack = isBlackJack(this.splitHand);
             if (splitResult == 1)
@@ -125,16 +159,17 @@ public class Game : MonoBehaviour
             {
                 this.score += this.sideBet;
             }
+
+            this.currentBet = 0;
+            this.sideBet = 0;
+            this.isSplit = false;
+            this.isSplitStand = false;
+            this.deck = new DeckModelSO();
         }
-
-        this.currentBet = 0;
-        this.sideBet = 0;
-        this.isSplit = false;
-        //[todo] RESET PLAYER HAND
-        //[todo] RESET SPLIT HAND
-        //[todo] RESET DEALER HAND
-        //[todo] RESET DECK
-
+        else if (!(this.isSplitStand) && this.isSplit)
+        {
+            this.isSplitStand = true;
+        }
     }
 
     //isBlackJack: Determines if hand is a valid blackjack. Valid blackjacks are 21 off deal. Determines if a hand has 1 Ace and 1 Face card/10 card
