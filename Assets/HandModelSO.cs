@@ -154,5 +154,15 @@ public class HandModelSO : ScriptableObject
                 }
             }
         }
+    }// function to resent the hand of a player
+    public void ResetHand() {
+        // clears the hand
+        hand.Clear();
+        //resets the value of the hand to 0
+        value = 0;
+        // resets the eleven_ace flag
+        eleven_ace = false
+        Debug.log("Hand has been Reset.")
     }
 }
+
