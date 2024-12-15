@@ -296,6 +296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c0c2a4d230bb5d42a9417b4e2a58e3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debug: 0
   hand: {fileID: 530239279}
   cardStack: {fileID: 1059466744}
 --- !u!114 &85214822
@@ -525,6 +526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c0c2a4d230bb5d42a9417b4e2a58e3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debug: 0
   hand: {fileID: 1096951947}
   cardStack: {fileID: 1031257424}
 --- !u!114 &122661674
@@ -1022,6 +1024,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c0c2a4d230bb5d42a9417b4e2a58e3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debug: 0
   hand: {fileID: 1527369408}
   cardStack: {fileID: 419630841}
 --- !u!1 &249222568
@@ -1315,6 +1318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c0c2a4d230bb5d42a9417b4e2a58e3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debug: 0
   hand: {fileID: 1032065627}
   cardStack: {fileID: 2107051047}
 --- !u!1 &306519400
@@ -1763,6 +1767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c0c2a4d230bb5d42a9417b4e2a58e3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debug: 0
   hand: {fileID: 261113989}
   cardStack: {fileID: 1137442410}
 --- !u!1 &483663539
@@ -1916,6 +1921,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c0c2a4d230bb5d42a9417b4e2a58e3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debug: 0
   hand: {fileID: 32658660}
   cardStack: {fileID: 273589700}
 --- !u!114 &530239279
@@ -2761,6 +2767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c0c2a4d230bb5d42a9417b4e2a58e3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debug: 0
   hand: {fileID: 2123766211}
   cardStack: {fileID: 1504820542}
 --- !u!114 &721879100
@@ -2803,6 +2810,135 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2ddbc88233c12a4fab6a74ef1e9e925, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &750178613
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 750178615}
+  - component: {fileID: 750178614}
+  m_Layer: 0
+  m_Name: Audio Source
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &750178614
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750178613}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: cd27edc9fdbd44d84ab0799e4fb78e29, type: 3}
+  m_Resource: {fileID: 8300000, guid: cd27edc9fdbd44d84ab0799e4fb78e29, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &750178615
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750178613}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 959.3247, y: 533.5222, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &751859919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5227,6 +5363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c0c2a4d230bb5d42a9417b4e2a58e3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debug: 0
   hand: {fileID: 746102443}
   cardStack: {fileID: 548239435}
 --- !u!1 &1256414912
@@ -6860,6 +6997,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15226b300ad9216498d6cc5239278983, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debug: 0
   deck:
   - {fileID: 11400000, guid: ff61f308fc012ae478def623d69620bb, type: 2}
   - {fileID: 11400000, guid: 91c39c1627dbde34f8000322b989852d, type: 2}
@@ -7639,6 +7777,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c0c2a4d230bb5d42a9417b4e2a58e3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debug: 0
   hand: {fileID: 2075074147}
   cardStack: {fileID: 420692968}
 --- !u!1 &1628129027
@@ -9721,6 +9860,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f8da80ed20c2c74a9869f69659b68fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debug: 0
   deck: {fileID: 1502913352}
 --- !u!212 &1963740964
 SpriteRenderer:
@@ -10559,6 +10699,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c0c2a4d230bb5d42a9417b4e2a58e3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debug: 0
   hand: {fileID: 85214822}
   cardStack: {fileID: 906819620}
 --- !u!1660057539 &9223372036854775807
@@ -10570,3 +10711,4 @@ SceneRoots:
   - {fileID: 625541147}
   - {fileID: 1775538853}
   - {fileID: 434162688}
+  - {fileID: 750178615}
