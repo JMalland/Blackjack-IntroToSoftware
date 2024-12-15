@@ -46,26 +46,15 @@ public class DeckModelSO : ScriptableObject {
     }
 
     // Constructor for the Deck object. 
-    // Online mode is false, on default.
     public void Initialize() {
         if (debug) Debug.Log("new DeckModelSO()");
         
-        // The game is in singleplayer mode
-        if (!false) {
-            // Create the array of all cards
-            deck = Resources.LoadAll<CardModelSO>("ScriptableObjects/PlayingCards").ToList();
+        // Create the array of all cards
+        deck = Resources.LoadAll<CardModelSO>("ScriptableObjects/PlayingCards").ToList();
 
-            // Shuffle the cards
-            this.Shuffle();
+        // Shuffle the cards
+        this.Shuffle();
 
-            if (debug) Debug.Log("Cards: [" + this.deck[0] + ", ..., " + this.deck[this.deck.Count/2 - 1] + ", ..., " + this.deck[this.deck.Count - 1] + "]");
-        }
-        // The game is in multiplayer mode
-        else {
-            // Create an empty array with no cards
-            deck = new List<CardModelSO>();
-
-            if (debug) Debug.Log("Cards: []");
-        }
+        if (debug) Debug.Log("Cards: [" + this.deck[0] + ", ..., " + this.deck[this.deck.Count/2 - 1] + ", ..., " + this.deck[this.deck.Count - 1] + "]");
     }
 }
