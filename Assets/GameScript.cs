@@ -13,6 +13,8 @@ public class Game : MonoBehaviour
     private int score;
     private int currentBet;
     private int sideBet;
+    private int insuranceBetAmount = 0;
+    private bool insuranceBetPlaced = false;
     public bool isSplit;
     public bool isSplitStand;
     public HandModelSO currentHand = new HandModelSO();
@@ -240,6 +242,45 @@ public class Game : MonoBehaviour
         }
         else return 2;
 
+    }
+     //Insurance(): determines if player wants to use insurance and calculate the bet amount
+    public void Insurance(bool playerUsesInsurance){
+        if(dealerHand.GetCard()[0].ToString(0).EndsWith("A")){
+            if(playerUsesInsurance){
+                insuranceBetAmount = currentBet / 2;
+                score -= insuranceBetAmount;
+                insuranceBetPlaced = true;
+            }
+        }
+        else{
+            Debug.Log("Insurance is not available, dealer's up card is not an Ace.")
+        }
+    }
+    public void DealerTurn(){
+        Debug.Log("Dealer reveals their second card");
+        while(dealerHand.GetValue() < 17){
+            Hit(dealerHand);
+            Debug.Log("Dealer draws a card.");
+        }
+        if(dealerHand.GetValue() > 21){
+            Debug.Log("Dealer busts!");
+            EndRound(roundResult());
+        }
+        else{
+            int result = roundResult(currentHand);
+            if (insuranceBetPlaced){
+                if (isBlackJack(dealerHand)){
+                    Debug.Log("Dealer has a Blackjack! Insurance wins.");
+                    score += insuranceBetAmount * 2;
+                    
+                }
+                else{
+                    Debug.Log("Dealer does not have a Blackjack. Insurance lost.")
+                }
+                
+            }
+            EndRound(roundResult());
+        }
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
