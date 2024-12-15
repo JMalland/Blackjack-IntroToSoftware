@@ -38,7 +38,7 @@ public class AudioManager : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name == "GeneralGame")
+        if (scene.name == "General Game")
         {
             if (audioSource.clip != mainMusic)
             {
