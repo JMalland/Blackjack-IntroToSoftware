@@ -19,9 +19,9 @@ public class AudioManager : MonoBehaviour
 
     void Awake()
     {
-        if (_instance != null && _instance != this)
+        if (_instance.audioSource != null)
         {
-            Destroy(this.gameObject);
+            audioSource.clip = mainMusic;
         }
         _instance = this;
         DontDestroyOnLoad(this.gameObject);
