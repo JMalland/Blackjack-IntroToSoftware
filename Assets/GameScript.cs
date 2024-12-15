@@ -18,18 +18,24 @@ public class Game : MonoBehaviour
     private int currentBet;
     HandModelSO currentHand = new HandModelSO();
     HandModelSO dealerHand = new HandModelSO();
-
-    private int modifier;
-    private bool fccEnabled;
-    private bool jokerEnabled;
-    private bool lockedacesEnabled;
-    private bool lockedbetEnabled;
+    DeckModelSO deck = new DeckModelSO();
 
     //Triggered at beginning of each round. Removes bet from player score. 
     public void StartRound(int playerBet) 
     {
         this.currentBet = playerBet;
         this.score -= playerBet;
+    }
+
+    public void Hit()
+    {
+        CardModelSO newCard = deck.NextCard();
+        currentHand.AddCard(newCard);
+        int handValue = EvaluateHandValue();
+        if (score > 21)
+        {
+            EndRound();
+        }
     }
 
     //Triggered at end of each round if player won. Updates their score with their winnings.
@@ -45,7 +51,30 @@ public class Game : MonoBehaviour
             this.score += (playerBet * 2);
         }
     }
+    //Calculates Player's hand value
+    public int EvaluateHandValue()
+    {
+        CardModelSO[] playersHand = currentHand.GetCards();
+        int playerScore = 0;
+        int playerAces = 0;
 
+        for (int i = 0; i < playersHand.Count(); i++)
+        {
+            int cardValue = playersHand[i].RankToInt();
+            playerScore += cardValue;
+            if (cardValue == 11)
+            {
+                playerAces += 1;
+            }
+            while (playerScore > 21 && playerAces > 0)
+            {
+                playerScore -= 10;
+                playerAces -= 1;
+            }
+        }
+
+        return playerScore;
+    }
     //EndRound: Resets hand, bet, and adds winnings if applicable.
     public void EndRound()
     {
