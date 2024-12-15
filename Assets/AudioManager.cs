@@ -1,55 +1,45 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
-    private static AudioManager _instance;
+    public static AudioManager instance;
+    public AudioSource musicSource;
+    public AudioClip startingMusic;
 
-    public static AudioManager Instance
+    private void Awake()
     {
-        get
+        if (instance == null)
         {
-            return _instance;
-        }
-    }
-
-    public AudioClip casinoMusic;  // Audio for Main Menu, Modifiers, etc.
-    public AudioClip mainMusic;    // Audio for General Game
-    private AudioSource audioSource;
-
-    void Awake()
-    {
-        if (_instance.audioSource != null)
-        {
-            audioSource.clip = mainMusic;
-        }
-        _instance = this;
-        DontDestroyOnLoad(this.gameObject);
-        audioSource = GetComponent<AudioSource>();
-        audioSource.clip = casinoMusic; // Start with Casino Music
-        audioSource.loop = true;
-        audioSource.Play();
-
-        SceneManager.sceneLoaded += OnSceneLoaded; // Subscribe to scene change event
-    }
-
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        if (scene.name == "General Game")
-        {
-            if (audioSource.clip != mainMusic)
-            {
-                audioSource.clip = mainMusic;
-            }
-            audioSource.Play();
+            instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
-            if (audioSource.clip != casinoMusic)
-            {
-                audioSource.clip = casinoMusic;
-            }
-            audioSource.Play();
+            Destroy(gameObject);
         }
+    }
+
+    private void Start()
+    {
+        musicSource.clip = startingMusic;
+        musicSource.loop = true;
+        musicSource.Play();
+    }
+
+    public void ToggleMusic(bool isOn)
+    {
+        if (isOn)
+        {
+            musicSource.Play();
+        }
+        else
+        {
+            musicSource.Stop();
+        }
+    }
+
+    public void SetVolume(float volume)
+    {
+        AudioListener.volume = volume;
     }
 }
