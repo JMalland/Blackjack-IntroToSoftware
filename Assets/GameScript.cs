@@ -14,9 +14,9 @@ public class Game : MonoBehaviour
     private int currentBet;
     private int sideBet;
     private bool isSplit;
-    HandModelSO currentHand = new HandModelSO();
-    HandModelSO splitHand = new HandModelSO();
-    HandModelSO dealerHand = new HandModelSO();
+    public HandModelSO currentHand = new HandModelSO();
+    public HandModelSO splitHand = new HandModelSO();
+    public HandModelSO dealerHand = new HandModelSO();
     DeckModelSO deck = new DeckModelSO();
     CardModelSO mostRecentCard = new CardModelSO();
 
@@ -127,8 +127,6 @@ public class Game : MonoBehaviour
             }
         }
 
-
-        //[todo] clear currentHand, reset deck
         this.currentBet = 0;
         this.sideBet = 0;
         this.isSplit = false;

@@ -22,6 +22,7 @@ public class GameUI : MonoBehaviour
 
     public TMP_InputField BetInput;
     Game currentGame = new Game();
+    HandDisplay uiHand = new HandDisplay();
 
     public void SetPlayerBet()
     {
@@ -30,11 +31,20 @@ public class GameUI : MonoBehaviour
         currentGame.StartRound(bet);
     }
 
+    public void HitUI()
+    {
+        currentGame.Hit(currentGame.currentHand);
+    }
+
     public void EndRoundUI()
     {
         //[todo] clear cards from screen
         currentGame.EndRound();
+        //currentGame.currentHand.reset
+        //uiHand.hand.reset
     }
+
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
