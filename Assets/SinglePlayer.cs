@@ -10,7 +10,7 @@ public class SinglePlayer : MonoBehaviour
     }
 
     /*  Function to load any MultiPlayer specific options  */
-    public void MultiPlayer() {
+    public void Custom() {
         Debug.Log("\tLoading Scene: 'Modifiers'");
         SceneManager.LoadSceneAsync("Modifiers");
     }
@@ -22,12 +22,14 @@ public class SinglePlayer : MonoBehaviour
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start() {
-
+    void Start()
+    {
+        
     }
 
     // Update is called once per frame
-    void Update() {
-
+    void Update()
+    {
+        
     }
 }
