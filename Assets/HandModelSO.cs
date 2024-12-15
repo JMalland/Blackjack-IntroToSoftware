@@ -37,16 +37,22 @@ public class HandModelSO : ScriptableObject
     
     // Whether the hand can be split.
     public bool CanSplit() {
-        return(hand.Count == 2 && hand[0].rank == hand[1].rank);
+        bool canSplit = (hand.Count == 2 && hand[0].rank == hand[1].rank);
+        //Can split the hand
+        if (canSplit)
+        {
+            return canSplit;
+        }
+        // Can't split the hand
+        else
+        {
+            Debug.LogError("This hand can not be split.");
+            return canSplit;
+        }
     }
 
     // SplitHand event should take into account the position of the two cards, and animate one being split to the position of the second hand.
-    public void Split() {
-        // Can't split the hand
-        if (!this.CanSplit()) {
-            Debug.LogError("This hand can not be split.");
-            return;
-        }
+    public CardModelSO Split() {
 
         CardModelSO splitCard = hand[1];
         
@@ -55,6 +61,8 @@ public class HandModelSO : ScriptableObject
 
         // Invoke the Split eventlistener
         SplitHand.Invoke(splitCard);
+
+        return splitCard;
     }
 
     // CardAdded event should take into account the position of the deck, and animate a card moving from the deck to the calculated destination position.

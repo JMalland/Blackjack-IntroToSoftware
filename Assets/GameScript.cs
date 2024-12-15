@@ -7,8 +7,9 @@ using UnityEngine.XR;
 public class Game : MonoBehaviour
 {
     /*TODO:
-     * Hit()
-     * Stand()
+     * Hit() - DONE(EP)
+     * Stand() - DONE(EP)
+     * ^actually, we'll just use EndRound() instead of making a seperate stand function, since it'll functionally do the same thing.
      * Insurance()
      * DoubleDown()
      * Split()
@@ -16,27 +17,63 @@ public class Game : MonoBehaviour
     */
     private int score;
     private int currentBet;
+    private int sideBet;
+    private bool isSplit;
     HandModelSO currentHand = new HandModelSO();
+    HandModelSO splitHand = new HandModelSO();
     HandModelSO dealerHand = new HandModelSO();
     DeckModelSO deck = new DeckModelSO();
+
 
     //Triggered at beginning of each round. Removes bet from player score. 
     public void StartRound(int playerBet) 
     {
         this.currentBet = playerBet;
         this.score -= playerBet;
+        this.isSplit = false;
+        Hit(this.dealerHand);
+        Hit(this.dealerHand);
+        Hit(this.currentHand);
+        Hit(this.currentHand);
     }
 
-    public void Hit()
+    public void Hit(HandModelSO hand)
     {
         CardModelSO newCard = deck.NextCard();
-        currentHand.AddCard(newCard);
-        int handValue = EvaluateHandValue();
+        hand.AddCard(newCard);
+        int handValue = EvaluateHandValue(hand);
         if (score > 21)
         {
             EndRound();
         }
     }
+
+    //Doubles player's bet and forces them to draw one card before force-ending the round.
+    public void DoubleDown()
+    {
+        this.sideBet = this.currentBet;
+        this.score -= this.sideBet;
+        Hit(this.currentHand);
+        //ends round if hand <= 21, as Hit() ends round if hand > 21. This is just to make sure EndRound() doesn't trigger twice.
+        if (score <= 21)
+        {
+            EndRound();
+        }
+
+    }
+
+    public void Split()
+    {
+        bool canSplit = this.currentHand.CanSplit();
+        if (canSplit)
+        {
+            this.isSplit = true;
+            CardModelSO newCard = this.currentHand.Split();
+            this.splitHand.AddCard(newCard);
+        }
+
+    }
+
 
     //Triggered at end of each round if player won. Updates their score with their winnings.
     public void UpdatePoints(bool blackjack, int playerBet)
@@ -52,9 +89,9 @@ public class Game : MonoBehaviour
         }
     }
     //Calculates Player's hand value
-    public int EvaluateHandValue()
+    public int EvaluateHandValue(HandModelSO hand)
     {
-        CardModelSO[] playersHand = currentHand.GetCards();
+        CardModelSO[] playersHand = hand.GetCards();
         int playerScore = 0;
         int playerAces = 0;
 
@@ -75,29 +112,59 @@ public class Game : MonoBehaviour
 
         return playerScore;
     }
-    //EndRound: Resets hand, bet, and adds winnings if applicable.
+    //EndRound: Resets hands (player, dealer), deck, bet, and adds winnings if applicable.
     public void EndRound()
     {
-        bool blackjack = isBlackJack();
-        int result = roundResult();
+        bool blackjack = isBlackJack(this.currentHand);
+        int result = roundResult(this.currentHand);
 
         if (result == 1)
         {
             UpdatePoints(blackjack, this.currentBet);
+            if (!(this.isSplit))
+            {
+                UpdatePoints(blackjack, this.sideBet);
+            }
         }
         else if (result == 2)
         {
             this.score += this.currentBet;
+            if (!(this.isSplit))
+            {
+                this.score += this.sideBet;
+            }
         }
+
+        if (this.isSplit)
+        {
+            int splitResult = roundResult(this.splitHand);
+            bool isSplitBlackjack = isBlackJack(this.splitHand);
+            if (splitResult == 1)
+            {
+                UpdatePoints(isSplitBlackjack, this.sideBet);
+            }
+            else if (splitResult == 2)
+            {
+                this.score += this.sideBet;
+            }
+        }
+
+
         // [todo] clear currentHand, reset deck
-        currentBet = 0;
+        this.currentBet = 0;
+        this.sideBet = 0;
+        this.isSplit = false;
+        //[todo] RESET PLAYER HAND
+        //[todo] RESET SPLIT HAND
+        //[todo] RESET DEALER HAND
+        //[todo] RESET DECK
 
     }
 
     //isBlackJack: Determines if hand is a valid blackjack. Valid blackjacks are 21 off deal. Determines if a hand has 1 Ace and 1 Face card/10 card
-    public bool isBlackJack()
+    public bool isBlackJack(HandModelSO hand)
     {
-        CardModelSO[] playerHand = currentHand.GetCards();
+        CardModelSO[] playerHand = hand.GetCards();
         bool ace = false;
         bool face = false;
 
@@ -143,9 +210,9 @@ public class Game : MonoBehaviour
     }
 
     //roundResult: Determines if player has won or not. 1 = win, 0 = loss, 2 = push
-    public int roundResult()
+    public int roundResult(HandModelSO hand)
     {
-        CardModelSO[] playersHand = currentHand.GetCards();
+        CardModelSO[] playersHand = hand.GetCards();
         CardModelSO[] dealersHand = dealerHand.GetCards();
         int playerScore = 0;
         int playerAces = 0;
