@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using TMPro;
+using System.Collections.Generic;
 
 public class BetDisplay : MonoBehaviour {
     public Action<int> BetSubmitted;
@@ -9,6 +10,23 @@ public class BetDisplay : MonoBehaviour {
 
     void Awake() {
         input = GetComponentInChildren<TMP_InputField>();
+    }
+
+    // A Delete function that deletes each child, outside 
+    // the scope of the gameObject iterative list
+    void KillChildren() {
+        // Create a temporary list to cage the children
+        var children = new List<Transform>();
+        foreach (Transform child in gameObject.transform) {
+            // Add the child to the list
+            children.Add(child);
+        }
+
+        // Now destroy each child in the cage
+        foreach (Transform child in children) {
+            Debug.Log($"Destroying: {child.name}");
+            GameObject.DestroyImmediate(child.gameObject);
+        }
     }
 
     public void SubmitBet() {
@@ -26,6 +44,8 @@ public class BetDisplay : MonoBehaviour {
         // Not Working
         //inputObject.GetComponent<UnityEngine.UI.Image>().sprite = Resources.Load<Sprite>("TMP_InputFieldBackground");
         TMP_InputField inputField = inputObject.AddComponent<TMP_InputField>();
+        inputField.contentType = TMP_InputField.ContentType.IntegerNumber;
+
         RectTransform inputRect = inputObject.GetComponent<RectTransform>();
 
         GameObject textArea = new GameObject("Text Area");
@@ -41,8 +61,8 @@ public class BetDisplay : MonoBehaviour {
         placeholderText.text = "Enter Bet...";
         placeholderText.fontStyle = TMPro.FontStyles.Bold | TMPro.FontStyles.Italic;
         placeholderText.fontSize = 14;
-        placeholderText.textWrappingMode = TextWrappingModes.PreserveWhitespaceNoWrap;
-        placeholderText.alignment = TextAlignmentOptions.MidlineLeft;
+        placeholderText.alignment = TextAlignmentOptions.Right;
+        placeholderText.textWrappingMode = TextWrappingModes.NoWrap;
 
         inputField.placeholder = placeholderText;
 
@@ -58,8 +78,8 @@ public class BetDisplay : MonoBehaviour {
         // Not Working
         //textComponent.font = Resources.Load<TMP_FontAsset>("LiberationSans SDF");
         textComponent.fontSize = 14;
+        textComponent.alignment = TextAlignmentOptions.Left | TextAlignmentOptions.Top;
         textComponent.textWrappingMode = TextWrappingModes.PreserveWhitespaceNoWrap;
-        textComponent.alignment = TextAlignmentOptions.MidlineLeft;
 
         inputField.textComponent = textComponent;
 
@@ -101,6 +121,8 @@ public class BetDisplay : MonoBehaviour {
     }
 
     void Reset() {
+        KillChildren();
+
         Debug.Log("Resetting Bet Display...");
         CreateInput();
         CreateSubmit();  
