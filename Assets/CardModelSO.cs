@@ -4,7 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "CardModelSO", menuName = "New Playing Card")]
 public class CardModelSO : ScriptableObject
 {
-    // The suit of the card
+    // The suit of the card (DIAMOND, HEART, CLUB, SPADE)
     public string suit;
     
     // The string value of the card (2,3,4 ... A, J, Q, K)

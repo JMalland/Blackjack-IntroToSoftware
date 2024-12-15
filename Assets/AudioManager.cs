@@ -19,21 +19,18 @@ public class AudioManager : MonoBehaviour
 
     void Awake()
     {
-        if (_instance != null && _instance != this)
+        if (_instance.audioSource != null)
         {
-            Destroy(this.gameObject);
+            audioSource.clip = mainMusic;
         }
-        else
-        {
-            _instance = this;
-            DontDestroyOnLoad(this.gameObject);
-            audioSource = GetComponent<AudioSource>();
-            audioSource.clip = casinoMusic; // Start with Casino Music
-            audioSource.loop = true;
-            audioSource.Play();
+        _instance = this;
+        DontDestroyOnLoad(this.gameObject);
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = casinoMusic; // Start with Casino Music
+        audioSource.loop = true;
+        audioSource.Play();
 
-            SceneManager.sceneLoaded += OnSceneLoaded; // Subscribe to scene change event
-        }
+        SceneManager.sceneLoaded += OnSceneLoaded; // Subscribe to scene change event
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -43,16 +40,16 @@ public class AudioManager : MonoBehaviour
             if (audioSource.clip != mainMusic)
             {
                 audioSource.clip = mainMusic;
-                audioSource.Play();
             }
+            audioSource.Play();
         }
         else
         {
             if (audioSource.clip != casinoMusic)
             {
                 audioSource.clip = casinoMusic;
-                audioSource.Play();
             }
+            audioSource.Play();
         }
     }
 }
