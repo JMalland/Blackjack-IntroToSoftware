@@ -12,6 +12,9 @@ using UnityEngine.XR;
 public class PlayerDisplay : MonoBehaviour {
     // The Player object
     public PlayerModelSO player;
+    //instead of above^, we have HandModelOS[]
+    //Hand, SplitHand
+    //updates hand w/ most recent card from GameScript
 
     // The array of Hand objects
     public HandModelSO[] player_hands;
