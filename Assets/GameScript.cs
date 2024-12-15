@@ -18,6 +18,7 @@ public class Game : MonoBehaviour
     HandModelSO splitHand = new HandModelSO();
     HandModelSO dealerHand = new HandModelSO();
     DeckModelSO deck = new DeckModelSO();
+    CardModelSO mostRecentCard = new CardModelSO();
 
 
     //Triggered at beginning of each round. Removes bet from player score. 
@@ -37,10 +38,16 @@ public class Game : MonoBehaviour
         CardModelSO newCard = deck.NextCard();
         hand.AddCard(newCard);
         int handValue = hand.GetValue();
+        this.mostRecentCard = newCard;
         if (handValue > 21)
         {
             EndRound();
         }
+    }
+
+    public CardModelSO GetMostRecentCard()
+    {
+        return this.mostRecentCard;
     }
 
     //Doubles player's bet and forces them to draw one card before force-ending the round.
