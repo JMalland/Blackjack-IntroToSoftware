@@ -13,10 +13,6 @@ public class BetDisplay : MonoBehaviour {
     private UnityEngine.UI.Button submit;
     private int currentBet = 0;
 
-    void Awake() {
-        input = GetComponentInChildren<TMP_InputField>();
-    }
-
     // A Delete function that deletes each child, outside 
     // the scope of the gameObject iterative list
     void KillChildren() {
@@ -35,12 +31,26 @@ public class BetDisplay : MonoBehaviour {
     }
 
     public void SubmitBet() {
-        int betValue;
-        if (Int32.TryParse(input.text, out betValue)) {
-            Debug.Log("Bet Submitted (this may do nothing)");
-            Debug.Log("Bet Value: " + betValue);
-            BetSubmitted?.Invoke(betValue);
-        }
+        int value = GetActiveBet();
+        Debug.Log("Bet Submitted. Value: " + value);
+
+        // Trigger the BetSubmitted event
+        BetSubmitted?.Invoke(GetActiveBet());
+    }
+
+    public void AcceptBet() {
+
+    }
+
+    // Get the entered Bet amount
+    private int GetActiveBet() {
+        int value = 0; // Fallback value
+
+        // Try to parse the Integer value from the input
+        Int32.TryParse(input.text, out value);
+        
+        // Return the bet amount
+        return(value);
     }
 
     TMP_InputField CreateInput() {
@@ -136,7 +146,6 @@ public class BetDisplay : MonoBehaviour {
         return(submitButton);
     }
 
-
     TextMeshProUGUI CreateDisplay() {
         GameObject displayObject = new GameObject("Display");
         
@@ -157,30 +166,41 @@ public class BetDisplay : MonoBehaviour {
         return(text);
     }
 
+    // Triggers before Start() (prior to first frame)
+    void Awake() {
+        // Reset the BetDisplay
+        Reset();
+    }
+
     void Reset() {
         KillChildren();
         Debug.Log("Resetting Bet Display...");
         
+        // Create a LayoutGroup to display the Betting Info vertically
         VerticalLayoutGroup layout = gameObject.AddComponent<VerticalLayoutGroup>() ?? gameObject.GetComponent<VerticalLayoutGroup>();
         layout.spacing = 10;
         layout.childAlignment = TextAnchor.UpperCenter;
 
+        // Set the position and size of (this) parent component
         RectTransform rect = gameObject.GetComponent<RectTransform>();
         rect.localPosition = new Vector3(-697, -375, -5);
         rect.sizeDelta = new Vector2(0, 0);
         
+        // Create the bet components
         display = CreateDisplay();
         input = CreateInput();
         submit = CreateSubmit();
-    }
-
-    void Start() {
-        Reset();
         
-        submit.onClick.AddListener(() => { Debug.Log("Fuck This Shit");});
+        // Add the Event Listener to SubmitBet
         submit.onClick.AddListener(SubmitBet);
     }
 
+    // Runs on the first frame
+    void Start() {
+
+    }
+
+    // Runs every frame
     void Update() {
         if (display) {
             display.text = "Current Bet:\n$" + currentBet;
