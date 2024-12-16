@@ -11,10 +11,11 @@ using UnityEngine.XR;
 
 public class DealerDisplay : MonoBehaviour {
     public Boolean debug = false;
-    
-    // The Dealer object
-    public DealerModelSO dealer;
-    
+
+    //dealer hand
+    public HandModelSO dealerHand = ScriptableObject.CreateInstance<HandModelSO>();
+    public DeckModelSO deck = ScriptableObject.CreateInstance<DeckModelSO>();
+    public CardModelSO mostRecentCard = ScriptableObject.CreateInstance<CardModelSO>();
 
     // A Delete function that deletes each child, outside 
     // the scope of the gameObject iterative list

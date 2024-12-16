@@ -21,15 +21,18 @@ public class GameUI : MonoBehaviour
     */
 
     public TMP_InputField BetInput;
-    HandDisplay uiHand = new HandDisplay();
-    HandDisplay uiSplitHand = new HandDisplay();
+    public PlayerDisplay player;
+    public DealerDisplay dealer;
     Game game;
 
     public void SetPlayerBet()
     {
         string stringBet = BetInput.text;
         int bet = Int32.Parse(stringBet);
-        game.StartRound(bet);
+        this.player.hand.ResetHand();
+        this.player.splitHand.ResetHand();
+        this.dealer.dealerHand.ResetHand();
+        game.StartRound(bet, ref this.dealer, ref this.player);
 
         //[todo] disable betting UI (text box, button) until round has ended.
     }
@@ -38,9 +41,8 @@ public class GameUI : MonoBehaviour
     {
         if (!(game.isSplit))
         {
-            game.Hit(game.currentHand);
-            uiHand.hand.AddCard(game.GetMostRecentCard());
-            int handValue = game.currentHand.GetValue();
+            game.Hit(ref this.player, ref this.dealer);
+            int handValue = player.hand.GetValue();
             if (handValue > 21)
             {
                 Stand();
@@ -50,14 +52,12 @@ public class GameUI : MonoBehaviour
         {
             if (!(game.isSplitStand))
             {
-                game.Hit(game.currentHand);
-                uiHand.hand.AddCard(game.GetMostRecentCard());
+                game.Hit(ref this.player, ref this.dealer);
             }
             else if (game.isSplitStand)
             {
-                game.Hit(game.splitHand);
-                uiHand.hand.AddCard(game.GetMostRecentCard());
-                int handValue = game.currentHand.GetValue();
+                game.Hit(ref this.player, ref this.dealer);
+                int handValue = player.splitHand.GetValue();
                 if (handValue > 21)
                 {
                     Stand();
@@ -68,22 +68,39 @@ public class GameUI : MonoBehaviour
 
     public void Stand()
     {
-        int handValue = game.currentHand.GetValue();
-        if (handValue > 21) {
-            //[todo] display bust
+        if (!(game.isSplitStand))
+        {
+            int handValue = player.hand.GetValue();
+            if (handValue > 21)
+            {
+                //[todo] display bust
+            }
+            else
+            {
+                //[todo] display stand
+                //[todo] game.DealerTurn
+            }
+            EndRoundUI();
         }
-        else {
-            //[todo] display stand
-            //[todo] game.DealerTurn
+        else if (game.isSplitStand)
+        {
+            int handValue = player.splitHand.GetValue();
+            if (handValue > 21)
+            {
+                //[todo] display bust
+            }
+            else
+            {
+                //[todo] display stand
+                //[todo] game.DealerTurn
+            }
+            EndRoundUI();
         }
-        EndRoundUI();
     }
 
     public void EndRoundUI(){
         //[todo] clear cards from screen
-        game.EndRound();
-        uiHand.hand.ResetHand();
-        uiSplitHand.hand.ResetHand();
+        game.EndRound(ref this.player.hand, ref this.player.splitHand, ref this.dealer.dealerHand, ref this.dealer.deck);
         //[todo] re-enable betting ui (text box, button)
     }
 

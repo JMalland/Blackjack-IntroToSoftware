@@ -10,14 +10,19 @@ using UnityEngine.UI;
 using UnityEngine.XR;
 
 public class PlayerDisplay : MonoBehaviour {
-    // The Player object
-    public PlayerModelSO player;
-    //instead of above^, we have HandModelOS[]
-    //Hand, SplitHand
-    //updates hand w/ most recent card from GameScript
 
+    //[Ethan] I have not deleted PlayerModelSO just in case, but I have removed it from this class, and this will act as a combination of both.
+    //^the same goes for DealerModelSO
+
+    //I have not messed with any of the functions as you know them better than I do, and, as such, I have not moved...
+    //any of the functions from the ModelSO classes to the Display classes. I figured you would know better...
+    //than I with how to proceed with those.
+
+    //player name
+    private string name;
+    public HandModelSO hand = ScriptableObject.CreateInstance<HandModelSO>();
+    public HandModelSO splitHand = ScriptableObject.CreateInstance<HandModelSO>();
     // The array of Hand objects
-    public HandModelSO[] player_hands;
 
     // The GameObject that stores the displayed hands
     public GameObject display_hands;
