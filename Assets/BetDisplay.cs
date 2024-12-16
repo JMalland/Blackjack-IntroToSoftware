@@ -2,11 +2,16 @@ using System;
 using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class BetDisplay : MonoBehaviour {
     public Action<int> BetSubmitted;
 
     private TMP_InputField input;
+    private TextMeshProUGUI display;
+    private UnityEngine.UI.Button submit;
+    private int currentBet = 0;
 
     void Awake() {
         input = GetComponentInChildren<TMP_InputField>();
@@ -38,11 +43,11 @@ public class BetDisplay : MonoBehaviour {
         }
     }
 
-    void CreateInput() {
+    TMP_InputField CreateInput() {
         GameObject inputObject = new GameObject("Input");
         inputObject.AddComponent<UnityEngine.UI.Image>().color = new Color32(33, 75, 38, 255);
         // Not Working
-        //inputObject.GetComponent<UnityEngine.UI.Image>().sprite = Resources.Load<Sprite>("TMP_InputFieldBackground");
+        //inputObject.GetComponent<UnityEngine.UI.Image>().sprite = Resources.Load<Sprite>("unity_builtin_extra/InputFieldBackground");
         TMP_InputField inputField = inputObject.AddComponent<TMP_InputField>();
         inputField.contentType = TMP_InputField.ContentType.IntegerNumber;
 
@@ -51,8 +56,9 @@ public class BetDisplay : MonoBehaviour {
         GameObject textArea = new GameObject("Text Area");
         RectTransform textAreaRect = textArea.AddComponent<RectTransform>();
         textAreaRect.SetParent(inputRect);
-        textAreaRect.offsetMin = new Vector2(10, 7);
-        textAreaRect.offsetMax = new Vector2(-10, -6);
+        textAreaRect.anchorMin = new Vector2(0, 0);
+        textAreaRect.anchorMax = new Vector2(1, 1);
+        textAreaRect.pivot = new Vector2(0.5f, 0.5f);
 
         GameObject placeholder = new GameObject("Placeholder");
         TextMeshProUGUI placeholderText = placeholder.AddComponent<TextMeshProUGUI>();
@@ -61,8 +67,8 @@ public class BetDisplay : MonoBehaviour {
         placeholderText.text = "Enter Bet...";
         placeholderText.fontStyle = TMPro.FontStyles.Bold | TMPro.FontStyles.Italic;
         placeholderText.fontSize = 14;
-        placeholderText.alignment = TextAlignmentOptions.Right;
         placeholderText.textWrappingMode = TextWrappingModes.NoWrap;
+        placeholderText.alignment = TextAlignmentOptions.MidlineLeft;
 
         inputField.placeholder = placeholderText;
 
@@ -70,7 +76,10 @@ public class BetDisplay : MonoBehaviour {
         placeholderRect.SetParent(textAreaRect);
         placeholderRect.offsetMin = new Vector2(0, 0);
         placeholderRect.offsetMax = new Vector2(0, 0);
-
+        placeholderRect.anchorMin = new Vector2(0, 0);
+        placeholderRect.anchorMax = new Vector2(1, 1);
+        placeholderRect.pivot = new Vector2(0.5f, 0.5f);
+        
         inputField.textViewport = textAreaRect;
 
         GameObject text = new GameObject("Text");
@@ -78,8 +87,8 @@ public class BetDisplay : MonoBehaviour {
         // Not Working
         //textComponent.font = Resources.Load<TMP_FontAsset>("LiberationSans SDF");
         textComponent.fontSize = 14;
-        textComponent.alignment = TextAlignmentOptions.Left | TextAlignmentOptions.Top;
         textComponent.textWrappingMode = TextWrappingModes.PreserveWhitespaceNoWrap;
+        textComponent.alignment = TextAlignmentOptions.MidlineLeft;
 
         inputField.textComponent = textComponent;
 
@@ -87,17 +96,23 @@ public class BetDisplay : MonoBehaviour {
         textRect.SetParent(textAreaRect);
         textRect.offsetMin = new Vector2(0, 0);
         textRect.offsetMax = new Vector2(0, 0);
+        textRect.anchorMin = new Vector2(0, 0);
+        textRect.anchorMax = new Vector2(1, 1);
+        textRect.pivot = new Vector2(0.5f, 0.5f);
 
         inputObject.transform.SetParent(gameObject.transform);
-        inputRect.anchoredPosition = new Vector2(-697, -444.5f);
         inputRect.sizeDelta = new Vector2(160, 30);
+
+        textAreaRect.offsetMin = new Vector2(10, 7);
+        textAreaRect.offsetMax = new Vector2(-10, -7);
+
+        return(inputField);
     }
 
-    void CreateSubmit() {
+    UnityEngine.UI.Button CreateSubmit() {
         GameObject submitObject = new GameObject("Submit");
         submitObject.AddComponent<UnityEngine.UI.Image>().color = new Color32(128, 0, 0, 255);
         UnityEngine.UI.Button submitButton = submitObject.AddComponent<UnityEngine.UI.Button>();
-        submitButton.onClick.AddListener(SubmitBet);
         RectTransform submitRect = submitObject.GetComponent<RectTransform>();
 
         GameObject submitText = new GameObject("Text (TMP)");
@@ -116,16 +131,49 @@ public class BetDisplay : MonoBehaviour {
         submitTextRect.offsetMax = new Vector2(0, 0);
 
         submitObject.transform.SetParent(gameObject.transform);
-        submitRect.anchoredPosition = new Vector2(-697, -479.9f);
         submitRect.sizeDelta = new Vector2(160, 30);
+
+        return(submitButton);
+    }
+
+
+    TextMeshProUGUI CreateDisplay() {
+        GameObject displayObject = new GameObject("Display");
+        
+        // Add the TMP Text (UI) component
+        TextMeshProUGUI text = displayObject.AddComponent<TextMeshProUGUI>();
+        text.text = "Current Bet:\n$";
+        text.enableAutoSizing = true;
+        text.fontStyle = FontStyles.Bold;
+        text.alignment = TextAlignmentOptions.TopLeft;
+        text.textWrappingMode |= TextWrappingModes.Normal;
+
+        // Add the Rect Transform component
+        RectTransform displayRect = displayObject.GetComponent<RectTransform>();
+        
+        displayObject.transform.SetParent(gameObject.transform);
+        displayRect.sizeDelta = new Vector2(160, 50);
+
+        return(text);
     }
 
     void Reset() {
         KillChildren();
-
         Debug.Log("Resetting Bet Display...");
-        CreateInput();
-        CreateSubmit();  
+        
+        VerticalLayoutGroup layout = gameObject.AddComponent<VerticalLayoutGroup>() ?? gameObject.GetComponent<VerticalLayoutGroup>();
+        layout.spacing = 10;
+        layout.childAlignment = TextAnchor.UpperCenter;
+
+        RectTransform rect = gameObject.GetComponent<RectTransform>();
+        rect.localPosition = new Vector3(-697, -375, -5);
+        rect.sizeDelta = new Vector2(0, 0);
+        
+        display = CreateDisplay();
+        input = CreateInput();
+        submit = CreateSubmit();
+
+        submit.onClick.AddListener(SubmitBet);
     }
 
     void Start() {
@@ -133,6 +181,8 @@ public class BetDisplay : MonoBehaviour {
     }
 
     void Update() {
-
+        if (display) {
+            display.text = "Current Bet:\n$" + currentBet;
+        }
     }
 }
