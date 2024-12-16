@@ -33,6 +33,12 @@ public class GameUI : MonoBehaviour
         this.player.split.ResetHand();
         this.dealer.hand.ResetHand();
         game.StartRound(bet, ref this.dealer, ref this.player);
+        if (this.player.hand.GetValue() == 21 || this.dealer.hand.GetValue() == 21)
+        {
+            EndRoundUI();
+        }
+        
+        //[todo] display hands, both now have two cards
 
         //[todo] disable betting UI (text box, button) until round has ended.
     }
@@ -42,6 +48,7 @@ public class GameUI : MonoBehaviour
         if (!(game.isSplit))
         {
             game.Hit(ref this.player, ref this.dealer);
+            //[todo] display card
             int handValue = player.hand.GetValue();
             if (handValue > 21)
             {
@@ -53,10 +60,12 @@ public class GameUI : MonoBehaviour
             if (!(game.isSplitStand))
             {
                 game.Hit(ref this.player, ref this.dealer);
+                //[todo] display card
             }
             else if (game.isSplitStand)
             {
                 game.Hit(ref this.player, ref this.dealer);
+                //[todo] display card
                 int handValue = player.split.GetValue();
                 if (handValue > 21)
                 {
@@ -66,9 +75,25 @@ public class GameUI : MonoBehaviour
         }
     }
 
+    public void DoubleDownUI()
+    {
+
+    }
+
+    public void InsuranceUI()
+    {
+
+    }
+
+    public void SplitUI()
+    {
+
+    }
+
     public void Stand()
     {
-        if (!(game.isSplitStand))
+        //if hand was split and first hand has been stood on OR hand was not split
+        if ((game.isSplitStand && game.isSplit) || !(game.isSplit))
         {
             int handValue = player.hand.GetValue();
             if (handValue > 21)
@@ -82,7 +107,8 @@ public class GameUI : MonoBehaviour
             }
             EndRoundUI();
         }
-        else if (game.isSplitStand)
+        //if hand was split but first hand was not stood on
+        else if (!(game.isSplitStand) && game.isSplit)
         {
             int handValue = player.split.GetValue();
             if (handValue > 21)
