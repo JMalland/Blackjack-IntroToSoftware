@@ -37,18 +37,7 @@ public class HandModelSO : ScriptableObject
     
     // Whether the hand can be split.
     public bool CanSplit() {
-        bool canSplit = (hand.Count == 2 && hand[0].rank == hand[1].rank);
-        //Can split the hand
-        if (canSplit)
-        {
-            return canSplit;
-        }
-        // Can't split the hand
-        else
-        {
-            Debug.LogError("This hand can not be split.");
-            return canSplit;
-        }
+        return(hand.Count == 2 && hand[0].rank == hand[1].rank);
     }
 
     // SplitHand event should take into account the position of the two cards, and animate one being split to the position of the second hand.
@@ -148,7 +137,9 @@ public class HandModelSO : ScriptableObject
                 }
             }
         }
-    }// function to resent the hand of a player
+    }
+    
+    // function to resent the hand of a player
     public void ResetHand() {
         // clears the hand
         hand.Clear();
