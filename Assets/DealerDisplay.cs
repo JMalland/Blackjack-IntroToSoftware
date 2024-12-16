@@ -13,7 +13,7 @@ public class DealerDisplay : MonoBehaviour {
     public Boolean debug = false;
 
     //dealer hand
-    public HandModelSO hand = ScriptableObject.CreateInstance<HandModelSO>();
+    public HandDisplay hand;
     public DeckModelSO deck = ScriptableObject.CreateInstance<DeckModelSO>();
     public CardModelSO mostRecentCard = ScriptableObject.CreateInstance<CardModelSO>();
 
@@ -34,20 +34,20 @@ public class DealerDisplay : MonoBehaviour {
         }
     }
 
-    void CreateHand() {
+    HandDisplay CreateHand() {
         // Create the Hand GameObject
         GameObject hand = new GameObject("Hand");
         // Set the Hand to be a child of Dealer
         hand.transform.SetParent(gameObject.transform);
-        // Add the HandDisplay Component to the hand
-        HandDisplay display_hand = hand.AddComponent<HandDisplay>();
-        // Set the Hand to be the Dealers
-        display_hand.Initialize(dealer.GetHand());
         // Set the displayed position of the Hand
         hand.transform.localPosition = new Vector3(0, 100, 0);
+        // Add the HandDisplay Component to the hand
+        HandDisplay display_hand = hand.AddComponent<HandDisplay>();
 
         // Test the hand display
         display_hand.TestHand(false);
+        
+        return(display_hand);
     }
 
     void CreateDeck() {
@@ -82,16 +82,21 @@ public class DealerDisplay : MonoBehaviour {
 
     // Reset is called every time a component is added, or reset. This way changes appear in the editor.
     void Reset() {
+        // Delete any existing children
         KillChildren();
 
-        // Create the Dealer
-        dealer = ScriptableObject.CreateInstance<DealerModelSO>();
-        
-        // Initialize the Dealer
-        // Might cause an issue if Object is an extension of Player class (Polymorphism)
-        dealer.Initialize();
+        // Get the RectTransform component (to act as a UI.Panel component)
+        RectTransform rect = gameObject.AddComponent<RectTransform>() ?? gameObject.GetComponent<RectTransform>();
+        // Set the anchored position
+        rect.sizeDelta = new Vector2(0, 0);
+        rect.anchorMin = new Vector2(0.5f, 1);
+        rect.anchorMax = new Vector2(0.5f, 1);
+        rect.pivot = new Vector2(0.5f, 0.5f);
+        // Set the position
+        rect.localPosition = new Vector3(0, -540, 5);
 
-        CreateHand();
+        // Create the Dealer's UI GameObjects
+        this.hand = CreateHand();
         CreateDeck();
         CreateRobotDealer();
     }

@@ -123,13 +123,26 @@ public class HandDisplay : MonoBehaviour
             : (UnityEngine.Random.Range(0, 2) % 2 == 0 ? "CLUBS" : "SPADES");
     }
 
+    // Reset the hand
+    public void ResetHand() {
+        // Run the reset method
+        Reset();
+    }
+
     // Reset is called every time a component is added, or reset. This way changes appear in the editor.
     void Reset() {
         // Delete any existing children
         KillChildren();
 
-        // Initialize a new Hand object
-        Initialize(ScriptableObject.CreateInstance<HandModelSO>());
+        // Check if a hand exists
+        if (!this.hand) {
+            // Initialize a new Hand object
+            Initialize(ScriptableObject.CreateInstance<HandModelSO>());
+        }
+        else {
+            // Reset the HandModelSO
+            this.hand.ResetHand();
+        }
 
         // Create the RectTransform component (to act as a UI.Panel component)
         RectTransform rect = gameObject.AddComponent<RectTransform>() ?? gameObject.GetComponent<RectTransform>();
