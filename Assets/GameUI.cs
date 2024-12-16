@@ -20,76 +20,60 @@ public class GameUI : MonoBehaviour
      * DealerUI() - Activates when it is dealer's turn. Visually will show their cards moving and being revealed. Also triggers associated GameScript fxn
     */
 
-    public TMP_InputField BetInput;
     public PlayerDisplay player;
     public DealerDisplay dealer;
+
+    public BetDisplay bet;
     Game game;
 
-    public void SetPlayerBet()
-    {
-        string stringBet = BetInput.text;
-        int bet = Int32.Parse(stringBet);
+    public void VerifyBet(int amount) {
         this.player.ClearHands();
         this.dealer.hand.ResetHand();
-        game.StartRound(bet, ref this.dealer, ref this.player);
+        game.StartRound(amount, ref this.dealer, ref this.player);
 
         //[todo] disable betting UI (text box, button) until round has ended.
     }
 
-    public void HitUI()
-    {
-        if (!(game.isSplit))
-        {
+    public void HitUI() {
+        if (!(game.isSplit)) {
             game.Hit(ref this.player, ref this.dealer);
             int handValue = player.hand.hand.GetValue();
-            if (handValue > 21)
-            {
+            if (handValue > 21) {
                 Stand();
             }
         }
-        else if (game.isSplit)
-        {
-            if (!(game.isSplitStand))
-            {
+        else if (game.isSplit) {
+            if (!(game.isSplitStand)) {
                 game.Hit(ref this.player, ref this.dealer);
             }
-            else if (game.isSplitStand)
-            {
+            else if (game.isSplitStand) {
                 game.Hit(ref this.player, ref this.dealer);
                 int handValue = player.split.hand.GetValue();
-                if (handValue > 21)
-                {
+                if (handValue > 21) {
                     Stand();
                 }
             }
         }
     }
 
-    public void Stand()
-    {
-        if (!(game.isSplitStand))
-        {
+    public void Stand() {
+        if (!(game.isSplitStand)) {
             int handValue = player.hand.hand.GetValue();
-            if (handValue > 21)
-            {
+            if (handValue > 21) {
                 //[todo] display bust
             }
-            else
-            {
+            else {
                 //[todo] display stand
                 //[todo] game.DealerTurn
             }
             EndRoundUI();
         }
-        else if (game.isSplitStand)
-        {
+        else if (game.isSplitStand) {
             int handValue = player.split.hand.GetValue();
-            if (handValue > 21)
-            {
+            if (handValue > 21) {
                 //[todo] display bust
             }
-            else
-            {
+            else {
                 //[todo] display stand
                 //[todo] game.DealerTurn
             }
@@ -97,10 +81,31 @@ public class GameUI : MonoBehaviour
         }
     }
 
-    public void EndRoundUI(){
+    public void EndRoundUI() {
         //[todo] clear cards from screen
         game.EndRound(ref this.player.hand.hand, ref this.player.split.hand, ref this.dealer.hand.hand, ref this.dealer.deck.deck);
         //[todo] re-enable betting ui (text box, button)
+    }
+
+    void Awake() {
+        this.player = UnityEngine.Object.FindFirstObjectByType<PlayerDisplay>();
+        this.bet = UnityEngine.Object.FindFirstObjectByType<BetDisplay>();
+        this.dealer = UnityEngine.Object.FindFirstObjectByType<DealerDisplay>();
+
+        // Add the VerifyBet function to the BetSubmitted Event Listener
+        this.bet.BetSubmitted += VerifyBet;
+
+
+        /*
+         * Not Certain About The Code Below
+         * Primarily Because I Don't Know
+         * What The Latest Commit Of This Script
+         * Looks Like
+        */
+        // Add the Hit (UI) function to the Hit Event Listener
+        //this.player.PlayerHit += HitUI
+        // Add the Stand (UI) function to the Stand Event Listener
+        //this.player.PlayerStand += StandUI
     }
 
     void Reset() {
@@ -113,14 +118,12 @@ public class GameUI : MonoBehaviour
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
+    void Start() {
         //[todo] all buttons should be disabled
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         
     }
 }
