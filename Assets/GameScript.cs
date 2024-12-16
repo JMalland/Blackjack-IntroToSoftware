@@ -28,7 +28,9 @@ public class Game : MonoBehaviour
         this.isSplit = false;
         Hit(ref player, ref dealer);
         Hit(ref player, ref dealer);
-        //[todo] dealer deals to himself twice
+        DealerHit(ref player, ref dealer);
+        DealerHit(ref player, ref dealer);
+        //[todo] offer insurance if applicable
     }
 
     public void Hit(ref PlayerDisplay player, ref DealerDisplay dealer)
@@ -95,6 +97,7 @@ public class Game : MonoBehaviour
     //EndRound: Resets hands (player, dealer), deck, bet, and adds winnings if applicable.
     public void EndRound(ref HandModelSO playerHand, ref HandModelSO splitHand, ref HandModelSO dealerHand, ref DeckModelSO deck)
     {
+        //if splitting did not occur
         if (!(this.isSplitStand) && !(this.isSplit))
         {
             bool blackjack = isBlackJack(playerHand);
@@ -121,11 +124,15 @@ public class Game : MonoBehaviour
             this.sideBet = 0;
             this.isSplit = false;
             this.isSplitStand = false;
+            this.insuranceBetAmount = 0;
+            this.insuranceBetPlaced = false;
             deck = ScriptableObject.CreateInstance<DeckModelSO>();
         }
 
+        //if splitting occurred and the first split hand has concluded, allowing game to evaluate.
         else if (this.isSplitStand && this.isSplit)
         {
+            //evaluates first hand
             bool blackjack = isBlackJack(playerHand);
             int result = roundResult(ref playerHand, ref dealerHand);
 
@@ -145,7 +152,7 @@ public class Game : MonoBehaviour
                     this.score += this.sideBet;
                 }
             }
-
+            //evaluates second hand (hand born from split)
             int splitResult = roundResult(ref splitHand, ref dealerHand);
             bool isSplitBlackjack = isBlackJack(splitHand);
             if (splitResult == 1)
@@ -161,8 +168,12 @@ public class Game : MonoBehaviour
             this.sideBet = 0;
             this.isSplit = false;
             this.isSplitStand = false;
+            this.insuranceBetAmount = 0;
+            this.insuranceBetPlaced = false;
             deck = ScriptableObject.CreateInstance<DeckModelSO>();
         }
+        //splitting has occured, but first hand is only now being settled. Fxn below indicates that
+        //the first hand is now settled, allows the next hand to begin.
         else if (!(this.isSplitStand) && this.isSplit)
         {
             this.isSplitStand = true;
@@ -225,57 +236,73 @@ public class Game : MonoBehaviour
 
         if (playerScore > dealerScore && playerScore < 22 || dealerScore > 21 && playerScore < 22)
         {
+            Debug.Log("Player wins!");
             return 1;
         }
         else if (dealerScore > playerScore && dealerScore < 22 || playerScore > 21 && dealerScore < 22)
         {
+            Debug.Log("Player loses!");
             return 0;
         }
         else if (playerScore == dealerScore && playerScore < 22 && dealerScore < 22)
         {
+            Debug.Log("Round is pushed!");
             return 2;
         }
         else return 2;
 
     }
      //Insurance(): determines if player wants to use insurance and calculate the bet amount
-    public void Insurance(bool playerUsesInsurance){
-        if(dealerHand.GetCard()[0].ToString(0).EndsWith("A")){
+    public void Insurance(bool playerUsesInsurance, ref PlayerDisplay player, ref DealerDisplay dealer){
+        if(dealer.dealerHand.GetCard(0).ToString().EndsWith("A")){
+            //[todo] prompt for insurance from player!
             if(playerUsesInsurance){
                 insuranceBetAmount = currentBet / 2;
                 score -= insuranceBetAmount;
-                insuranceBetPlaced = true;
+                this.insuranceBetPlaced = true;
             }
         }
         else{
-            Debug.Log("Insurance is not available, dealer's up card is not an Ace.")
+            Debug.Log("Insurance is not available, dealer's up card is not an Ace.");
         }
     }
-    public void DealerTurn(){
+
+    public void DealerHit(ref PlayerDisplay player, ref DealerDisplay dealer)
+    {
+        CardModelSO newCard = dealer.deck.NextCard();
+        int handValue = 0;
+        dealer.dealerHand.AddCard(newCard);
+        handValue = dealer.dealerHand.GetValue();
+        dealer.mostRecentCard = newCard;
+        if (handValue > 21)
+        {
+            EndRound(ref player.hand, ref player.splitHand, ref dealer.dealerHand, ref dealer.deck);
+        }
+    }
+    public void DealerTurn(ref PlayerDisplay player, ref DealerDisplay dealer){
         Debug.Log("Dealer reveals their second card");
-        while(dealerHand.GetValue() < 17){
-            Hit(dealerHand);
+        while(dealer.dealerHand.GetValue() < 17){
+            DealerHit(ref player, ref dealer);
             Debug.Log("Dealer draws a card.");
         }
-        if(dealerHand.GetValue() > 21){
-            Debug.Log("Dealer busts!");
-            EndRound(roundResult());
-        }
+        EndRound(ref player.hand, ref player.splitHand, ref dealer.dealerHand, ref dealer.deck);
+        /*
         else{
             int result = roundResult(currentHand);
-            if (insuranceBetPlaced){
+            if (this.insuranceBetPlaced){
                 if (isBlackJack(dealerHand)){
                     Debug.Log("Dealer has a Blackjack! Insurance wins.");
                     score += insuranceBetAmount * 2;
                     
                 }
                 else{
-                    Debug.Log("Dealer does not have a Blackjack. Insurance lost.")
+                    Debug.Log("Dealer does not have a Blackjack. Insurance lost.");
                 }
                 
             }
             EndRound(roundResult());
         }
+        */
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
