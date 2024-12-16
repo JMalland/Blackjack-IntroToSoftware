@@ -57,7 +57,7 @@ public class GameUI : MonoBehaviour
             else if (game.isSplitStand)
             {
                 game.Hit(ref this.player, ref this.dealer);
-                int handValue = player.splitHand.GetValue();
+                int handValue = player.split.GetValue();
                 if (handValue > 21)
                 {
                     Stand();
@@ -84,7 +84,7 @@ public class GameUI : MonoBehaviour
         }
         else if (game.isSplitStand)
         {
-            int handValue = player.splitHand.GetValue();
+            int handValue = player.split.GetValue();
             if (handValue > 21)
             {
                 //[todo] display bust
@@ -100,7 +100,7 @@ public class GameUI : MonoBehaviour
 
     public void EndRoundUI(){
         //[todo] clear cards from screen
-        game.EndRound(ref this.player.hand, ref this.player.splitHand, ref this.dealer.dealerHand, ref this.dealer.deck);
+        game.EndRound(ref this.player.hand, ref this.player.split, ref this.dealer.hand, ref this.dealer.deck);
         //[todo] re-enable betting ui (text box, button)
     }
 
