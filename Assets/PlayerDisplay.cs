@@ -21,7 +21,8 @@ public class PlayerDisplay : MonoBehaviour {
     //player name
     private string name;
     public HandModelSO hand = ScriptableObject.CreateInstance<HandModelSO>();
-    public HandModelSO splitHand = ScriptableObject.CreateInstance<HandModelSO>();
+    public HandModelSO split = ScriptableObject.CreateInstance<HandModelSO>();
+
     // The array of Hand objects
 
     // The GameObject that stores the displayed hands

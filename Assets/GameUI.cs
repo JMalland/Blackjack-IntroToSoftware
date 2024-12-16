@@ -30,8 +30,8 @@ public class GameUI : MonoBehaviour
         string stringBet = BetInput.text;
         int bet = Int32.Parse(stringBet);
         this.player.hand.ResetHand();
-        this.player.splitHand.ResetHand();
-        this.dealer.dealerHand.ResetHand();
+        this.player.split.ResetHand();
+        this.dealer.hand.ResetHand();
         game.StartRound(bet, ref this.dealer, ref this.player);
 
         //[todo] disable betting UI (text box, button) until round has ended.
@@ -57,7 +57,7 @@ public class GameUI : MonoBehaviour
             else if (game.isSplitStand)
             {
                 game.Hit(ref this.player, ref this.dealer);
-                int handValue = player.splitHand.GetValue();
+                int handValue = player.split.GetValue();
                 if (handValue > 21)
                 {
                     Stand();
@@ -84,7 +84,7 @@ public class GameUI : MonoBehaviour
         }
         else if (game.isSplitStand)
         {
-            int handValue = player.splitHand.GetValue();
+            int handValue = player.split.GetValue();
             if (handValue > 21)
             {
                 //[todo] display bust
@@ -100,7 +100,7 @@ public class GameUI : MonoBehaviour
 
     public void EndRoundUI(){
         //[todo] clear cards from screen
-        game.EndRound(ref this.player.hand, ref this.player.splitHand, ref this.dealer.dealerHand, ref this.dealer.deck);
+        game.EndRound(ref this.player.hand, ref this.player.split, ref this.dealer.hand, ref this.dealer.deck);
         //[todo] re-enable betting ui (text box, button)
     }
 
@@ -110,7 +110,7 @@ public class GameUI : MonoBehaviour
         
         
 
-        //game = new Game(playerHand, DealerHand, Deck);
+        //game = new Game(PlayerHand, DealerHand, Deck);
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

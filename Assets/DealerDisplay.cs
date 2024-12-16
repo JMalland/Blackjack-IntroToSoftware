@@ -13,7 +13,7 @@ public class DealerDisplay : MonoBehaviour {
     public Boolean debug = false;
 
     //dealer hand
-    public HandModelSO dealerHand = ScriptableObject.CreateInstance<HandModelSO>();
+    public HandModelSO hand = ScriptableObject.CreateInstance<HandModelSO>();
     public DeckModelSO deck = ScriptableObject.CreateInstance<DeckModelSO>();
     public CardModelSO mostRecentCard = ScriptableObject.CreateInstance<CardModelSO>();
 
