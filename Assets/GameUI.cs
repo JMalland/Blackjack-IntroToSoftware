@@ -87,6 +87,9 @@ public class GameUI : MonoBehaviour
         //[todo] re-enable betting ui (text box, button)
     }
 
+    // Makes sure this all happens before the first frame
+    // Not sure if it would work like this, depending on how or 
+    // what order Awake is called for various elements/scripts.
     void Awake() {
         this.player = UnityEngine.Object.FindFirstObjectByType<PlayerDisplay>();
         this.bet = UnityEngine.Object.FindFirstObjectByType<BetDisplay>();
