@@ -29,8 +29,7 @@ public class GameUI : MonoBehaviour
     {
         string stringBet = BetInput.text;
         int bet = Int32.Parse(stringBet);
-        this.player.hand.ResetHand();
-        this.player.split.ResetHand();
+        this.player.ClearHands();
         this.dealer.hand.ResetHand();
         game.StartRound(bet, ref this.dealer, ref this.player);
 
@@ -42,7 +41,7 @@ public class GameUI : MonoBehaviour
         if (!(game.isSplit))
         {
             game.Hit(ref this.player, ref this.dealer);
-            int handValue = player.hand.GetValue();
+            int handValue = player.hand.hand.GetValue();
             if (handValue > 21)
             {
                 Stand();
@@ -57,7 +56,7 @@ public class GameUI : MonoBehaviour
             else if (game.isSplitStand)
             {
                 game.Hit(ref this.player, ref this.dealer);
-                int handValue = player.split.GetValue();
+                int handValue = player.split.hand.GetValue();
                 if (handValue > 21)
                 {
                     Stand();
@@ -70,7 +69,7 @@ public class GameUI : MonoBehaviour
     {
         if (!(game.isSplitStand))
         {
-            int handValue = player.hand.GetValue();
+            int handValue = player.hand.hand.GetValue();
             if (handValue > 21)
             {
                 //[todo] display bust
@@ -84,7 +83,7 @@ public class GameUI : MonoBehaviour
         }
         else if (game.isSplitStand)
         {
-            int handValue = player.split.GetValue();
+            int handValue = player.split.hand.GetValue();
             if (handValue > 21)
             {
                 //[todo] display bust
@@ -100,7 +99,7 @@ public class GameUI : MonoBehaviour
 
     public void EndRoundUI(){
         //[todo] clear cards from screen
-        game.EndRound(ref this.player.hand, ref this.player.split, ref this.dealer.hand, ref this.dealer.deck);
+        game.EndRound(ref this.player.hand.hand, ref this.player.split.hand, ref this.dealer.hand.hand, ref this.dealer.deck);
         //[todo] re-enable betting ui (text box, button)
     }
 
