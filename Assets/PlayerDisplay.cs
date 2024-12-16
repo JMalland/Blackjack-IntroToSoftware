@@ -158,7 +158,10 @@ public class PlayerDisplay : MonoBehaviour {
         rect.anchorMax = new Vector2(0.5f, 0);
         rect.pivot = new Vector2(0.5f, 0.5f);
         // Set the relative position
-        rect.localPosition = new Vector2(0, 312.5f);
+        // WEIRD: For whatever reason, when Y value is set to 312.5, it displays as 800 someodd
+        //        When set to -227.5f, it displays as 312.5. ... IDK why.
+        //        312.5 is the desired Y value for the player (One Player)
+        rect.localPosition = new Vector2(0, -227.5f);
 
         // Set the display layout of the Player object.
         HorizontalLayoutGroup self_layout = gameObject.AddComponent<HorizontalLayoutGroup>() ?? gameObject.GetComponent<HorizontalLayoutGroup>();

@@ -90,16 +90,19 @@ public class DealerDisplay : MonoBehaviour {
         // Get the RectTransform component (to act as a UI.Panel component)
         RectTransform rect = gameObject.AddComponent<RectTransform>() ?? gameObject.GetComponent<RectTransform>();
         // Set the anchored position
-        //rect.sizeDelta = new Vector2(0, 0);
-        rect.anchorMin = new Vector2(0.5f, 0.9f);
-        rect.anchorMax = new Vector2(0.5f, 0.9f);
+        rect.sizeDelta = new Vector2(0, 0);
+        rect.anchorMin = new Vector2(0.5f, 1);
+        rect.anchorMax = new Vector2(0.5f, 1);
         rect.pivot = new Vector2(0.5f, 0.5f);
         // Set the position
-        rect.localPosition = new Vector2(0, -540f);
+        // WEIRD: For some reason, if the Y value is set to 0, it displays as -540
+        //        When set to -540f, it displays as -1080. ... IDK
+        //        -540 is the desired Y value for the dealer.
+        rect.localPosition = new Vector2(0, 0);
 
         // Create the Dealer's UI GameObjects
-        //this.hand = CreateHand();
-        //this.deck = CreateDeck();
+        this.hand = CreateHand();
+        this.deck = CreateDeck();
         CreateRobotDealer();
     }
 
