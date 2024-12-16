@@ -30,8 +30,8 @@ public class GameUI : MonoBehaviour
         string stringBet = BetInput.text;
         int bet = Int32.Parse(stringBet);
         this.player.hand.ResetHand();
-        this.player.splitHand.ResetHand();
-        this.dealer.dealerHand.ResetHand();
+        this.player.split.ResetHand();
+        this.dealer.hand.ResetHand();
         game.StartRound(bet, ref this.dealer, ref this.player);
 
         //[todo] disable betting UI (text box, button) until round has ended.
