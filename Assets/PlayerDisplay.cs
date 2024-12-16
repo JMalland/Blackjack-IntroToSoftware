@@ -29,6 +29,11 @@ public class PlayerDisplay : MonoBehaviour {
 
     private String active_hand = "hand";
 
+    //public HandModelSO hand = ScriptableObject.CreateInstance<HandModelSO>();
+    //public HandModelSO split = ScriptableObject.CreateInstance<HandModelSO>();
+
+    // The array of Hand objects
+
     // The GameObject that stores the displayed hands
     public GameObject display_hands;
     

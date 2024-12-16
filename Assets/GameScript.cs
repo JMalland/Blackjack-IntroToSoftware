@@ -4,8 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.XR;
 
-public class Game : MonoBehaviour
-{
+public class Game : MonoBehaviour {
     /*TODO:
      * Insurance()
      * DealerTurn() - This will be when the dealer reveals their card and draws if necessary

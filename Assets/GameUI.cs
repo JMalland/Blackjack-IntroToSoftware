@@ -26,10 +26,20 @@ public class GameUI : MonoBehaviour
     public BetDisplay bet;
     Game game;
 
+    /*
+     * Jacob's SetPlayerBet Replacement (without looking at Ethan's updated code)
+    */
     public void VerifyBet(int amount) {
         this.player.ClearHands();
         this.dealer.hand.ResetHand();
         game.StartRound(amount, ref this.dealer, ref this.player);
+    
+        if (this.player.hand.hand.GetValue() == 21 || this.dealer.hand.hand.GetValue() == 21)
+        {
+            EndRoundUI();
+        }
+        
+        //[todo] display hands, both now have two cards
 
         //[todo] disable betting UI (text box, button) until round has ended.
     }
@@ -37,29 +47,53 @@ public class GameUI : MonoBehaviour
     public void HitUI() {
         if (!(game.isSplit)) {
             game.Hit(ref this.player, ref this.dealer);
+            //[todo] display card
             int handValue = player.hand.hand.GetValue();
-            if (handValue > 21) {
+            if (handValue > 21)
+            {
                 Stand();
             }
         }
         else if (game.isSplit) {
             if (!(game.isSplitStand)) {
                 game.Hit(ref this.player, ref this.dealer);
+                //[todo] display card
             }
             else if (game.isSplitStand) {
                 game.Hit(ref this.player, ref this.dealer);
+                //[todo] display card
                 int handValue = player.split.hand.GetValue();
-                if (handValue > 21) {
+                if (handValue > 21)
+                {
                     Stand();
                 }
             }
         }
     }
 
-    public void Stand() {
-        if (!(game.isSplitStand)) {
+    public void DoubleDownUI()
+    {
+
+    }
+
+    public void InsuranceUI()
+    {
+
+    }
+
+    public void SplitUI()
+    {
+
+    }
+
+    public void Stand()
+    {
+        //if hand was split and first hand has been stood on OR hand was not split
+        if ((game.isSplitStand && game.isSplit) || !(game.isSplit))
+        {
             int handValue = player.hand.hand.GetValue();
-            if (handValue > 21) {
+            if (handValue > 21)
+            {
                 //[todo] display bust
             }
             else {
@@ -68,9 +102,12 @@ public class GameUI : MonoBehaviour
             }
             EndRoundUI();
         }
-        else if (game.isSplitStand) {
+        //if hand was split but first hand was not stood on
+        else if (!(game.isSplitStand) && game.isSplit)
+        {
             int handValue = player.split.hand.GetValue();
-            if (handValue > 21) {
+            if (handValue > 21)
+            {
                 //[todo] display bust
             }
             else {

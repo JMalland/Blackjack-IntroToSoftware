@@ -16,6 +16,11 @@ public class DealerDisplay : MonoBehaviour {
     public HandDisplay hand;
     public DeckDisplay deck;
     public CardDisplay mostRecentCard;
+    
+    // Just Not Sure About This Yet -- Rn, just trying to push the changes
+    //public HandModelSO hand = ScriptableObject.CreateInstance<HandModelSO>();
+    //public DeckModelSO deck = ScriptableObject.CreateInstance<DeckModelSO>();
+    //public CardModelSO mostRecentCard = ScriptableObject.CreateInstance<CardModelSO>();
 
     // A Delete function that deletes each child, outside 
     // the scope of the gameObject iterative list
