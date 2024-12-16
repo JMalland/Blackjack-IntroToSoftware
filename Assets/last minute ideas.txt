@@ -1,0 +1,33 @@
+GameUI
+
+PlayerDisplay player;
+DealerDisplay dealer;
+GameScript game;
+
+Hit()
+{
+	game.Hit(player.hand)
+	//this will pass the player hand to game, which performs
+	//actions to hit, and modifies the hand accordingly.
+	//game also stores the most recent card drawn
+	
+	dealer.mostRecentCard = game.mostRecentCard
+	//passes the most recent card drawn to the dealer
+	player.mostRecentCard = game.mostRecentCard
+	//passes the most recent card drawn to the player
+	
+	dealer.displayCard()
+	//displays the visual of the card on top of the deck using the mostRecentCard given to it
+	
+	dealer.cardCreatedEvent()
+	//sends card to GameUI to be sent to player
+	
+	GameUI.onCardCreated()
+	//sends card to player display object
+	
+	player.recieveCard()
+	//player gets visually passed the card from the deck to indicate 
+	//it is now part of their hand
+	
+	
+}

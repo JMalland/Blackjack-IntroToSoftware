@@ -17,68 +17,63 @@ public class Game : MonoBehaviour
     private bool insuranceBetPlaced = false;
     public bool isSplit;
     public bool isSplitStand;
-    public HandModelSO currentHand = ScriptableObject.CreateInstance<HandModelSO>();
-    public HandModelSO splitHand = ScriptableObject.CreateInstance<HandModelSO>();
-    public HandModelSO dealerHand = ScriptableObject.CreateInstance<HandModelSO>();
-    DeckModelSO deck = ScriptableObject.CreateInstance<DeckModelSO>();
-    CardModelSO mostRecentCard = ScriptableObject.CreateInstance<CardModelSO>();
+
 
 
     //Triggered at beginning of each round. Removes bet from player score. 
-    public void StartRound(int playerBet) 
+    public void StartRound(int playerBet, ref DealerDisplay dealer, ref PlayerDisplay player) 
     {
-        this.currentHand.ResetHand();
-        this.splitHand.ResetHand();
-        this.dealerHand.ResetHand();
-
         this.currentBet = playerBet;
         this.score -= playerBet;
         this.isSplit = false;
-        Hit(this.dealerHand);
-        Hit(this.dealerHand);
-        Hit(this.currentHand);
-        Hit(this.currentHand);
+        Hit(ref player, ref dealer);
+        Hit(ref player, ref dealer);
+        //[todo] dealer deals to himself twice
     }
 
-    public void Hit(HandModelSO hand)
+    public void Hit(ref PlayerDisplay player, ref DealerDisplay dealer)
     {
-        CardModelSO newCard = deck.NextCard();
-        hand.AddCard(newCard);
-        int handValue = hand.GetValue();
-        this.mostRecentCard = newCard;
+        CardModelSO newCard = dealer.deck.NextCard();
+        int handValue = 0;
+        if (!(this.isSplitStand))
+        {
+            player.hand.AddCard(newCard);
+            handValue = player.hand.GetValue();
+        }
+        else if (this.isSplitStand)
+        {
+            player.splitHand.AddCard(newCard);
+            handValue = player.splitHand.GetValue();
+        }
+        dealer.mostRecentCard = newCard;
         if (handValue > 21)
         {
-            EndRound();
+            EndRound(ref player.hand, ref player.splitHand, ref dealer.dealerHand, ref dealer.deck);
         }
-    }
-
-    public CardModelSO GetMostRecentCard()
-    {
-        return this.mostRecentCard;
     }
 
     //Doubles player's bet and forces them to draw one card before force-ending the round.
-    public void DoubleDown()
+    public void DoubleDown(ref PlayerDisplay player, ref DealerDisplay dealer, ref CardModelSO mostRecentCard)
     {
         this.sideBet = this.currentBet;
         this.score -= this.sideBet;
-        Hit(this.currentHand);
+        Hit(ref player, ref dealer);
         //ends round if hand <= 21, as Hit() ends round if hand > 21. This is just to make sure EndRound() doesn't trigger twice.
-        if (score <= 21)
+        if (this.score <= 21)
         {
-            EndRound();
+            EndRound(ref player.hand, ref player.splitHand, ref dealer.dealerHand, ref dealer.deck);
         }
 
     }
 
-    public void Split()
+    public void Split(ref HandModelSO playerHand, ref HandModelSO splitHand, ref DeckModelSO deck, ref CardModelSO mostRecentCard)
     {
-        bool canSplit = this.currentHand.CanSplit();
+        bool canSplit = playerHand.CanSplit();
         if (canSplit)
         {
             this.isSplit = true;
-            CardModelSO newCard = this.currentHand.Split();
-            this.splitHand.AddCard(newCard);
+            CardModelSO newCard = playerHand.Split();
+            splitHand.AddCard(newCard);
         }
 
     }
@@ -98,12 +93,12 @@ public class Game : MonoBehaviour
         }
     }
     //EndRound: Resets hands (player, dealer), deck, bet, and adds winnings if applicable.
-    public void EndRound()
+    public void EndRound(ref HandModelSO playerHand, ref HandModelSO splitHand, ref HandModelSO dealerHand, ref DeckModelSO deck)
     {
         if (!(this.isSplitStand) && !(this.isSplit))
         {
-            bool blackjack = isBlackJack(this.currentHand);
-            int result = roundResult(this.currentHand);
+            bool blackjack = isBlackJack(playerHand);
+            int result = roundResult(ref playerHand, ref dealerHand);
 
             if (result == 1)
             {
@@ -126,13 +121,13 @@ public class Game : MonoBehaviour
             this.sideBet = 0;
             this.isSplit = false;
             this.isSplitStand = false;
-            this.deck = new DeckModelSO();
+            deck = ScriptableObject.CreateInstance<DeckModelSO>();
         }
 
         else if (this.isSplitStand && this.isSplit)
         {
-            bool blackjack = isBlackJack(this.currentHand);
-            int result = roundResult(this.currentHand);
+            bool blackjack = isBlackJack(playerHand);
+            int result = roundResult(ref playerHand, ref dealerHand);
 
             if (result == 1)
             {
@@ -151,8 +146,8 @@ public class Game : MonoBehaviour
                 }
             }
 
-            int splitResult = roundResult(this.splitHand);
-            bool isSplitBlackjack = isBlackJack(this.splitHand);
+            int splitResult = roundResult(ref splitHand, ref dealerHand);
+            bool isSplitBlackjack = isBlackJack(splitHand);
             if (splitResult == 1)
             {
                 UpdatePoints(isSplitBlackjack, this.sideBet);
@@ -166,7 +161,7 @@ public class Game : MonoBehaviour
             this.sideBet = 0;
             this.isSplit = false;
             this.isSplitStand = false;
-            this.deck = new DeckModelSO();
+            deck = ScriptableObject.CreateInstance<DeckModelSO>();
         }
         else if (!(this.isSplitStand) && this.isSplit)
         {
@@ -223,9 +218,9 @@ public class Game : MonoBehaviour
     }
 
     //roundResult: Determines if player has won or not. 1 = win, 0 = loss, 2 = push
-    public int roundResult(HandModelSO hand)
+    public int roundResult(ref HandModelSO playerHand, ref HandModelSO dealerHand)
     {
-        int playerScore = hand.GetValue();
+        int playerScore = playerHand.GetValue();
         int dealerScore = dealerHand.GetValue();
 
         if (playerScore > dealerScore && playerScore < 22 || dealerScore > 21 && playerScore < 22)

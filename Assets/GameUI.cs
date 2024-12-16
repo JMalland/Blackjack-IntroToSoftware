@@ -21,35 +21,102 @@ public class GameUI : MonoBehaviour
     */
 
     public TMP_InputField BetInput;
-    Game currentGame = new Game();
-    HandDisplay uiHand = new HandDisplay();
+    public PlayerDisplay player;
+    public DealerDisplay dealer;
+    Game game;
 
     public void SetPlayerBet()
     {
         string stringBet = BetInput.text;
         int bet = Int32.Parse(stringBet);
-        currentGame.StartRound(bet);
+        this.player.hand.ResetHand();
+        this.player.splitHand.ResetHand();
+        this.dealer.dealerHand.ResetHand();
+        game.StartRound(bet, ref this.dealer, ref this.player);
+
+        //[todo] disable betting UI (text box, button) until round has ended.
     }
 
     public void HitUI()
     {
-        currentGame.Hit(currentGame.currentHand);
+        if (!(game.isSplit))
+        {
+            game.Hit(ref this.player, ref this.dealer);
+            int handValue = player.hand.GetValue();
+            if (handValue > 21)
+            {
+                Stand();
+            }
+        }
+        else if (game.isSplit)
+        {
+            if (!(game.isSplitStand))
+            {
+                game.Hit(ref this.player, ref this.dealer);
+            }
+            else if (game.isSplitStand)
+            {
+                game.Hit(ref this.player, ref this.dealer);
+                int handValue = player.splitHand.GetValue();
+                if (handValue > 21)
+                {
+                    Stand();
+                }
+            }
+        }
     }
 
-    public void EndRoundUI()
+    public void Stand()
     {
-        //[todo] clear cards from screen
-        currentGame.EndRound();
-        //currentGame.currentHand.reset
-        //uiHand.hand.reset
+        if (!(game.isSplitStand))
+        {
+            int handValue = player.hand.GetValue();
+            if (handValue > 21)
+            {
+                //[todo] display bust
+            }
+            else
+            {
+                //[todo] display stand
+                //[todo] game.DealerTurn
+            }
+            EndRoundUI();
+        }
+        else if (game.isSplitStand)
+        {
+            int handValue = player.splitHand.GetValue();
+            if (handValue > 21)
+            {
+                //[todo] display bust
+            }
+            else
+            {
+                //[todo] display stand
+                //[todo] game.DealerTurn
+            }
+            EndRoundUI();
+        }
     }
 
+    public void EndRoundUI(){
+        //[todo] clear cards from screen
+        game.EndRound(ref this.player.hand, ref this.player.splitHand, ref this.dealer.dealerHand, ref this.dealer.deck);
+        //[todo] re-enable betting ui (text box, button)
+    }
 
+    void Reset() {
+        // Create PlayerDisplay object --> Send Player to Game
+        // Create DealerDisplay object --> Send DealerHand to Game; Send Deck to Game;
+        
+        
+
+        //game = new Game(playerHand, DealerHand, Deck);
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        //[todo] all buttons should be disabled
     }
 
     // Update is called once per frame
