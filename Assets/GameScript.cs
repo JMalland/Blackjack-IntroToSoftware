@@ -35,7 +35,7 @@ public class Game : MonoBehaviour
 
     public void Hit(ref PlayerDisplay player, ref DealerDisplay dealer)
     {
-        CardModelSO newCard = dealer.deck.NextCard();
+        CardModelSO newCard = dealer.deck.deck.NextCard();
         int handValue = 0;
         if (!(this.isSplitStand))
         {
@@ -47,10 +47,10 @@ public class Game : MonoBehaviour
             player.split.hand.AddCard(newCard);
             handValue = player.split.hand.GetValue();
         }
-        dealer.mostRecentCard = newCard;
+        dealer.mostRecentCard.card = newCard;
         if (handValue > 21)
         {
-            EndRound(ref player.hand.hand, ref player.split.hand, ref dealer.hand.hand, ref dealer.deck);
+            EndRound(ref player.hand.hand, ref player.split.hand, ref dealer.hand.hand, ref dealer.deck.deck);
         }
     }
 
@@ -63,7 +63,7 @@ public class Game : MonoBehaviour
         //ends round if hand <= 21, as Hit() ends round if hand > 21. This is just to make sure EndRound() doesn't trigger twice.
         if (this.score <= 21)
         {
-            EndRound(ref player.hand.hand, ref player.split.hand, ref dealer.hand.hand, ref dealer.deck);
+            EndRound(ref player.hand.hand, ref player.split.hand, ref dealer.hand.hand, ref dealer.deck.deck);
         }
 
     }
@@ -269,14 +269,14 @@ public class Game : MonoBehaviour
 
     public void DealerHit(ref PlayerDisplay player, ref DealerDisplay dealer)
     {
-        CardModelSO newCard = dealer.deck.NextCard();
+        CardModelSO newCard = dealer.deck.deck.NextCard();
         int handValue = 0;
         dealer.hand.hand.AddCard(newCard);
         handValue = dealer.hand.hand.GetValue();
-        dealer.mostRecentCard = newCard;
+        dealer.mostRecentCard.card = newCard;
         if (handValue > 21)
         {
-            EndRound(ref player.hand.hand, ref player.split.hand, ref dealer.hand.hand, ref dealer.deck);
+            EndRound(ref player.hand.hand, ref player.split.hand, ref dealer.hand.hand, ref dealer.deck.deck);
         }
     }
     public void DealerTurn(ref PlayerDisplay player, ref DealerDisplay dealer){
@@ -285,7 +285,7 @@ public class Game : MonoBehaviour
             DealerHit(ref player, ref dealer);
             Debug.Log("Dealer draws a card.");
         }
-        EndRound(ref player.hand.hand, ref player.split.hand, ref dealer.hand.hand, ref dealer.deck);
+        EndRound(ref player.hand.hand, ref player.split.hand, ref dealer.hand.hand, ref dealer.deck.deck);
         /*
         else{
             int result = roundResult(currentHand);

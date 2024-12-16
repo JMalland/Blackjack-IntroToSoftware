@@ -14,8 +14,8 @@ public class DealerDisplay : MonoBehaviour {
 
     //dealer hand
     public HandDisplay hand;
-    public DeckModelSO deck = ScriptableObject.CreateInstance<DeckModelSO>();
-    public CardModelSO mostRecentCard = ScriptableObject.CreateInstance<CardModelSO>();
+    public DeckDisplay deck;
+    public CardDisplay mostRecentCard;
 
     // A Delete function that deletes each child, outside 
     // the scope of the gameObject iterative list
@@ -50,7 +50,7 @@ public class DealerDisplay : MonoBehaviour {
         return(display_hand);
     }
 
-    void CreateDeck() {
+    DeckDisplay CreateDeck() {
         // Create the Deck GameObject
         GameObject deck = new GameObject("Deck");
         // Set the Deck to be a child of Dealer
@@ -61,6 +61,8 @@ public class DealerDisplay : MonoBehaviour {
         deck.transform.localScale = new Vector3(13, 13, 1);
         // Set the position of the deck
         deck.transform.localPosition = new Vector3(180, 150, 0);
+
+        return(display_deck);
     }
 
     void CreateRobotDealer() {
@@ -88,16 +90,16 @@ public class DealerDisplay : MonoBehaviour {
         // Get the RectTransform component (to act as a UI.Panel component)
         RectTransform rect = gameObject.AddComponent<RectTransform>() ?? gameObject.GetComponent<RectTransform>();
         // Set the anchored position
-        rect.sizeDelta = new Vector2(0, 0);
-        rect.anchorMin = new Vector2(0.5f, 1);
-        rect.anchorMax = new Vector2(0.5f, 1);
+        //rect.sizeDelta = new Vector2(0, 0);
+        rect.anchorMin = new Vector2(0.5f, 0.9f);
+        rect.anchorMax = new Vector2(0.5f, 0.9f);
         rect.pivot = new Vector2(0.5f, 0.5f);
         // Set the position
-        rect.localPosition = new Vector3(0, -540, 5);
+        rect.localPosition = new Vector2(0, -540f);
 
         // Create the Dealer's UI GameObjects
-        this.hand = CreateHand();
-        CreateDeck();
+        //this.hand = CreateHand();
+        //this.deck = CreateDeck();
         CreateRobotDealer();
     }
 

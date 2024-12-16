@@ -99,7 +99,7 @@ public class GameUI : MonoBehaviour
 
     public void EndRoundUI(){
         //[todo] clear cards from screen
-        game.EndRound(ref this.player.hand.hand, ref this.player.split.hand, ref this.dealer.hand.hand, ref this.dealer.deck);
+        game.EndRound(ref this.player.hand.hand, ref this.player.split.hand, ref this.dealer.hand.hand, ref this.dealer.deck.deck);
         //[todo] re-enable betting ui (text box, button)
     }
 
