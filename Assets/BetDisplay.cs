@@ -172,12 +172,13 @@ public class BetDisplay : MonoBehaviour {
         display = CreateDisplay();
         input = CreateInput();
         submit = CreateSubmit();
-
-        submit.onClick.AddListener(SubmitBet);
     }
 
     void Start() {
-
+        Reset();
+        
+        submit.onClick.AddListener(() => { Debug.Log("Fuck This Shit");});
+        submit.onClick.AddListener(SubmitBet);
     }
 
     void Update() {
