@@ -39,18 +39,18 @@ public class Game : MonoBehaviour
         int handValue = 0;
         if (!(this.isSplitStand))
         {
-            player.hand.AddCard(newCard);
-            handValue = player.hand.GetValue();
+            player.hand.hand.AddCard(newCard);
+            handValue = player.hand.hand.GetValue();
         }
         else if (this.isSplitStand)
         {
-            player.splitHand.AddCard(newCard);
-            handValue = player.splitHand.GetValue();
+            player.split.hand.AddCard(newCard);
+            handValue = player.split.hand.GetValue();
         }
         dealer.mostRecentCard = newCard;
         if (handValue > 21)
         {
-            EndRound(ref player.hand, ref player.splitHand, ref dealer.dealerHand, ref dealer.deck);
+            EndRound(ref player.hand.hand, ref player.split.hand, ref dealer.hand.hand, ref dealer.deck);
         }
     }
 
@@ -63,7 +63,7 @@ public class Game : MonoBehaviour
         //ends round if hand <= 21, as Hit() ends round if hand > 21. This is just to make sure EndRound() doesn't trigger twice.
         if (this.score <= 21)
         {
-            EndRound(ref player.hand, ref player.splitHand, ref dealer.dealerHand, ref dealer.deck);
+            EndRound(ref player.hand.hand, ref player.split.hand, ref dealer.hand.hand, ref dealer.deck);
         }
 
     }
@@ -254,7 +254,7 @@ public class Game : MonoBehaviour
     }
      //Insurance(): determines if player wants to use insurance and calculate the bet amount
     public void Insurance(bool playerUsesInsurance, ref PlayerDisplay player, ref DealerDisplay dealer){
-        if(dealer.dealerHand.GetCard(0).ToString().EndsWith("A")){
+        if(dealer.hand.hand.GetCard(0).ToString().EndsWith("A")){
             //[todo] prompt for insurance from player!
             if(playerUsesInsurance){
                 insuranceBetAmount = currentBet / 2;
@@ -271,21 +271,21 @@ public class Game : MonoBehaviour
     {
         CardModelSO newCard = dealer.deck.NextCard();
         int handValue = 0;
-        dealer.dealerHand.AddCard(newCard);
-        handValue = dealer.dealerHand.GetValue();
+        dealer.hand.hand.AddCard(newCard);
+        handValue = dealer.hand.hand.GetValue();
         dealer.mostRecentCard = newCard;
         if (handValue > 21)
         {
-            EndRound(ref player.hand, ref player.splitHand, ref dealer.dealerHand, ref dealer.deck);
+            EndRound(ref player.hand.hand, ref player.split.hand, ref dealer.hand.hand, ref dealer.deck);
         }
     }
     public void DealerTurn(ref PlayerDisplay player, ref DealerDisplay dealer){
         Debug.Log("Dealer reveals their second card");
-        while(dealer.dealerHand.GetValue() < 17){
+        while(dealer.hand.hand.GetValue() < 17){
             DealerHit(ref player, ref dealer);
             Debug.Log("Dealer draws a card.");
         }
-        EndRound(ref player.hand, ref player.splitHand, ref dealer.dealerHand, ref dealer.deck);
+        EndRound(ref player.hand.hand, ref player.split.hand, ref dealer.hand.hand, ref dealer.deck);
         /*
         else{
             int result = roundResult(currentHand);
