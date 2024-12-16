@@ -219,34 +219,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c480f8a047132c64da2dbfcfe81bf122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 1744101486}
+  card: {fileID: 0}
   spriteRenderer: {fileID: 5766534}
---- !u!114 &14627450
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d82fa91de815dc478c00faa2edd48a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  suit: SPADES
-  rank: 2
---- !u!114 &32658660
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2ddbc88233c12a4fab6a74ef1e9e925, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &41937837
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,20 +271,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debug: 0
-  hand: {fileID: 530239279}
+  hand: {fileID: 0}
   cardStack: {fileID: 1059466744}
---- !u!114 &85214822
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2ddbc88233c12a4fab6a74ef1e9e925, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &90433413
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,7 +437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c480f8a047132c64da2dbfcfe81bf122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 341462909}
+  card: {fileID: 0}
   spriteRenderer: {fileID: 102672059}
 --- !u!1 &109041314
 GameObject:
@@ -527,22 +489,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debug: 0
-  hand: {fileID: 1096951947}
+  hand: {fileID: 0}
   cardStack: {fileID: 1031257424}
---- !u!114 &122661674
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d82fa91de815dc478c00faa2edd48a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  suit: CLUBS
-  rank: 4
 --- !u!1 &159153985
 GameObject:
   m_ObjectHideFlags: 0
@@ -857,7 +805,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c480f8a047132c64da2dbfcfe81bf122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 122661674}
+  card: {fileID: 0}
   spriteRenderer: {fileID: 175067610}
 --- !u!1 &186146873
 GameObject:
@@ -959,22 +907,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c480f8a047132c64da2dbfcfe81bf122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 1109223956}
+  card: {fileID: 0}
   spriteRenderer: {fileID: 186146875}
---- !u!114 &186879525
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d82fa91de815dc478c00faa2edd48a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  suit: SPADES
-  rank: 10
 --- !u!1 &202246087
 GameObject:
   m_ObjectHideFlags: 0
@@ -1025,7 +959,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debug: 0
-  hand: {fileID: 1527369408}
+  hand: {fileID: 0}
   cardStack: {fileID: 419630841}
 --- !u!1 &249222568
 GameObject:
@@ -1127,7 +1061,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c480f8a047132c64da2dbfcfe81bf122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 1550446487}
+  card: {fileID: 0}
   spriteRenderer: {fileID: 249222570}
 --- !u!1 &253013713
 GameObject:
@@ -1220,18 +1154,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &261113989
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2ddbc88233c12a4fab6a74ef1e9e925, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &273589700
 GameObject:
   m_ObjectHideFlags: 0
@@ -1319,7 +1241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debug: 0
-  hand: {fileID: 1032065627}
+  hand: {fileID: 0}
   cardStack: {fileID: 2107051047}
 --- !u!1 &306519400
 GameObject:
@@ -1457,34 +1379,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 306519400}
   m_CullTransparentMesh: 1
---- !u!114 &312711180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d82fa91de815dc478c00faa2edd48a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  suit: SPADES
-  rank: 2
---- !u!114 &341462909
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d82fa91de815dc478c00faa2edd48a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  suit: DIAMONDS
-  rank: 6
 --- !u!1001 &396962545
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1706,18 +1600,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &455242328
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bf34fabb04ec5d4c99e289e587c9bde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &482437572
 GameObject:
   m_ObjectHideFlags: 0
@@ -1768,7 +1650,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debug: 0
-  hand: {fileID: 261113989}
+  hand: {fileID: 0}
   cardStack: {fileID: 1137442410}
 --- !u!1 &483663539
 GameObject:
@@ -1870,7 +1752,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c480f8a047132c64da2dbfcfe81bf122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 647291227}
+  card: {fileID: 0}
   spriteRenderer: {fileID: 483663541}
 --- !u!1 &517919273
 GameObject:
@@ -1922,34 +1804,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debug: 0
-  hand: {fileID: 32658660}
+  hand: {fileID: 0}
   cardStack: {fileID: 273589700}
---- !u!114 &530239279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2ddbc88233c12a4fab6a74ef1e9e925, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &531923838
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d82fa91de815dc478c00faa2edd48a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  suit: HEARTS
-  rank: 6
 --- !u!1 &548239435
 GameObject:
   m_ObjectHideFlags: 0
@@ -1983,20 +1839,6 @@ Transform:
   - {fileID: 1220539092}
   m_Father: {fileID: 1244191417}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &568640404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d82fa91de815dc478c00faa2edd48a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  suit: HEARTS
-  rank: 2
 --- !u!1 &589456324
 GameObject:
   m_ObjectHideFlags: 0
@@ -2097,7 +1939,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c480f8a047132c64da2dbfcfe81bf122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 721879100}
+  card: {fileID: 0}
   spriteRenderer: {fileID: 589456326}
 --- !u!1 &600861840
 GameObject:
@@ -2199,7 +2041,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c480f8a047132c64da2dbfcfe81bf122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 1436289535}
+  card: {fileID: 0}
   spriteRenderer: {fileID: 600861842}
 --- !u!1 &609616986
 GameObject:
@@ -2301,7 +2143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c480f8a047132c64da2dbfcfe81bf122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 14627450}
+  card: {fileID: 0}
   spriteRenderer: {fileID: 609616988}
 --- !u!1 &625541143
 GameObject:
@@ -2512,22 +2354,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c480f8a047132c64da2dbfcfe81bf122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 1332514873}
+  card: {fileID: 0}
   spriteRenderer: {fileID: 627292448}
---- !u!114 &647291227
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d82fa91de815dc478c00faa2edd48a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  suit: CLUBS
-  rank: 9
 --- !u!1 &699140771
 GameObject:
   m_ObjectHideFlags: 0
@@ -2628,22 +2456,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c480f8a047132c64da2dbfcfe81bf122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 2078631868}
+  card: {fileID: 0}
   spriteRenderer: {fileID: 699140773}
---- !u!114 &700167615
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d82fa91de815dc478c00faa2edd48a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  suit: SPADES
-  rank: 2
 --- !u!1 &715229649
 GameObject:
   m_ObjectHideFlags: 0
@@ -2768,48 +2582,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debug: 0
-  hand: {fileID: 2123766211}
+  hand: {fileID: 0}
   cardStack: {fileID: 1504820542}
---- !u!114 &721879100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d82fa91de815dc478c00faa2edd48a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  suit: SPADES
-  rank: 2
---- !u!114 &742220534
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d82fa91de815dc478c00faa2edd48a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  suit: SPADES
-  rank: 4
---- !u!114 &746102443
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2ddbc88233c12a4fab6a74ef1e9e925, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &750178613
 GameObject:
   m_ObjectHideFlags: 0
@@ -2820,8 +2594,9 @@ GameObject:
   m_Component:
   - component: {fileID: 750178615}
   - component: {fileID: 750178614}
+  - component: {fileID: 750178616}
   m_Layer: 0
-  m_Name: Audio Source
+  m_Name: Audio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2939,20 +2714,103 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &751859919
-MonoBehaviour:
+--- !u!82 &750178616
+AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 750178613}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d82fa91de815dc478c00faa2edd48a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  suit: HEARTS
-  rank: 9
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 0d3c75065106d468093d058642401e39, type: 3}
+  m_Resource: {fileID: 8300000, guid: 0d3c75065106d468093d058642401e39, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &797722292
 GameObject:
   m_ObjectHideFlags: 0
@@ -3053,20 +2911,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c480f8a047132c64da2dbfcfe81bf122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 1265900593}
+  card: {fileID: 0}
   spriteRenderer: {fileID: 797722294}
---- !u!114 &799527233
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bf34fabb04ec5d4c99e289e587c9bde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &810063279
 GameObject:
   m_ObjectHideFlags: 0
@@ -3200,22 +3046,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c480f8a047132c64da2dbfcfe81bf122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 1459226913}
+  card: {fileID: 0}
   spriteRenderer: {fileID: 811816315}
---- !u!114 &814584736
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d82fa91de815dc478c00faa2edd48a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  suit: CLUBS
-  rank: 4
 --- !u!1 &845190110
 GameObject:
   m_ObjectHideFlags: 0
@@ -3423,34 +3255,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8742538545776668643, guid: e5fbb40b700217c468d5d7f5c7b20b81, type: 3}
   m_PrefabInstance: {fileID: 855878328}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &860779685
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d82fa91de815dc478c00faa2edd48a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  suit: HEARTS
-  rank: 2
---- !u!114 &874253306
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d82fa91de815dc478c00faa2edd48a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  suit: CLUBS
-  rank: 6
 --- !u!1 &883526923
 GameObject:
   m_ObjectHideFlags: 0
@@ -3790,34 +3594,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 925792906}
   m_CullTransparentMesh: 1
---- !u!114 &946966731
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d82fa91de815dc478c00faa2edd48a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  suit: SPADES
-  rank: 2
---- !u!114 &962931265
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d82fa91de815dc478c00faa2edd48a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  suit: DIAMONDS
-  rank: 4
 --- !u!1 &973509391
 GameObject:
   m_ObjectHideFlags: 0
@@ -3918,7 +3694,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c480f8a047132c64da2dbfcfe81bf122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 874253306}
+  card: {fileID: 0}
   spriteRenderer: {fileID: 973509393}
 --- !u!1 &1029788817
 GameObject:
@@ -4090,18 +3866,6 @@ Transform:
   - {fileID: 1628129028}
   m_Father: {fileID: 109041315}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1032065627
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2ddbc88233c12a4fab6a74ef1e9e925, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1048020758
 GameObject:
   m_ObjectHideFlags: 0
@@ -4166,20 +3930,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &1053106318
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d82fa91de815dc478c00faa2edd48a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  suit: HEARTS
-  rank: 8
 --- !u!1 &1055369982
 GameObject:
   m_ObjectHideFlags: 0
@@ -4280,7 +4030,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c480f8a047132c64da2dbfcfe81bf122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 751859919}
+  card: {fileID: 0}
   spriteRenderer: {fileID: 1055369984}
 --- !u!1 &1059466744
 GameObject:
@@ -4391,51 +4141,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 421a5b92f40626748a40d70858dd5b07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 455242328}
+  player: {fileID: 0}
   player_hands:
-  - {fileID: 1527369408}
-  - {fileID: 530239279}
+  - {fileID: 0}
+  - {fileID: 0}
   display_hands: {fileID: 1048020758}
---- !u!114 &1086605518
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d82fa91de815dc478c00faa2edd48a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  suit: DIAMONDS
-  rank: 10
---- !u!114 &1092870051
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d82fa91de815dc478c00faa2edd48a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  suit: SPADES
-  rank: 3
---- !u!114 &1096951947
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2ddbc88233c12a4fab6a74ef1e9e925, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1103889101
 GameObject:
   m_ObjectHideFlags: 0
@@ -4500,34 +4210,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &1107896494
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d82fa91de815dc478c00faa2edd48a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  suit: CLUBS
-  rank: 4
---- !u!114 &1109223956
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d82fa91de815dc478c00faa2edd48a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  suit: CLUBS
-  rank: 9
 --- !u!1 &1125270641
 GameObject:
   m_ObjectHideFlags: 0
@@ -4628,7 +4310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c480f8a047132c64da2dbfcfe81bf122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 1873469614}
+  card: {fileID: 0}
   spriteRenderer: {fileID: 1125270643}
 --- !u!1 &1137442410
 GameObject:
@@ -4767,7 +4449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c480f8a047132c64da2dbfcfe81bf122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 1107896494}
+  card: {fileID: 0}
   spriteRenderer: {fileID: 1156870259}
 --- !u!1 &1190798998
 GameObject:
@@ -4869,7 +4551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c480f8a047132c64da2dbfcfe81bf122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 742220534}
+  card: {fileID: 0}
   spriteRenderer: {fileID: 1190799000}
 --- !u!1 &1220539091
 GameObject:
@@ -4971,7 +4653,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c480f8a047132c64da2dbfcfe81bf122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 1818949013}
+  card: {fileID: 0}
   spriteRenderer: {fileID: 1220539093}
 --- !u!1 &1228995751
 GameObject:
@@ -5073,7 +4755,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c480f8a047132c64da2dbfcfe81bf122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 1053106318}
+  card: {fileID: 0}
   spriteRenderer: {fileID: 1228995753}
 --- !u!1 &1238072476
 GameObject:
@@ -5364,7 +5046,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debug: 0
-  hand: {fileID: 746102443}
+  hand: {fileID: 0}
   cardStack: {fileID: 548239435}
 --- !u!1 &1256414912
 GameObject:
@@ -5468,20 +5150,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1256414912}
   m_CullTransparentMesh: 1
---- !u!114 &1265900593
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d82fa91de815dc478c00faa2edd48a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  suit: HEARTS
-  rank: 5
 --- !u!1 &1273568966
 GameObject:
   m_ObjectHideFlags: 0
@@ -5582,7 +5250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c480f8a047132c64da2dbfcfe81bf122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 1524385516}
+  card: {fileID: 0}
   spriteRenderer: {fileID: 1273568968}
 --- !u!1 &1274671157
 GameObject:
@@ -5793,10 +5461,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 421a5b92f40626748a40d70858dd5b07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 799527233}
+  player: {fileID: 0}
   player_hands:
-  - {fileID: 746102443}
-  - {fileID: 2075074147}
+  - {fileID: 0}
+  - {fileID: 0}
   display_hands: {fileID: 2109112388}
 --- !u!1 &1296566485
 GameObject:
@@ -5898,7 +5566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c480f8a047132c64da2dbfcfe81bf122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 1713603191}
+  card: {fileID: 0}
   spriteRenderer: {fileID: 1296566487}
 --- !u!1 &1304851803
 GameObject:
@@ -5976,10 +5644,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 421a5b92f40626748a40d70858dd5b07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1343307795}
+  player: {fileID: 0}
   player_hands:
-  - {fileID: 261113989}
-  - {fileID: 85214822}
+  - {fileID: 0}
+  - {fileID: 0}
   display_hands: {fileID: 1103889101}
 --- !u!1 &1321753030
 GameObject:
@@ -6081,34 +5749,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c480f8a047132c64da2dbfcfe81bf122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 1977244787}
+  card: {fileID: 0}
   spriteRenderer: {fileID: 1321753032}
---- !u!114 &1332514873
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d82fa91de815dc478c00faa2edd48a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  suit: HEARTS
-  rank: 2
---- !u!114 &1343307795
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bf34fabb04ec5d4c99e289e587c9bde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1353242660
 GameObject:
   m_ObjectHideFlags: 0
@@ -6330,7 +5972,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c480f8a047132c64da2dbfcfe81bf122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 186879525}
+  card: {fileID: 0}
   spriteRenderer: {fileID: 1373829673}
 --- !u!1 &1376313884
 GameObject:
@@ -6432,7 +6074,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c480f8a047132c64da2dbfcfe81bf122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 860779685}
+  card: {fileID: 0}
   spriteRenderer: {fileID: 1376313886}
 --- !u!1 &1388421789
 GameObject:
@@ -6534,7 +6176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c480f8a047132c64da2dbfcfe81bf122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 1092870051}
+  card: {fileID: 0}
   spriteRenderer: {fileID: 1388421791}
 --- !u!1 &1406721276
 GameObject:
@@ -6672,32 +6314,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1406721276}
   m_CullTransparentMesh: 1
---- !u!114 &1432739067
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bf34fabb04ec5d4c99e289e587c9bde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1436289535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d82fa91de815dc478c00faa2edd48a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  suit: DIAMONDS
-  rank: 10
 --- !u!1 &1447061649
 GameObject:
   m_ObjectHideFlags: 0
@@ -6798,36 +6414,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c480f8a047132c64da2dbfcfe81bf122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 1479685799}
+  card: {fileID: 0}
   spriteRenderer: {fileID: 1447061651}
---- !u!114 &1459226913
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d82fa91de815dc478c00faa2edd48a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  suit: HEARTS
-  rank: 2
---- !u!114 &1479685799
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d82fa91de815dc478c00faa2edd48a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  suit: HEARTS
-  rank: 3
 --- !u!1 &1499667598
 GameObject:
   m_ObjectHideFlags: 0
@@ -6985,72 +6573,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1499667598}
   m_CullTransparentMesh: 1
---- !u!114 &1502913352
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15226b300ad9216498d6cc5239278983, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  debug: 0
-  deck:
-  - {fileID: 11400000, guid: ff61f308fc012ae478def623d69620bb, type: 2}
-  - {fileID: 11400000, guid: 91c39c1627dbde34f8000322b989852d, type: 2}
-  - {fileID: 11400000, guid: e17ffd9ad04f86c418394652f44304c3, type: 2}
-  - {fileID: 11400000, guid: 660ac72e935599946bb5c04c26b33b54, type: 2}
-  - {fileID: 11400000, guid: 15a7632025e950f4bad28a6ae7c2b9ed, type: 2}
-  - {fileID: 11400000, guid: 4136a7171dbde694391df1f2c1d11dfd, type: 2}
-  - {fileID: 11400000, guid: a736d98e25e789e4eaf61574fb49a828, type: 2}
-  - {fileID: 11400000, guid: d52fece5e74533e4e930570d099bf762, type: 2}
-  - {fileID: 11400000, guid: b67f8726321c7b749b4fae3477681c02, type: 2}
-  - {fileID: 11400000, guid: 727856aca12f1104f9ef8b934af372a1, type: 2}
-  - {fileID: 11400000, guid: 8c1d39d24d50b314e9307aa7af845cb1, type: 2}
-  - {fileID: 11400000, guid: efab60c14e603c448afdf71b6c355bd1, type: 2}
-  - {fileID: 11400000, guid: 2981bfe5b6de9304a9f10fca0f0e7cf5, type: 2}
-  - {fileID: 11400000, guid: d5d7d55788d869146aad02c1fad1c3f9, type: 2}
-  - {fileID: 11400000, guid: a5bbbeff381d2ec4797495b9b7ea196c, type: 2}
-  - {fileID: 11400000, guid: 2d0e2b741522105438c8e14e4c728ec8, type: 2}
-  - {fileID: 11400000, guid: c047b1288727a1f409c48d2c4d3057c4, type: 2}
-  - {fileID: 11400000, guid: 8ef3ab5efb654d248806cbdf2d37e87e, type: 2}
-  - {fileID: 11400000, guid: c607d454b0e2f2d4b803d9b989c16ebc, type: 2}
-  - {fileID: 11400000, guid: 8907fb4f5cf8a9742a8587b50021190c, type: 2}
-  - {fileID: 11400000, guid: f5f06926fa3fd38418d79aefc6e887be, type: 2}
-  - {fileID: 11400000, guid: 0de580dbfbb16b94eaef0e8d1705a3d5, type: 2}
-  - {fileID: 11400000, guid: c152a22f3f9fcd647bd2cfba407b4a04, type: 2}
-  - {fileID: 11400000, guid: 4996e8422c9b97d4a9af478968b91176, type: 2}
-  - {fileID: 11400000, guid: f2f911379d2a8824a927b077102d0120, type: 2}
-  - {fileID: 11400000, guid: 5c20a0fc293d59548811968a6c1430f9, type: 2}
-  - {fileID: 11400000, guid: eb213834a0fa5d54d9dd9d04b97bc403, type: 2}
-  - {fileID: 11400000, guid: f8631f0cde89315468818cad312a5450, type: 2}
-  - {fileID: 11400000, guid: ef2f48908033d7f44913290e2de4abdd, type: 2}
-  - {fileID: 11400000, guid: 3be6a6c03f8aae44b96cc37dd3b150b4, type: 2}
-  - {fileID: 11400000, guid: f5ebcdbf724c2f14fb957fce1332e1dd, type: 2}
-  - {fileID: 11400000, guid: 9832e79cd3748904b950fbfb81d51aca, type: 2}
-  - {fileID: 11400000, guid: e74063ccdf155634dbd9efc25dfb23b9, type: 2}
-  - {fileID: 11400000, guid: 0e59f6c3df14c8f48b235a962fb7deb9, type: 2}
-  - {fileID: 11400000, guid: 782ee2d06da6d454d84b81b033f820cc, type: 2}
-  - {fileID: 11400000, guid: 56ba21d15d722154d8ab0194807b2929, type: 2}
-  - {fileID: 11400000, guid: 738f8f56798917f4d8a2eb98a3ac2908, type: 2}
-  - {fileID: 11400000, guid: 39a474f9b17740d4e8142f014dd1a6bd, type: 2}
-  - {fileID: 11400000, guid: decba390ce4619b4cbc65705839d569f, type: 2}
-  - {fileID: 11400000, guid: 92d51b66eba163448b1a7d939ba4d538, type: 2}
-  - {fileID: 11400000, guid: c7c085aa02c7d4f47bb007f6966b3f43, type: 2}
-  - {fileID: 11400000, guid: 1aa0bc7b41c17074d8703a4ff6215ddd, type: 2}
-  - {fileID: 11400000, guid: 059141ee9dbb75c48aa736477a04d19a, type: 2}
-  - {fileID: 11400000, guid: fea377b0bf7965c47b707fbc86ee0b00, type: 2}
-  - {fileID: 11400000, guid: 20b8f764e2ba9a5468aef882df1dccd2, type: 2}
-  - {fileID: 11400000, guid: 17de067c606fa6540a150679753a6caa, type: 2}
-  - {fileID: 11400000, guid: 71fdf2edda2eaf0499bf5aa8fb06fc65, type: 2}
-  - {fileID: 11400000, guid: c5919377c5f05ea4893d69df111866ff, type: 2}
-  - {fileID: 11400000, guid: ed31b0dd35c85f745a7494bdc59ee799, type: 2}
-  - {fileID: 11400000, guid: 438f7d3260cd8ab46acc2a459d774886, type: 2}
-  - {fileID: 11400000, guid: 6dfb9a1d95bc52e4fbd77c96edddb6da, type: 2}
-  - {fileID: 11400000, guid: 59a1342b38ec1f94fa9188e6ad69f004, type: 2}
 --- !u!1 &1504820542
 GameObject:
   m_ObjectHideFlags: 0
@@ -7185,34 +6707,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c480f8a047132c64da2dbfcfe81bf122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 946966731}
+  card: {fileID: 0}
   spriteRenderer: {fileID: 1517848269}
---- !u!114 &1524385516
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d82fa91de815dc478c00faa2edd48a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  suit: CLUBS
-  rank: 3
---- !u!114 &1527369408
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2ddbc88233c12a4fab6a74ef1e9e925, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1541559491
 GameObject:
   m_ObjectHideFlags: 0
@@ -7289,39 +6785,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 421a5b92f40626748a40d70858dd5b07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1432739067}
+  player: {fileID: 0}
   player_hands:
-  - {fileID: 32658660}
-  - {fileID: 2123766211}
+  - {fileID: 0}
+  - {fileID: 0}
   display_hands: {fileID: 171864444}
---- !u!114 &1550446487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d82fa91de815dc478c00faa2edd48a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  suit: SPADES
-  rank: 2
---- !u!114 &1558890852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d82fa91de815dc478c00faa2edd48a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  suit: HEARTS
-  rank: 9
 --- !u!1 &1565263124
 GameObject:
   m_ObjectHideFlags: 0
@@ -7398,10 +6866,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 421a5b92f40626748a40d70858dd5b07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1681463337}
+  player: {fileID: 0}
   player_hands:
-  - {fileID: 1096951947}
-  - {fileID: 1032065627}
+  - {fileID: 0}
+  - {fileID: 0}
   display_hands: {fileID: 90433413}
 --- !u!1 &1565634256
 GameObject:
@@ -7503,7 +6971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c480f8a047132c64da2dbfcfe81bf122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 1558890852}
+  card: {fileID: 0}
   spriteRenderer: {fileID: 1565634258}
 --- !u!1 &1595171881
 GameObject:
@@ -7605,7 +7073,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c480f8a047132c64da2dbfcfe81bf122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 2055884137}
+  card: {fileID: 0}
   spriteRenderer: {fileID: 1595171883}
 --- !u!1 &1603263857
 GameObject:
@@ -7778,7 +7246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debug: 0
-  hand: {fileID: 2075074147}
+  hand: {fileID: 0}
   cardStack: {fileID: 420692968}
 --- !u!1 &1628129027
 GameObject:
@@ -7880,22 +7348,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c480f8a047132c64da2dbfcfe81bf122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 1640535768}
+  card: {fileID: 0}
   spriteRenderer: {fileID: 1628129029}
---- !u!114 &1640535768
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d82fa91de815dc478c00faa2edd48a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  suit: SPADES
-  rank: 9
 --- !u!1 &1668805783
 GameObject:
   m_ObjectHideFlags: 0
@@ -8069,18 +7523,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1668933397}
   m_CullTransparentMesh: 1
---- !u!114 &1681463337
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bf34fabb04ec5d4c99e289e587c9bde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1692181324
 GameObject:
   m_ObjectHideFlags: 0
@@ -8181,7 +7623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c480f8a047132c64da2dbfcfe81bf122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 312711180}
+  card: {fileID: 0}
   spriteRenderer: {fileID: 1692181326}
 --- !u!1 &1697824174
 GameObject:
@@ -8283,7 +7725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c480f8a047132c64da2dbfcfe81bf122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 531923838}
+  card: {fileID: 0}
   spriteRenderer: {fileID: 1697824176}
 --- !u!1 &1711360970
 GameObject:
@@ -8385,22 +7827,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c480f8a047132c64da2dbfcfe81bf122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 814584736}
+  card: {fileID: 0}
   spriteRenderer: {fileID: 1711360972}
---- !u!114 &1713603191
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d82fa91de815dc478c00faa2edd48a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  suit: SPADES
-  rank: 9
 --- !u!1 &1736548078
 GameObject:
   m_ObjectHideFlags: 0
@@ -8501,7 +7929,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c480f8a047132c64da2dbfcfe81bf122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 568640404}
+  card: {fileID: 0}
   spriteRenderer: {fileID: 1736548080}
 --- !u!1 &1737218196
 GameObject:
@@ -8781,22 +8209,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c480f8a047132c64da2dbfcfe81bf122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 1815345438}
+  card: {fileID: 0}
   spriteRenderer: {fileID: 1741123319}
---- !u!114 &1744101486
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d82fa91de815dc478c00faa2edd48a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  suit: HEARTS
-  rank: 2
 --- !u!1 &1753079757
 GameObject:
   m_ObjectHideFlags: 0
@@ -9194,7 +8608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c480f8a047132c64da2dbfcfe81bf122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 962931265}
+  card: {fileID: 0}
   spriteRenderer: {fileID: 1788545548}
 --- !u!1 &1812443457
 GameObject:
@@ -9296,36 +8710,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c480f8a047132c64da2dbfcfe81bf122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 700167615}
+  card: {fileID: 0}
   spriteRenderer: {fileID: 1812443459}
---- !u!114 &1815345438
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d82fa91de815dc478c00faa2edd48a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  suit: DIAMONDS
-  rank: 5
---- !u!114 &1818949013
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d82fa91de815dc478c00faa2edd48a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  suit: CLUBS
-  rank: 5
 --- !u!1 &1839954114
 GameObject:
   m_ObjectHideFlags: 0
@@ -9426,22 +8812,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c480f8a047132c64da2dbfcfe81bf122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 1086605518}
+  card: {fileID: 0}
   spriteRenderer: {fileID: 1839954116}
---- !u!114 &1873469614
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d82fa91de815dc478c00faa2edd48a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  suit: HEARTS
-  rank: 2
 --- !u!1 &1874440354
 GameObject:
   m_ObjectHideFlags: 0
@@ -9799,22 +9171,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c480f8a047132c64da2dbfcfe81bf122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 1959130505}
+  card: {fileID: 0}
   spriteRenderer: {fileID: 1918230715}
---- !u!114 &1959130505
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d82fa91de815dc478c00faa2edd48a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  suit: HEARTS
-  rank: 10
 --- !u!1 &1963740960
 GameObject:
   m_ObjectHideFlags: 0
@@ -9861,7 +9219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debug: 0
-  deck: {fileID: 1502913352}
+  deck: {fileID: 0}
 --- !u!212 &1963740964
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9917,20 +9275,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1977244787
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d82fa91de815dc478c00faa2edd48a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  suit: SPADES
-  rank: 2
 --- !u!1 &2006658735
 GameObject:
   m_ObjectHideFlags: 0
@@ -10203,20 +9547,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2034642057}
   m_CullTransparentMesh: 1
---- !u!114 &2055884137
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d82fa91de815dc478c00faa2edd48a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  suit: CLUBS
-  rank: 2
 --- !u!1 &2063138373
 GameObject:
   m_ObjectHideFlags: 0
@@ -10375,32 +9705,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &2075074147
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2ddbc88233c12a4fab6a74ef1e9e925, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2078631868
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d82fa91de815dc478c00faa2edd48a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  suit: CLUBS
-  rank: 8
 --- !u!1 &2084952566
 GameObject:
   m_ObjectHideFlags: 0
@@ -10638,18 +9942,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &2123766211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2ddbc88233c12a4fab6a74ef1e9e925, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2143032660
 GameObject:
   m_ObjectHideFlags: 0
@@ -10700,7 +9992,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debug: 0
-  hand: {fileID: 85214822}
+  hand: {fileID: 0}
   cardStack: {fileID: 906819620}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
