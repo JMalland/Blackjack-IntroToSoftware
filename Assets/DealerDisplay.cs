@@ -39,6 +39,16 @@ public class DealerDisplay : MonoBehaviour {
         }
     }
 
+    // Deal a card to a HandDisplay hand
+    // NOTE: Yes, I know this fxn seems small and stupid
+    // NOTE: And, yes, we could just do this in the GameUI.
+    public void DealCard(HandDisplay hand) {
+        // Draw a card
+        CardDisplay card = deck.DrawCard();
+        // Add the card to the given hand
+        hand.AddCard(card);
+    }
+
     HandDisplay CreateHand() {
         // Create the Hand GameObject
         GameObject hand = new GameObject("Hand");
@@ -109,6 +119,13 @@ public class DealerDisplay : MonoBehaviour {
         this.hand = CreateHand();
         this.deck = CreateDeck();
         CreateRobotDealer();
+    }
+
+    // Triggers before Start() (prior to first frame)
+    void Awake() {
+        // Reset the DealerDisplay
+        // Also Resets the Deck
+        Reset();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
