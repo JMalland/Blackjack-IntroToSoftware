@@ -34,6 +34,7 @@ public class GameUI : MonoBehaviour
     public IEnumerator VerifyBet(int amount) {
         this.player.ClearHands();
         this.dealer.hand.ResetHand();
+        bet.SetCurrentBet(amount);
 
         Debug.Log("Dealing...");
 
@@ -56,33 +57,6 @@ public class GameUI : MonoBehaviour
         //[todo] display hands, both now have two cards
 
         //[todo] disable betting UI (text box, button) until round has ended.
-    }
-
-    public void HitUI() {
-        if (!(game.isSplit)) {
-            game.Hit(ref this.player, ref this.dealer);
-            //[todo] display card
-            int handValue = player.hand.hand.GetValue();
-            if (handValue > 21)
-            {
-                Stand();
-            }
-        }
-        else if (game.isSplit) {
-            if (!(game.isSplitStand)) {
-                game.Hit(ref this.player, ref this.dealer);
-                //[todo] display card
-            }
-            else if (game.isSplitStand) {
-                game.Hit(ref this.player, ref this.dealer);
-                //[todo] display card
-                int handValue = player.split.hand.GetValue();
-                if (handValue > 21)
-                {
-                    Stand();
-                }
-            }
-        }
     }
 
     public void DealerHitUI()
@@ -123,8 +97,7 @@ public class GameUI : MonoBehaviour
     }
 
     private void DealerStand() {
-        // Round Ends
-        // Evaluate Shit
+        EndRoundUI();
         // Display Shit
         Debug.Log("Dealer Stood");
     }
@@ -164,7 +137,7 @@ public class GameUI : MonoBehaviour
     {
         game.DoubleDown();
         //[todo] change score amount to relfect change
-        HitUI();
+        PlayerHit();
         //ends round if hand <= 21, as Hit() ends round if hand > 21. This is just to make sure EndRound() doesn't trigger twice.
         if (game.getScore() <= 21)
         {
@@ -227,17 +200,17 @@ public class GameUI : MonoBehaviour
         {
             if (blackjack)
             {
-                this.score += (this.bet.GetActiveBet() * 2);
-                this.score += (this.bet.GetActiveBet() / 2);
+                this.score += (this.bet.GetCurrentBet() * 2);
+                this.score += (this.bet.GetCurrentBet() / 2);
             }
             else
             {
-                this.score += (this.bet.GetActiveBet() * 2);
+                this.score += (this.bet.GetCurrentBet() * 2);
             }
         }
         else if (playerScore == dealerScore && playerScore < 22 && dealerScore < 22)
         {
-            this.score += this.bet.GetActiveBet();
+            this.score += this.bet.GetCurrentBet();
         }
         else
         {
@@ -254,23 +227,24 @@ public class GameUI : MonoBehaviour
                 {
                 if (splitBlackjack)
                 {
-                    this.score += (this.bet.GetActiveBet() * 2);
-                    this.score += (this.bet.GetActiveBet() / 2);
+                    this.score += (this.bet.GetCurrentBet() * 2);
+                    this.score += (this.bet.GetCurrentBet() / 2);
                 }
                 else
                 {
-                    this.score += (this.bet.GetActiveBet() * 2);
+                    this.score += (this.bet.GetCurrentBet() * 2);
                 }
             }
             else if (playerScore == dealerScore && playerScore < 22 && dealerScore < 22)
             {
-                this.score += this.bet.GetActiveBet();
+                this.score += this.bet.GetCurrentBet();
             }
             else
             {
                 //display player lost
             }
         }
+        bet.SetCurrentBet(0);
         //[todo] re-enable betting ui (text box, button)
     }
 

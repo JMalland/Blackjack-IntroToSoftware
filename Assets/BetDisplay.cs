@@ -30,6 +30,16 @@ public class BetDisplay : MonoBehaviour {
         }
     }
 
+    public int GetCurrentBet()
+    {
+        return this.currentBet;
+    }
+
+    public void SetCurrentBet(int bet)
+    {
+        this.currentBet = bet;
+    }
+
     public void SubmitBet() {
         int value = GetActiveBet();
         Debug.Log("Bet Submitted. Value: " + value);
