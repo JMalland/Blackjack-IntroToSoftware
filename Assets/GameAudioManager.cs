@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class GameAudioManager : MonoBehaviour
 {
-    public AudioSource musicSource;
     public AudioSource backgroundNoiseSource;
-    public AudioClip mainMusic;
-    public AudioClip themeMusic;
     public AudioClip backgroundNoise;
+    public AudioSource gameMusicSource;
+    public AudioClip defaultMusic;
+    public AudioClip theme1Music;
 
     private void Start()
     {
-        // Start playing background noise if enabled
+        // Start background noise if enabled
         if (PlayerPrefs.GetInt("BackgroundNoiseEnabled", 1) == 1)
         {
             backgroundNoiseSource.clip = backgroundNoise;
@@ -18,43 +18,33 @@ public class GameAudioManager : MonoBehaviour
             backgroundNoiseSource.Play();
         }
 
-        // Play the selected music (default or themed)
-        if (PlayerPrefs.GetInt("MusicEnabled", 1) == 1)
+        // Play game music based on theme preference and global music setting
+        bool useThemeMusic = PlayerPrefs.GetInt("UseThemeMusic", 0) == 1;
+        bool musicEnabled = PlayerPrefs.GetInt("MusicEnabled", 1) == 1;
+
+        if (musicEnabled)
         {
-            bool useThemeMusic = PlayerPrefs.GetInt("UseThemeMusic", 0) == 1;
-            musicSource.clip = useThemeMusic ? themeMusic : mainMusic;
-            musicSource.loop = true;
-            musicSource.Play();
+            gameMusicSource.clip = useThemeMusic ? theme1Music : defaultMusic;
+            gameMusicSource.loop = true;
+            gameMusicSource.Play();
         }
     }
 
-    public void ToggleBackgroundNoise(bool isOn)
+    private void OnEnable()
     {
-        if (isOn)
+        // Stop the global music when this scene is enabled
+        if (AudioManager.instance != null)
         {
-            backgroundNoiseSource.clip = backgroundNoise;
-            backgroundNoiseSource.Play();
-        }
-        else
-        {
-            backgroundNoiseSource.Stop();
+            AudioManager.instance.StopMusic();
         }
     }
 
-    public void ToggleMusic(bool isOn)
+    private void OnDisable()
     {
-        if (isOn)
+        // Resume the global music when this scene is disabled
+        if (AudioManager.instance != null)
         {
-            musicSource.Play();
+            AudioManager.instance.ResumeMusic();
         }
-        else
-        {
-            musicSource.Stop();
-        }
-    }
-
-    public void SetVolume(float volume)
-    {
-        AudioListener.volume = volume;
     }
 }
