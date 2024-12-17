@@ -15,11 +15,11 @@ ScriptedImporter:
   alignment: 0
   customPivot: {x: 0, y: 0}
   generatePhysicsShape: 0
-  viewportOptions: 1
+  viewportOptions: 0
   preserveViewport: 0
   advancedMode: 0
-  predefinedResolutionIndex: 0
-  targetResolution: 2160
+  predefinedResolutionIndex: 1
+  targetResolution: 1080
   resolutionMultiplier: 1
   stepDistance: 10
   samplingStepDistance: 100
@@ -51,5 +51,5 @@ ScriptedImporter:
         y: 0
         width: 0
         height: 0
-      spriteID: 897d0e33d0f69074597a906c8365dde7
+      spriteID: adb74e2fba694cb44b40b81edcfe516a
     PhysicsOutlines: []
