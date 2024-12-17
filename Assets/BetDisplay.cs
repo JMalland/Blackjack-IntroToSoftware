@@ -42,6 +42,11 @@ public class BetDisplay : MonoBehaviour {
 
     }
 
+    public int getCurrentBet()
+    {
+        return this.currentBet;
+    }
+
     // Get the entered Bet amount
     private int GetActiveBet() {
         int value = 0; // Fallback value
