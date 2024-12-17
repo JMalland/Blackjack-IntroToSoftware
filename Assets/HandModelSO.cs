@@ -13,7 +13,6 @@ public class HandModelSO : ScriptableObject
     public static int maxCardLimit = 12;
 
     // Events that can be listened for by the Hand display manager
-    public event Action<CardModelSO> CardAdded;
     public event Action<CardModelSO> SplitHand;
 
     // The array of cards in the hand
@@ -70,9 +69,6 @@ public class HandModelSO : ScriptableObject
         AddValue(card);
 
         Debug.Log(card.suit + " " + card.rank);
-
-        // Invoke the CardAdded eventlistener
-        CardAdded.Invoke(card);
     }
 
     // The cards in the hand, as a copy

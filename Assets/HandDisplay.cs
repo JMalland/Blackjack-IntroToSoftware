@@ -1,5 +1,7 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class HandDisplay : MonoBehaviour
@@ -15,7 +17,6 @@ public class HandDisplay : MonoBehaviour
     public void Initialize(HandModelSO newHand) {
         // Remove the events
         if (hand != null) {
-            hand.CardAdded -= CardAdded;
             hand.SplitHand -= SplitHand;
         }
         
@@ -23,13 +24,89 @@ public class HandDisplay : MonoBehaviour
         hand = newHand;
 
         // Add the events
-        hand.CardAdded += CardAdded;
         hand.SplitHand += SplitHand;
+    }
+
+    // A Delete function that deletes each child, outside 
+    // the scope of the gameObject iterative list
+    void KillChildren() {
+        // Create a temporary list to cage the children
+        var children = new List<Transform>();
+        foreach (Transform child in gameObject.transform) {
+            // Add the child to the list
+            children.Add(child);
+        }
+
+        // Now destroy each child in the cage
+        foreach (Transform child in children) {
+            Debug.Log($"Destroying: {child.name}");
+            GameObject.DestroyImmediate(child.gameObject);
+        }
+    }
+
+    public async void AddCard(CardDisplay cardDisplay) {
+        // Get the card's GameObject
+        GameObject cardObject = cardDisplay.gameObject;
+        
+        // Get the middle card
+        Transform middle = GetMiddleCard();
+    
+        // Make the card GameObject a child of the HandDisplay (within CardStack)
+        cardObject.transform.SetParent(middle.parent);
+
+        // Animate the movement of the card to the middle card
+        await MoveCardToMiddleAsync(cardObject, middle.position);
+
+        // Make a clone of the CardModelSO card
+        CardModelSO card = ScriptableObject.CreateInstance<CardModelSO>();
+        card.suit = cardDisplay.card.suit;
+        card.rank = cardDisplay.card.rank;
+
+        // Delete the animated card
+        GameObject.DestroyImmediate(cardObject);
+
+        // Add the card to the HandDisplay (UI)
+        CardAdded(card);
+        // Add the card to the HandModelSO
+        hand.AddCard(card);
+    }
+
+    private Task MoveCardToMiddleAsync(GameObject cardObject, Vector3 targetPosition) {
+        var tcs = new TaskCompletionSource<bool>();
+
+        StartCoroutine(MoveCardToMiddleCoroutine(cardObject, targetPosition, tcs));
+
+        return tcs.Task;
+    }
+
+    private IEnumerator MoveCardToMiddleCoroutine(GameObject cardObject, Vector3 targetPosition, TaskCompletionSource<bool> tcs) {
+        float duration = 1.0f; // Duration of the animation
+        float elapsedTime = 0f;
+        Vector3 startingPosition = cardObject.transform.position;
+
+        while (elapsedTime < duration) {
+            cardObject.transform.position = Vector3.Lerp(startingPosition, targetPosition, (elapsedTime / duration));
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        cardObject.transform.position = targetPosition; // Ensure the final position is set
+
+        // Complete the Task
+        tcs.SetResult(true);
+    }
+
+    Transform GetMiddleCard() {
+        // The index of the middle card in the hand
+        int middle = (int) Math.Floor(hand.GetCount()/2.0);
+
+        // Return the middle card
+        return(cardStack.transform.GetChild(middle));
     }
 
     // A card was added to the hand
     void CardAdded(CardModelSO card) {
-        if (debug) Debug.Log("HandDisplay: CardAdded");
+        if (debug) Debug.Log("HandDisplay.CardAdded(): " + card.rank + " OF " + card.suit.ToLower());
 
         // Number of cards in the hand
         int count = hand.GetCount();
@@ -69,23 +146,6 @@ public class HandDisplay : MonoBehaviour
         GameObject cardToDestroy = cardStack.transform.Find("Card 2")?.gameObject;
         if (cardToDestroy != null) {
             GameObject.DestroyImmediate(cardToDestroy);
-        }
-    }
-
-    // A Delete function that deletes each child, outside 
-    // the scope of the gameObject iterative list
-    void KillChildren() {
-        // Create a temporary list to cage the children
-        var children = new List<Transform>();
-        foreach (Transform child in gameObject.transform) {
-            // Add the child to the list
-            children.Add(child);
-        }
-
-        // Now destroy each child in the cage
-        foreach (Transform child in children) {
-            Debug.Log($"Destroying: {child.name}");
-            GameObject.DestroyImmediate(child.gameObject);
         }
     }
 
