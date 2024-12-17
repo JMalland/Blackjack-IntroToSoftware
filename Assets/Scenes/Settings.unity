@@ -1550,6 +1550,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1220981382}
+        m_TargetAssemblyTypeName: SettingsManager, Assembly-CSharp
+        m_MethodName: OnSFXButtonClick
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &693688758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2201,7 +2213,7 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!21 &874328550
+--- !u!21 &883888866
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
@@ -2465,6 +2477,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Play
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1220981382}
+        m_TargetAssemblyTypeName: SettingsManager, Assembly-CSharp
+        m_MethodName: OnSFXButtonClick
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3737,6 +3761,7 @@ GameObject:
   - component: {fileID: 1220981380}
   - component: {fileID: 1220981379}
   - component: {fileID: 1220981381}
+  - component: {fileID: 1220981382}
   m_Layer: 5
   m_Name: SettingsPanel
   m_TagString: Untagged
@@ -3778,7 +3803,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 874328550}
+  m_Material: {fileID: 883888866}
   m_Color: {r: 0.13725491, g: 0.29411766, b: 0.14901961, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -3818,6 +3843,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 25
   image: {fileID: 1220981379}
+--- !u!114 &1220981382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1220981376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03fcb5d18970244eda7e88bc557ee447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxOnButton: {fileID: 693688757}
+  sfxOffButton: {fileID: 920038250}
+  backgroundNoiseOnButton: {fileID: 1840560614}
+  backgroundNoiseOffButton: {fileID: 979213378}
+  musicOnButton: {fileID: 2143915194}
+  musicOffButton: {fileID: 1998913140}
+  defaultThemeButton: {fileID: 769209163}
+  theme1Button: {fileID: 1085450467}
+  volumeSlider: {fileID: 459904064}
+  sfxAudioSource: {fileID: 0}
+  backgroundNoiseAudioSource: {fileID: 0}
+  musicAudioSource: {fileID: 0}
 --- !u!1 &1229236495
 GameObject:
   m_ObjectHideFlags: 0

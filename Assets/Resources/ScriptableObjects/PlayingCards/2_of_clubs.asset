@@ -12,7 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d82fa91de815dc478c00faa2edd48a8, type: 3}
   m_Name: 2_of_clubs
   m_EditorClassIdentifier: 
-  cardSuit: Clubs
-  cardType: 2
-  frontCardImage: {fileID: 3286163911610860551, guid: 639f1d0c4c2955d43a0fc8f22eddf159, type: 3}
-  backCardImage: {fileID: 3286163911610860551, guid: 02d7a0102bb236447ba2fc2e75d8c106, type: 3}
+  suit: CLUBS
+  rank: 2

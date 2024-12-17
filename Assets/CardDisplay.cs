@@ -35,6 +35,10 @@ public class CardDisplay : MonoBehaviour
         gameObject.transform.localScale = new Vector3(13, 13, 1);
     }
 
+    void Awake() {
+        Reset();
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start() {
         // Display a random card
