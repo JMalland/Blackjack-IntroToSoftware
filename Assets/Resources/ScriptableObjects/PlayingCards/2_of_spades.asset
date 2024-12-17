@@ -12,7 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d82fa91de815dc478c00faa2edd48a8, type: 3}
   m_Name: 2_of_spades
   m_EditorClassIdentifier: 
-  cardSuit: Spades
-  cardType: 2
-  frontCardImage: {fileID: 3286163911610860551, guid: 50567aa0229b9a9448fdea87f6014a11, type: 3}
-  backCardImage: {fileID: 3286163911610860551, guid: 02d7a0102bb236447ba2fc2e75d8c106, type: 3}
+  suit: SPADES
+  rank: 2

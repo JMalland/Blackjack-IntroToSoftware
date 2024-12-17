@@ -19,7 +19,6 @@ public class PlayerDisplay : MonoBehaviour {
     //than I with how to proceed with those.
 
     // EventListeners to trigger Hit and Stand event responses (Not sure if has a use yet)
-    public event Action<HandDisplay> PlayerHit;
     public event Action<PlayerDisplay> PlayerStand;
 
     // player name
@@ -55,7 +54,7 @@ public class PlayerDisplay : MonoBehaviour {
 
     // Get the player's active hand.
     // Can be Hand or SplitHand.
-    private HandDisplay GetCurrentHand() {
+    public HandDisplay GetCurrentHand() {
         // The primary hand is active
         if (active_hand == "hand") {
             return(hand);
@@ -79,8 +78,6 @@ public class PlayerDisplay : MonoBehaviour {
         }
     }
 
-    // The player chose Hit
-    public void Hit() {
         // Send out the PlayerHit event, with the hand that was hit on
         // GameUI.HitUI(HandDisplay)
         //      DealerDisplay.DealCard(HandDisplay);
@@ -95,8 +92,6 @@ public class PlayerDisplay : MonoBehaviour {
                     // Adds the CardModelSO object to the HandModelSO (stored in HandDisplay)
                     HandModelSO.AddCard(CardModelSO)
         */
-        PlayerHit.Invoke(GetCurrentHand());
-    }
 
     public void Stand() {
         // If no other hand to choose from, set the active hand to null (There is no active hand)
@@ -178,7 +173,7 @@ public class PlayerDisplay : MonoBehaviour {
         //this.hand.SplitHand += Split;
         
         // Test the hand display, and splitting
-        this.hand.TestHand(false);
+        //this.hand.TestHand(false);
 
     }
 
