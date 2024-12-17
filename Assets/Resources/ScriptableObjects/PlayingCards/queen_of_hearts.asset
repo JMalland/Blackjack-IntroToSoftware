@@ -12,7 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d82fa91de815dc478c00faa2edd48a8, type: 3}
   m_Name: queen_of_hearts
   m_EditorClassIdentifier: 
-  cardSuit: Hearts
-  cardType: Q
-  frontCardImage: {fileID: 3286163911610860551, guid: af9095618291f824485c3e91b8c5fce6, type: 3}
-  backCardImage: {fileID: 3286163911610860551, guid: 02d7a0102bb236447ba2fc2e75d8c106, type: 3}
+  suit: HEARTS
+  rank: Q

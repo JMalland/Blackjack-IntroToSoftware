@@ -12,7 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d82fa91de815dc478c00faa2edd48a8, type: 3}
   m_Name: 7_of_diamonds
   m_EditorClassIdentifier: 
-  cardSuit: Diamonds
-  cardType: 7
-  frontCardImage: {fileID: 3286163911610860551, guid: a8f24f091a2bf0041953d88a3da710b5, type: 3}
-  backCardImage: {fileID: 3286163911610860551, guid: 02d7a0102bb236447ba2fc2e75d8c106, type: 3}
+  suit: DIAMONDS
+  rank: 7
