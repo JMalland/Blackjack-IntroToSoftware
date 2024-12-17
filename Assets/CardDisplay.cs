@@ -11,6 +11,9 @@ public class CardDisplay : MonoBehaviour
 
     public SpriteRenderer spriteRenderer;
 
+    public static int scale_x = 17;
+    public static int scale_y = 17;
+
     // Set a specific Card to be displayed
     public void Initialize(CardModelSO newCard) {
         // Set the new Card
@@ -35,11 +38,9 @@ public class CardDisplay : MonoBehaviour
         // Load the proper shader for drawing the sprite
         spriteRenderer.material = Resources.Load<Material>("Materials/Unlit_VectorGradient");
         
-        // Set the Sprite to be rendered
-        spriteRenderer.sprite = Resources.Load<Sprite>("Cards/"+card.rank.ToLower()+"_of_"+card.suit.ToLower());
 
         // Set the card to be 13*13 scale.
-        gameObject.transform.localScale = new Vector3(13, 13, 1);
+        gameObject.transform.localScale = new Vector3(scale_x, scale_y, 1);
     }
 
     void Awake() {
