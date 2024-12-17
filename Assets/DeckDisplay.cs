@@ -40,8 +40,6 @@ public class DeckDisplay : MonoBehaviour
         
         CardModelSO cardModel = deck.DrawCard();
 
-        // Make the card a child of (this) DeckDisplay component
-        cardObject.transform.SetParent(gameObject.transform);
         // Create the CardDisplay component
         CardDisplay card = cardObject.AddComponent<CardDisplay>();
         
@@ -52,7 +50,9 @@ public class DeckDisplay : MonoBehaviour
 
         // Set the position of the drawn card
         Transform transform = cardObject.transform;
-        transform.localPosition = new Vector3(180, 150, -40);
+        // Make the card a child of (this) DeckDisplay component
+        cardObject.transform.SetParent(gameObject.transform);
+        transform.localPosition = new Vector3(0, 0, 1);
 
         // Return the CardDisplay object
         return(card);
@@ -65,6 +65,8 @@ public class DeckDisplay : MonoBehaviour
     // Reset is called every time a component is added, or reset. This way changes appear in the editor.
     void Reset() {
         KillChildren();
+
+        gameObject.AddComponent<RectTransform>();
 
         deck = ScriptableObject.CreateInstance<DeckModelSO>();
         deck.Initialize();
