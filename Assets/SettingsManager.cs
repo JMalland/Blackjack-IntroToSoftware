@@ -13,6 +13,8 @@ public class SettingsManager : MonoBehaviour
     public Button theme1Button;
     public Slider volumeSlider;
 
+    public AudioSource backgroundNoiseAudioSource; // Reference to Background Noise AudioSource in General Game scene
+
     private void Start()
     {
         // Load saved settings
@@ -37,39 +39,51 @@ public class SettingsManager : MonoBehaviour
         volumeSlider.onValueChanged.AddListener(OnVolumeChange);
     }
 
-    private void OnSFXButtonClick(bool isOn)
+    public void OnSFXButtonClick(bool isOn)
     {
         PlayerPrefs.SetInt("SFXEnabled", isOn ? 1 : 0);
         SetButtonState(sfxOnButton, sfxOffButton, isOn);
-        // Update SFX in the game as needed
+        if (SFXManager.instance != null)
+        {
+            SFXManager.instance.ToggleSFX(isOn);
+        }
     }
 
-    private void OnBackgroundNoiseButtonClick(bool isOn)
+    public void OnBackgroundNoiseButtonClick(bool isOn)
     {
         PlayerPrefs.SetInt("BackgroundNoiseEnabled", isOn ? 1 : 0);
         SetButtonState(backgroundNoiseOnButton, backgroundNoiseOffButton, isOn);
-        // Call GameAudioManager's ToggleBackgroundNoise if in General Game scene
+        if (backgroundNoiseAudioSource != null)
+        {
+            backgroundNoiseAudioSource.mute = !isOn;
+        }
     }
 
-    private void OnMusicButtonClick(bool isOn)
+    public void OnMusicButtonClick(bool isOn)
     {
         PlayerPrefs.SetInt("MusicEnabled", isOn ? 1 : 0);
         SetButtonState(musicOnButton, musicOffButton, isOn);
-        AudioManager.instance.ToggleMusic(isOn);
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.ToggleMusic(isOn);
+        }
     }
 
-    private void OnThemeButtonClick(int themeIndex)
+    public void OnThemeButtonClick(int themeIndex)
     {
         PlayerPrefs.SetInt("UseThemeMusic", themeIndex);
         SetThemeButtons(themeIndex == 0);
-        // Change music if in General Game scene
+        // Do not change the starting music here
+        // Music change will be handled by GameAudioManager in the General Game scene
     }
 
-    private void OnVolumeChange(float volume)
+    public void OnVolumeChange(float volume)
     {
         PlayerPrefs.SetFloat("MasterVolume", volume);
-        AudioManager.instance.SetVolume(volume);
-        // Call GameAudioManager's SetVolume if in General Game scene
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.SetVolume(volume);
+        }
     }
 
     private void SetButtonState(Button onButton, Button offButton, bool isOn)
