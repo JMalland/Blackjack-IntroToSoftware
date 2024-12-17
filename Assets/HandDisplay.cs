@@ -44,43 +44,27 @@ public class HandDisplay : MonoBehaviour
         }
     }
 
-    public async void AddCard(CardDisplay cardDisplay) {
+    public IEnumerator AddCard(CardDisplay cardDisplay) {
         // Get the card's GameObject
         GameObject cardObject = cardDisplay.gameObject;
-        
+
         // Get the middle card
         Transform middle = GetMiddleCard();
-    
-        // Make the card GameObject a child of the HandDisplay (within CardStack)
-        //cardObject.transform.SetParent(middle.parent);
-        cardObject.transform.localScale = new Vector3(1, 1, 1);
+
+        // Set the scale of the card
+        //cardObject.transform.localScale = Vector3.one;
 
         // Animate the movement of the card to the middle card
-        await MoveCardToMiddleAsync(cardObject, middle.position);
-
-        // Make a clone of the CardModelSO card
-        CardModelSO card = ScriptableObject.CreateInstance<CardModelSO>();
-        card.suit = cardDisplay.card.suit;
-        card.rank = cardDisplay.card.rank;
-
-        // Delete the animated card
-        GameObject.DestroyImmediate(cardObject);
+        yield return StartCoroutine(MoveCardToMiddle(cardObject, middle.position));
 
         // Add the card to the HandModelSO
-        hand.AddCard(card);
+        hand.AddCard(cardDisplay.card);
+
         // Add the card to the HandDisplay (UI)
-        CardAdded(card);
+        CardAdded(cardDisplay);
     }
 
-    private Task MoveCardToMiddleAsync(GameObject cardObject, Vector3 targetPosition) {
-        var tcs = new TaskCompletionSource<bool>();
-
-        StartCoroutine(MoveCardToMiddleCoroutine(cardObject, targetPosition, tcs));
-
-        return tcs.Task;
-    }
-
-    private IEnumerator MoveCardToMiddleCoroutine(GameObject cardObject, Vector3 targetPosition, TaskCompletionSource<bool> tcs) {
+    private IEnumerator MoveCardToMiddle(GameObject cardObject, Vector3 targetPosition) {
         float duration = 1.0f; // Duration of the animation
         float elapsedTime = 0f;
         Vector3 startingPosition = cardObject.transform.position;
@@ -92,9 +76,6 @@ public class HandDisplay : MonoBehaviour
         }
 
         cardObject.transform.position = targetPosition; // Ensure the final position is set
-
-        // Complete the Task
-        tcs.SetResult(true);
     }
 
     Transform GetMiddleCard() {
@@ -110,20 +91,16 @@ public class HandDisplay : MonoBehaviour
     }
 
     // A card was added to the hand
-    void CardAdded(CardModelSO card) {
-        if (debug) Debug.Log("HandDisplay.CardAdded(): " + card.rank + " OF " + card.suit.ToLower());
+    void CardAdded(CardDisplay cardDisplay) {
+        if (debug) Debug.Log("HandDisplay.CardAdded(): " + cardDisplay.card.rank + " OF " + cardDisplay.card.suit.ToLower());
 
         // Number of cards in the hand
         int count = hand.GetCount();
 
-        // Create the Card object
-        GameObject cardObject = new GameObject($"Card {count}");
+        GameObject cardObject = cardDisplay.gameObject;
 
         // Add cardObject to array (CardStack)
         cardObject.transform.SetParent(cardStack.transform);
-
-        // Set the card to be 10x10 scale.
-        cardObject.transform.localScale = new Vector3(10, 10, 1);
     
         // Calculate the relative X position
         float x_pos = (count - 1) * 8;
@@ -140,9 +117,6 @@ public class HandDisplay : MonoBehaviour
             child.localRotation = Quaternion.Euler(0, 0, angle);
             child.localPosition = new Vector3(child.localPosition.x, Mathf.Abs(Mathf.Tan(Mathf.Deg2Rad * angle)) * -13, child.localPosition.z);
         }
-
-        // Create the CardDisplay component
-        cardObject.AddComponent<CardDisplay>().Initialize(card);
     }
 
     // The hand was split

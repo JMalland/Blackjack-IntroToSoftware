@@ -30,9 +30,18 @@ public class GameUI : MonoBehaviour
     /*
      * Jacob's SetPlayerBet Replacement (without looking at Ethan's updated code)
     */
-    public void VerifyBet(int amount) {
+    public IEnumerator VerifyBet(int amount) {
         this.player.ClearHands();
         this.dealer.hand.ResetHand();
+
+        Debug.Log("Dealing...");
+
+        // Deal the cards
+        yield return dealer.DealCard(dealer.hand);
+        yield return PlayerHit();
+        yield return dealer.DealCard(dealer.hand);
+        yield return PlayerHit();
+        
         //game.StartRound(amount, ref this.dealer, ref this.player);
         //HitUI();
         //HitUI();
@@ -75,8 +84,7 @@ public class GameUI : MonoBehaviour
         }
     }
 
-    public void DealerHitUI()
-    {
+    public void DealerHitUI() {
         game.DealerHit(ref this.player, ref this.dealer);
         //[todo] display card
         int handValue = dealer.hand.hand.GetValue();
@@ -87,14 +95,59 @@ public class GameUI : MonoBehaviour
     }
 
     // Jacob's Attempt At Coding
-    private void PlayerHit() {
+    private IEnumerator DealerHit() {
+        Debug.Log("Dealer Hit");
+    
+        while (true) {
+            // Deal a card
+            yield return StartCoroutine(dealer.DealCard(dealer.hand));
+    
+            // Evaluate hand value
+            int value = dealer.hand.hand.GetValue();
+    
+            // If dealer value < 17, continue hitting
+            if (value < 17) {
+                Debug.Log($"Dealer's Hand Value: {value} (Hitting again)");
+            }
+            // If dealer busts or stands, stop the loop
+            else {
+                if (value > 21) {
+                    Debug.Log("Dealer Busts!");
+                } else {
+                    Debug.Log("Dealer Stands!");
+                }
+                DealerStand();
+                break;
+            }
+        }
+    }
+
+    private void DealerStand() {
+        // Round Ends
+        // Evaluate Shit
+        // Display Shit
+        Debug.Log("Dealer Stood");
+    }
+
+    private IEnumerator PlayerHit() {
         Debug.Log("Player Hit");
 
-        // Have the dealer deal to the Hand (UI)
-        dealer.DealCard(player.GetCurrentHand());
+        // Deal a card to the player's current hand
+        yield return StartCoroutine(dealer.DealCard(player.GetCurrentHand()));
 
-        // Evaluate hand to determine whether Bust (effectively, Stand)
+        // Evaluate player's hand value
+        int value = player.GetCurrentHand().hand.GetValue();
+
+        if (value >= 21) {
+            if (value > 21) {
+                Debug.Log("Player Busts!");
+            } else {
+                Debug.Log("Player Stands at 21!");
+            }
+            PlayerStand();
+        }
     }
+
 
     private void PlayerStand() {
         // Disable Hit & Stand
@@ -102,6 +155,8 @@ public class GameUI : MonoBehaviour
         actions.Toggle("Stand");
 
         Debug.Log("Player Stood");
+
+        DealerHit();
     }
 
     //trigger when DoubleDown button is clicked
@@ -168,15 +223,23 @@ public class GameUI : MonoBehaviour
         //[todo] re-enable betting ui (text box, button)
     }
 
+    private void VerifyBetCoroutine(int amt) {
+        StartCoroutine(VerifyBet(amt));
+    }
+
+    private void HitCoroutine() {
+        StartCoroutine(PlayerHit());
+    }
+
     // Makes sure this all happens before the first frame
     // Not sure if it would work like this, depending on how or 
     // what order Awake is called for various elements/scripts.
     void Awake() {
         // Add the VerifyBet function to the BetSubmitted Event Listener
-        this.bet.BetSubmitted += VerifyBet;
+        this.bet.BetSubmitted += VerifyBetCoroutine;
 
         // Add the Hit (UI) function to the Hit Event Listener
-        this.actions.Hit += PlayerHit;
+        this.actions.Hit += HitCoroutine;
         // Add the Stand (UI) function to the Stand Event Listener
         this.actions.Stand += PlayerStand;
     }
