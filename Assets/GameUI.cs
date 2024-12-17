@@ -22,8 +22,9 @@ public class GameUI : MonoBehaviour
 
     public PlayerDisplay player;
     public DealerDisplay dealer;
-
     public BetDisplay bet;
+    
+    //public ActionDisplay actions;
     Game game;
 
     /*
@@ -69,6 +70,12 @@ public class GameUI : MonoBehaviour
                 }
             }
         }
+    }
+
+    // Jacob's Attempt At Coding
+    public void Hit(HandDisplay hand) {
+        // Have the dealer deal to the Hand (UI)
+        dealer.DealCard(hand);
     }
 
     public void DoubleDownUI()
@@ -143,9 +150,9 @@ public class GameUI : MonoBehaviour
          * Looks Like
         */
         // Add the Hit (UI) function to the Hit Event Listener
-        //this.player.PlayerHit += HitUI
+        this.player.PlayerHit += Hit;
         // Add the Stand (UI) function to the Stand Event Listener
-        //this.player.PlayerStand += StandUI
+        //this.player.PlayerStand += Stand;
     }
 
     void Reset() {
