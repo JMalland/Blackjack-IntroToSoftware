@@ -10,7 +10,7 @@ using UnityEngine.UI;
 using UnityEngine.XR;
 
 public class DealerDisplay : MonoBehaviour {
-    public Boolean debug = false;
+    public Boolean debug = true;
 
     //dealer hand
     public HandDisplay hand;
@@ -45,6 +45,13 @@ public class DealerDisplay : MonoBehaviour {
     public void DealCard(HandDisplay hand) {
         // Draw a card
         CardDisplay card = deck.DrawCard();
+
+        // Dealing to Dealer's hand
+        if (hand == this.hand && this.hand.hand.GetCount() == 1) {
+            // Hide the second card
+            card.HideCard();
+        }
+
         // Add the card to the given hand
         hand.AddCard(card);
     }
@@ -58,9 +65,6 @@ public class DealerDisplay : MonoBehaviour {
         hand.transform.localPosition = new Vector3(0, 100, 0);
         // Add the HandDisplay Component to the hand
         HandDisplay display_hand = hand.AddComponent<HandDisplay>();
-
-        // Test the hand display
-        display_hand.TestHand(false);
         
         return(display_hand);
     }
@@ -75,7 +79,7 @@ public class DealerDisplay : MonoBehaviour {
         // Set the scale of the deck
         deck.transform.localScale = new Vector3(13, 13, 1);
         // Set the position of the deck
-        deck.transform.localPosition = new Vector3(180, 150, 0);
+        deck.transform.localPosition = new Vector3(180, 150, 2);
 
         return(display_deck);
     }

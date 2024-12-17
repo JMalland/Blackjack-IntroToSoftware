@@ -52,10 +52,11 @@ public class HandDisplay : MonoBehaviour
         Transform middle = GetMiddleCard();
     
         // Make the card GameObject a child of the HandDisplay (within CardStack)
-        cardObject.transform.SetParent(middle.parent);
+        //cardObject.transform.SetParent(middle.parent);
+        cardObject.transform.localScale = new Vector3(1, 1, 1);
 
         // Animate the movement of the card to the middle card
-        await MoveCardToMiddleAsync(cardObject, middle.localPosition);
+        await MoveCardToMiddleAsync(cardObject, middle.position);
 
         // Make a clone of the CardModelSO card
         CardModelSO card = ScriptableObject.CreateInstance<CardModelSO>();
@@ -82,15 +83,15 @@ public class HandDisplay : MonoBehaviour
     private IEnumerator MoveCardToMiddleCoroutine(GameObject cardObject, Vector3 targetPosition, TaskCompletionSource<bool> tcs) {
         float duration = 1.0f; // Duration of the animation
         float elapsedTime = 0f;
-        Vector3 startingPosition = cardObject.transform.localPosition;
+        Vector3 startingPosition = cardObject.transform.position;
 
         while (elapsedTime < duration) {
-            cardObject.transform.localPosition = Vector3.Lerp(startingPosition, targetPosition, (elapsedTime / duration));
+            cardObject.transform.position = Vector3.Lerp(startingPosition, targetPosition, (elapsedTime / duration));
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
-        cardObject.transform.localPosition = targetPosition; // Ensure the final position is set
+        cardObject.transform.position = targetPosition; // Ensure the final position is set
 
         // Complete the Task
         tcs.SetResult(true);
@@ -101,14 +102,7 @@ public class HandDisplay : MonoBehaviour
         int middle = (int) Math.Floor(hand.GetCount()/2.0);
 
         if (hand.GetCount() == 0) {
-            // Calculate the relative X position
-            float x_pos = (hand.GetCount() - 1) * 8;
-            float y_pos = (hand.GetCount() >= 7) ? -24 : 0;
-
-            GameObject test = new GameObject();
-            RectTransform rect = test.AddComponent<RectTransform>();
-            rect.localPosition = new Vector2(x_pos, y_pos);
-            return(test.transform);
+            return(gameObject.transform);
         }
 
         // Return the middle card
