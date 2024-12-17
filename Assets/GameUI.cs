@@ -96,30 +96,29 @@ public class GameUI : MonoBehaviour
     }
 
     // Jacob's Attempt At Coding
-    private IEnumerator DealerHit() {
+    private IEnumerator DealerTurn() {
         Debug.Log("Dealer Hit");
     
-        while (true) {
+        do {
             // Deal a card
             yield return StartCoroutine(dealer.DealCard(dealer.hand));
-    
-            // Evaluate hand value
-            int value = dealer.hand.hand.GetValue();
-    
-            // If dealer value < 17, continue hitting
-            if (value < 17) {
-                Debug.Log($"Dealer's Hand Value: {value} (Hitting again)");
+        } while (dealer.hand.hand.GetValue() < 17);
+
+        // Evaluate hand value
+        int value = dealer.hand.hand.GetValue();
+
+        // If dealer value < 17, continue hitting
+        if (value < 17) {
+            Debug.Log($"Dealer's Hand Value: {value} (Hitting again)");
+        }
+        // If dealer busts or stands, stop the loop
+        else {
+            if (value > 21) {
+                Debug.Log("Dealer Busts!");
+            } else {
+                Debug.Log("Dealer Stands!");
             }
-            // If dealer busts or stands, stop the loop
-            else {
-                if (value > 21) {
-                    Debug.Log("Dealer Busts!");
-                } else {
-                    Debug.Log("Dealer Stands!");
-                }
-                DealerStand();
-                break;
-            }
+            DealerStand();
         }
     }
 
@@ -157,7 +156,7 @@ public class GameUI : MonoBehaviour
 
         Debug.Log("Player Stood");
 
-        DealerHit();
+        DealerTurn();
     }
 
     //trigger when DoubleDown button is clicked
