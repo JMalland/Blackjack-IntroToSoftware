@@ -80,24 +80,25 @@ public class PlayerDisplay : MonoBehaviour {
     }
 
     // The player chose Hit
-    void Hit() {
+    public void Hit() {
         // Send out the PlayerHit event, with the hand that was hit on
         // GameUI.HitUI(HandDisplay)
-        //      dealer.DealCard(HandDisplay);
-        /*          // Creates CardDisplay GameObject on screen
-                    HandDisplay.AddCard(CardModelSO, CardDisplay-GameObject)
-                        // Calls the HandDisplay.CardAdded() function
-                        HandDisplay.CardAdded(card GameObject)
-                            // Animate card movement to middle of hand
-                            // Add card to UI Hand
-                            // ??Update UI Hand Value Display??
-                        // Adds the CardModelSO object to the HandModelSO (stored in HandDisplay)
-                        HandModelSO.AddCard(CardModelSO)
+        //      DealerDisplay.DealCard(HandDisplay);
+        //          // Draws the card
+        //          card = DeckDisplay.DrawCard();
+        //              // Creates & returns CardDisplay component 
+        //          // Sends the card to the Hand
+        //          HandDisplay.AddCard(card);
+        /*              // Animate card movement to middle of hand
+                        // Add card to UI Hand
+                        // ??Update UI Hand Value Display??
+                    // Adds the CardModelSO object to the HandModelSO (stored in HandDisplay)
+                    HandModelSO.AddCard(CardModelSO)
         */
         PlayerHit.Invoke(GetCurrentHand());
     }
 
-    void Stand() {
+    public void Stand() {
         // If no other hand to choose from, set the active hand to null (There is no active hand)
         // Otherwise, set the active hand to "split"
         this.active_hand = this.active_hand == "hand" && this.split ? "split" : null;
