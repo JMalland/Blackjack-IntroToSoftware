@@ -23,8 +23,8 @@ public class GameUI : MonoBehaviour
     public PlayerDisplay player;
     public DealerDisplay dealer;
     public BetDisplay bet;
+    public ActionDisplay actions;
     
-    //public ActionDisplay actions;
     Game game;
 
     /*
@@ -33,15 +33,15 @@ public class GameUI : MonoBehaviour
     public void VerifyBet(int amount) {
         this.player.ClearHands();
         this.dealer.hand.ResetHand();
-        game.StartRound(amount, ref this.dealer, ref this.player);
-        HitUI();
-        HitUI();
-        DealerHitUI();
-        DealerHitUI();
-        if (this.player.hand.hand.GetValue() == 21 || this.dealer.hand.hand.GetValue() == 21)
-        {
-            EndRoundUI();
-        }
+        //game.StartRound(amount, ref this.dealer, ref this.player);
+        //HitUI();
+        //HitUI();
+        //DealerHitUI();
+        //DealerHitUI();
+        //if (this.player.hand.hand.GetValue() == 21 || this.dealer.hand.hand.GetValue() == 21)
+       // {
+         //   EndRoundUI();
+        //}
         
         //[todo] display hands, both now have two cards
 
@@ -87,9 +87,21 @@ public class GameUI : MonoBehaviour
     }
 
     // Jacob's Attempt At Coding
-    public void Hit(HandDisplay hand) {
+    private void PlayerHit() {
+        Debug.Log("Player Hit");
+
         // Have the dealer deal to the Hand (UI)
-        dealer.DealCard(hand);
+        dealer.DealCard(player.GetCurrentHand());
+
+        // Evaluate hand to determine whether Bust (effectively, Stand)
+    }
+
+    private void PlayerStand() {
+        // Disable Hit & Stand
+        actions.Toggle("Hit");
+        actions.Toggle("Stand");
+
+        Debug.Log("Player Stood");
     }
 
     //trigger when DoubleDown button is clicked
@@ -160,33 +172,16 @@ public class GameUI : MonoBehaviour
     // Not sure if it would work like this, depending on how or 
     // what order Awake is called for various elements/scripts.
     void Awake() {
-        this.player = UnityEngine.Object.FindFirstObjectByType<PlayerDisplay>();
-        this.bet = UnityEngine.Object.FindFirstObjectByType<BetDisplay>();
-        this.dealer = UnityEngine.Object.FindFirstObjectByType<DealerDisplay>();
-
         // Add the VerifyBet function to the BetSubmitted Event Listener
         this.bet.BetSubmitted += VerifyBet;
 
-
-        /*
-         * Not Certain About The Code Below
-         * Primarily Because I Don't Know
-         * What The Latest Commit Of This Script
-         * Looks Like
-        */
         // Add the Hit (UI) function to the Hit Event Listener
-        this.player.PlayerHit += Hit;
+        this.actions.Hit += PlayerHit;
         // Add the Stand (UI) function to the Stand Event Listener
-        //this.player.PlayerStand += Stand;
+        this.actions.Stand += PlayerStand;
     }
 
     void Reset() {
-        // Create PlayerDisplay object --> Send Player to Game
-        // Create DealerDisplay object --> Send DealerHand to Game; Send Deck to Game;
-        
-        
-
-        //game = new Game(PlayerHand, DealerHand, Deck);
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -196,6 +191,10 @@ public class GameUI : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        
+        // Get the Player, Bet, Actions, and Dealer
+        if (player == null) this.player = UnityEngine.Object.FindFirstObjectByType<PlayerDisplay>();
+        if (bet == null) this.bet = UnityEngine.Object.FindFirstObjectByType<BetDisplay>();
+        if (dealer == null) this.dealer = UnityEngine.Object.FindFirstObjectByType<DealerDisplay>();
+        if (actions == null) this.actions = UnityEngine.Object.FindFirstObjectByType<ActionDisplay>();
     }
 }
