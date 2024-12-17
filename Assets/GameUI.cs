@@ -24,7 +24,8 @@ public class GameUI : MonoBehaviour
     public DealerDisplay dealer;
     public BetDisplay bet;
     public ActionDisplay actions;
-    
+    private int score;
+
     Game game;
 
     /*
@@ -84,9 +85,9 @@ public class GameUI : MonoBehaviour
         }
     }
 
-    public void DealerHitUI() {
-        game.DealerHit(ref this.player, ref this.dealer);
-        //[todo] display card
+    public void DealerHitUI()
+    {
+        dealer.DealCard(dealer.hand);
         int handValue = dealer.hand.hand.GetValue();
         if (handValue > 21)
         {
@@ -219,7 +220,58 @@ public class GameUI : MonoBehaviour
 
     public void EndRoundUI() {
         //[todo] clear cards from screen
-        game.EndRound(ref this.player.hand.hand, ref this.player.split.hand, ref this.dealer.hand.hand, ref this.dealer.deck.deck);
+        bool blackjack = this.player.hand.hand.isBlackJack();
+        int playerScore = this.player.hand.hand.GetValue();
+        int dealerScore = this.dealer.hand.hand.GetValue();
+
+        if ((playerScore > dealerScore && playerScore < 22 || dealerScore > 21 && playerScore < 22))
+        {
+            if (blackjack)
+            {
+                this.score += (this.bet.getCurrentBet() * 2);
+                this.score += (this.bet.getCurrentBet() / 2);
+            }
+            else
+            {
+                this.score += (this.bet.getCurrentBet() * 2);
+            }
+        }
+        else if (playerScore == dealerScore && playerScore < 22 && dealerScore < 22)
+        {
+            this.score += this.bet.getCurrentBet();
+        }
+        else
+        {
+            //display player lost
+        }
+
+        //if splitting occurred and the first split hand has concluded, allowing game to evaluate.
+        if (player.wasSplit)
+        {
+            bool splitBlackjack = this.player.split.hand.isBlackJack();
+            int playerSplitScore = this.player.split.hand.GetValue();
+
+            if ((playerScore > dealerScore && playerScore < 22 || dealerScore > 21 && playerScore < 22))
+                {
+                if (splitBlackjack)
+                {
+                    this.score += (this.bet.getCurrentBet() * 2);
+                    this.score += (this.bet.getCurrentBet() / 2);
+                }
+                else
+                {
+                    this.score += (this.bet.getCurrentBet() * 2);
+                }
+            }
+            else if (playerScore == dealerScore && playerScore < 22 && dealerScore < 22)
+            {
+                this.score += this.bet.getCurrentBet();
+            }
+            else
+            {
+                //display player lost
+            }
+        }
         //[todo] re-enable betting ui (text box, button)
     }
 
