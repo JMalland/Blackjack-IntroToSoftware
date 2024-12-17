@@ -42,20 +42,13 @@ public class BetDisplay : MonoBehaviour {
 
     }
 
-    public int getCurrentBet()
-    {
-        return this.currentBet;
-    }
-
     // Get the entered Bet amount
     private int GetActiveBet() {
-        int value = 0; // Fallback value
-
         // Try to parse the Integer value from the input
-        Int32.TryParse(input.text, out value);
+        Int32.TryParse(input.text, out currentBet);
         
         // Return the bet amount
-        return(value);
+        return(currentBet);
     }
 
     TMP_InputField CreateInput() {
