@@ -55,7 +55,7 @@ public class HandDisplay : MonoBehaviour
         cardObject.transform.SetParent(middle.parent);
 
         // Animate the movement of the card to the middle card
-        await MoveCardToMiddleAsync(cardObject, middle.position);
+        await MoveCardToMiddleAsync(cardObject, middle.localPosition);
 
         // Make a clone of the CardModelSO card
         CardModelSO card = ScriptableObject.CreateInstance<CardModelSO>();
@@ -65,10 +65,10 @@ public class HandDisplay : MonoBehaviour
         // Delete the animated card
         GameObject.DestroyImmediate(cardObject);
 
-        // Add the card to the HandDisplay (UI)
-        CardAdded(card);
         // Add the card to the HandModelSO
         hand.AddCard(card);
+        // Add the card to the HandDisplay (UI)
+        CardAdded(card);
     }
 
     private Task MoveCardToMiddleAsync(GameObject cardObject, Vector3 targetPosition) {
@@ -82,15 +82,15 @@ public class HandDisplay : MonoBehaviour
     private IEnumerator MoveCardToMiddleCoroutine(GameObject cardObject, Vector3 targetPosition, TaskCompletionSource<bool> tcs) {
         float duration = 1.0f; // Duration of the animation
         float elapsedTime = 0f;
-        Vector3 startingPosition = cardObject.transform.position;
+        Vector3 startingPosition = cardObject.transform.localPosition;
 
         while (elapsedTime < duration) {
-            cardObject.transform.position = Vector3.Lerp(startingPosition, targetPosition, (elapsedTime / duration));
+            cardObject.transform.localPosition = Vector3.Lerp(startingPosition, targetPosition, (elapsedTime / duration));
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
-        cardObject.transform.position = targetPosition; // Ensure the final position is set
+        cardObject.transform.localPosition = targetPosition; // Ensure the final position is set
 
         // Complete the Task
         tcs.SetResult(true);
@@ -99,6 +99,17 @@ public class HandDisplay : MonoBehaviour
     Transform GetMiddleCard() {
         // The index of the middle card in the hand
         int middle = (int) Math.Floor(hand.GetCount()/2.0);
+
+        if (hand.GetCount() == 0) {
+            // Calculate the relative X position
+            float x_pos = (hand.GetCount() - 1) * 8;
+            float y_pos = (hand.GetCount() >= 7) ? -24 : 0;
+
+            GameObject test = new GameObject();
+            RectTransform rect = test.AddComponent<RectTransform>();
+            rect.localPosition = new Vector2(x_pos, y_pos);
+            return(test.transform);
+        }
 
         // Return the middle card
         return(cardStack.transform.GetChild(middle));
@@ -216,6 +227,10 @@ public class HandDisplay : MonoBehaviour
         cardStack.transform.SetParent(transform);
         cardStack.transform.localPosition = new Vector3(0, 0, -1);
         cardStack.transform.localScale = Vector3.one;
+    }
+
+    void Awake() {
+        Reset();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
