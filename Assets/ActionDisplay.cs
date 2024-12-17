@@ -48,6 +48,27 @@ public class ActionDisplay : MonoBehaviour {
         }
     }
 
+    // Toggle a button from On to Off, or Off to On
+    public void Toggle(String button) {
+        switch(button) {
+            case("Hit"):
+                HitButton.enabled = !HitButton.enabled;
+                break;
+            case("Stand"):
+                StandButton.enabled = !StandButton.enabled;
+                break;
+            case("Split"):
+                SplitButton.enabled = !SplitButton.enabled;
+                break;
+            case("Double Down"):
+                DoubleDownButton.enabled = !DoubleDownButton.enabled;
+                break;
+            case("Insurance"):
+                InsuranceButton.enabled = !InsuranceButton.enabled;
+                break;
+        }
+    }
+
     // Create a layout object
     private GameObject CreateLayout(string name, int spacing, bool isHorizontal) {
         GameObject obj = new GameObject(name);
@@ -90,7 +111,7 @@ public class ActionDisplay : MonoBehaviour {
     }
 
     // Calculate & set the proper width and height
-    void AutoSize(GameObject obj) {
+    private void AutoSize(GameObject obj) {
         // The dimensions of the layout container, with children
         float width = 0;
         float height = 0;
@@ -207,6 +228,18 @@ public class ActionDisplay : MonoBehaviour {
         // 90 is the desired Y value for Action Display
         rect.localPosition = new Vector3(0, -450, 0);
     }   
+
+    void Awake() {
+        // Reset the ActionsDisplay
+        Reset();
+
+        // Attach the event listeners to the buttons
+        HitButton.onClick.AddListener(() => { Hit.Invoke(); });
+        StandButton.onClick.AddListener(() => { Stand.Invoke(); });
+        SplitButton.onClick.AddListener(() => { Split.Invoke(); });
+        DoubleDownButton.onClick.AddListener(() => { DoubleDown.Invoke(); });
+        InsuranceButton.onClick.AddListener(() => { Insurance.Invoke(); });
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
