@@ -82,6 +82,7 @@ public class DeckDisplay : MonoBehaviour
 
         image.sprite = Resources.Load<Sprite>("Cards/backside");
 
+        gameObject.transform.localScale = new Vector3(CardDisplay.scale_x, CardDisplay.scale_y, 1);
         // WILL HAVE TO SET THE DEFAULT DECK TRANSFORM PROPERTIES
         // FOR MANAGING LOCATION WITHIN AN OBJECT
         // gameObject.transform;

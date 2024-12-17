@@ -40,21 +40,29 @@ public class DealerDisplay : MonoBehaviour {
     }
 
     // Deal a card to a HandDisplay hand
-    // NOTE: Yes, I know this fxn seems small and stupid
-    // NOTE: And, yes, we could just do this in the GameUI.
-    public void DealCard(HandDisplay hand) {
+    // Ensures cards are dealt sequentially by waiting for animations to complete
+    public IEnumerator DealCard(HandDisplay hand) {
+        Debug.Log("Deal Card");
+
         // Draw a card
         CardDisplay card = deck.DrawCard();
 
+        if (hand.transform.parent == gameObject.transform) {
+            Debug.Log("This Hand Is The Dealer's");
+            Debug.Log(hand.hand.GetCount());
+        }
+
         // Dealing to Dealer's hand
-        if (hand == this.hand && this.hand.hand.GetCount() == 1) {
+        if (hand.transform.parent == gameObject.transform && hand.hand.GetCount() == 1) {
+            Debug.Log("Hiding Dealer Card");
             // Hide the second card
             card.HideCard();
         }
 
-        // Add the card to the given hand
-        hand.AddCard(card);
+        // Add the card to the given hand and wait for the animation to complete
+        yield return StartCoroutine(hand.AddCard(card));
     }
+
 
     HandDisplay CreateHand() {
         // Create the Hand GameObject

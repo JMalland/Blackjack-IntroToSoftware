@@ -5,6 +5,7 @@ using UnityEngine.InputSystem.Controls;
 using UnityEngine.XR;
 using Unity.VisualScripting;
 using System.Collections.Generic;
+using System.Linq;
 
 [CreateAssetMenu(fileName = "HandModelSO", menuName = "New Hand")]
 public class HandModelSO : ScriptableObject
@@ -134,7 +135,53 @@ public class HandModelSO : ScriptableObject
             }
         }
     }
-    
+    public bool isBlackJack()
+    {
+        List<CardModelSO> playerHand = this.hand;
+        bool ace = false;
+        bool face = false;
+
+        for (int i = 0; i < playerHand.Count(); i++)
+        {
+            string card = playerHand[i].ToString();
+            if (card.EndsWith("A"))
+            {
+                if (!ace)
+                {
+                    ace = true;
+                }
+                else if (ace)
+                {
+                    ace = false;
+                    i = playerHand.Count();
+                }
+            }
+        }
+
+        for (int i = 0; i < playerHand.Count(); i++)
+        {
+            string card = playerHand[i].ToString();
+            if (card.EndsWith("J") || card.EndsWith("Q") || card.EndsWith("K") || card.Substring(card.Length - 2) == "10")
+            {
+                if (!face)
+                {
+                    face = true;
+                }
+                else if (face)
+                {
+                    face = false;
+                    i = playerHand.Count();
+                }
+            }
+        }
+
+        if (ace && face)
+        {
+            return true;
+        }
+        else return false;
+    }
+
     // function to resent the hand of a player
     public void ResetHand() {
         // clears the hand
