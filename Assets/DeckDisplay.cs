@@ -32,6 +32,26 @@ public class DeckDisplay : MonoBehaviour
         }
     }
 
+    public CardDisplay DrawCard() {
+        // Create a GameObject to be the card (UI)
+        GameObject cardObject = new GameObject("Drawn Card");
+        
+        // Create the CardDisplay component
+        CardDisplay card = cardObject.AddComponent<CardDisplay>();
+        // Initialize it with the drawn card
+        card.Initialize(deck.DrawCard());
+
+        // Make the card a child of (this) DeckDisplay component
+        cardObject.transform.SetParent(gameObject.transform);
+
+        // Set the position of the drawn card
+        Transform transform = cardObject.transform;
+        transform.localPosition = new Vector3(180, 150, 1);
+
+        // Return the CardDisplay object
+        return(card);
+    }
+
     // Reset is called every time a component is added, or reset. This way changes appear in the editor.
     void Reset() {
         KillChildren();

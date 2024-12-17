@@ -34,7 +34,7 @@ public class DeckModelSO : ScriptableObject {
         }
     }
 
-    public CardModelSO NextCard() {
+    public CardModelSO DrawCard() {
         // Get the top card from the deck
         CardModelSO top_card = deck[0];
 

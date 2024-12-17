@@ -34,7 +34,7 @@ public class Game : MonoBehaviour {
 
     public void Hit(ref PlayerDisplay player, ref DealerDisplay dealer)
     {
-        CardModelSO newCard = dealer.deck.deck.NextCard();
+        CardModelSO newCard = dealer.deck.deck.DrawCard();
         int handValue = 0;
         if (!(this.isSplitStand))
         {
@@ -268,7 +268,7 @@ public class Game : MonoBehaviour {
 
     public void DealerHit(ref PlayerDisplay player, ref DealerDisplay dealer)
     {
-        CardModelSO newCard = dealer.deck.deck.NextCard();
+        CardModelSO newCard = dealer.deck.deck.DrawCard();
         int handValue = 0;
         dealer.hand.hand.AddCard(newCard);
         handValue = dealer.hand.hand.GetValue();
