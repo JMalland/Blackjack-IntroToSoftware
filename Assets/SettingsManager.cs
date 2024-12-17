@@ -73,8 +73,7 @@ public class SettingsManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("UseThemeMusic", themeIndex);
         SetThemeButtons(themeIndex == 0);
-        // Do not change the starting music here
-        // Music change will be handled by GameAudioManager in the General Game scene
+        // Theme change is handled in the General Game scene
     }
 
     public void OnVolumeChange(float volume)
