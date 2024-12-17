@@ -26,6 +26,8 @@ public class PlayerDisplay : MonoBehaviour {
     public HandDisplay hand;
     public HandDisplay split;
 
+    public bool wasSplit;
+
     private String active_hand = "hand";
     //public HandModelSO hand = ScriptableObject.CreateInstance<HandModelSO>();
     //public HandModelSO split = ScriptableObject.CreateInstance<HandModelSO>();
@@ -115,6 +117,8 @@ public class PlayerDisplay : MonoBehaviour {
 
         Debug.Log("PlayerDisplay.Split(): Can Split Hand");
 
+
+        this.wasSplit = true;
         this.split = CreateHand("Hand 2");
         
         // Add the split card to the hand
