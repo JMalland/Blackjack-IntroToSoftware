@@ -28,7 +28,6 @@ public class PlayerDisplay : MonoBehaviour {
     public HandDisplay split;
 
     private String active_hand = "hand";
-
     //public HandModelSO hand = ScriptableObject.CreateInstance<HandModelSO>();
     //public HandModelSO split = ScriptableObject.CreateInstance<HandModelSO>();
 
@@ -83,19 +82,17 @@ public class PlayerDisplay : MonoBehaviour {
     // The player chose Hit
     void Hit() {
         // Send out the PlayerHit event, with the hand that was hit on
-        // GameUI
-        //      PlayerHit(HandDisplay)
-        /*          dealer.DealCard(HandDisplay);
-                        // Creates CardDisplay GameObject on screen
-                        HandDisplay.AddCard(CardModelSO, CardDisplay-GameObject)
-                            // Calls the HandDisplay.CardAdded() function
-                            HandDisplay.CardAdded(card GameObject)
-                                // Animate card movement to middle of hand
-                                // Add card to UI Hand
-                                // ??Update UI Hand Value Display??
-                            // Adds the CardModelSO object to the HandModelSO
-                            HandModelSO.AddCard(CardModelSO)
-
+        // GameUI.HitUI(HandDisplay)
+        //      dealer.DealCard(HandDisplay);
+        /*          // Creates CardDisplay GameObject on screen
+                    HandDisplay.AddCard(CardModelSO, CardDisplay-GameObject)
+                        // Calls the HandDisplay.CardAdded() function
+                        HandDisplay.CardAdded(card GameObject)
+                            // Animate card movement to middle of hand
+                            // Add card to UI Hand
+                            // ??Update UI Hand Value Display??
+                        // Adds the CardModelSO object to the HandModelSO (stored in HandDisplay)
+                        HandModelSO.AddCard(CardModelSO)
         */
         PlayerHit.Invoke(GetCurrentHand());
     }
