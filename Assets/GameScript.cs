@@ -17,6 +17,10 @@ public class Game : MonoBehaviour {
     public bool isSplit;
     public bool isSplitStand;
 
+    public int getScore()
+    {
+        return this.score;
+    }
 
 
     //Triggered at beginning of each round. Removes bet from player score. 
@@ -25,10 +29,6 @@ public class Game : MonoBehaviour {
         this.currentBet = playerBet;
         this.score -= playerBet;
         this.isSplit = false;
-        Hit(ref player, ref dealer);
-        Hit(ref player, ref dealer);
-        DealerHit(ref player, ref dealer);
-        DealerHit(ref player, ref dealer);
         //[todo] offer insurance if applicable
     }
 
@@ -54,27 +54,20 @@ public class Game : MonoBehaviour {
     }
 
     //Doubles player's bet and forces them to draw one card before force-ending the round.
-    public void DoubleDown(ref PlayerDisplay player, ref DealerDisplay dealer, ref CardModelSO mostRecentCard)
+    public void DoubleDown()
     {
         this.sideBet = this.currentBet;
         this.score -= this.sideBet;
-        Hit(ref player, ref dealer);
-        //ends round if hand <= 21, as Hit() ends round if hand > 21. This is just to make sure EndRound() doesn't trigger twice.
-        if (this.score <= 21)
-        {
-            EndRound(ref player.hand.hand, ref player.split.hand, ref dealer.hand.hand, ref dealer.deck.deck);
-        }
-
     }
 
-    public void Split(ref HandModelSO playerHand, ref HandModelSO splitHand, ref DeckModelSO deck, ref CardModelSO mostRecentCard)
+    public void Split(ref PlayerDisplay player)
     {
-        bool canSplit = playerHand.CanSplit();
+        bool canSplit = player.hand.hand.CanSplit();
         if (canSplit)
         {
             this.isSplit = true;
-            CardModelSO newCard = playerHand.Split();
-            splitHand.AddCard(newCard);
+            CardModelSO newCard = player.hand.hand.Split();
+            player.split.hand.AddCard(newCard);
         }
 
     }

@@ -34,7 +34,10 @@ public class GameUI : MonoBehaviour
         this.player.ClearHands();
         this.dealer.hand.ResetHand();
         game.StartRound(amount, ref this.dealer, ref this.player);
-    
+        HitUI();
+        HitUI();
+        DealerHitUI();
+        DealerHitUI();
         if (this.player.hand.hand.GetValue() == 21 || this.dealer.hand.hand.GetValue() == 21)
         {
             EndRoundUI();
@@ -72,15 +75,35 @@ public class GameUI : MonoBehaviour
         }
     }
 
+    public void DealerHitUI()
+    {
+        game.DealerHit(ref this.player, ref this.dealer);
+        //[todo] display card
+        int handValue = dealer.hand.hand.GetValue();
+        if (handValue > 21)
+        {
+            Stand();
+        }
+    }
+
     // Jacob's Attempt At Coding
     public void Hit(HandDisplay hand) {
         // Have the dealer deal to the Hand (UI)
         dealer.DealCard(hand);
     }
 
+    //trigger when DoubleDown button is clicked
     public void DoubleDownUI()
     {
-
+        game.DoubleDown();
+        //[todo] change score amount to relfect change
+        HitUI();
+        //ends round if hand <= 21, as Hit() ends round if hand > 21. This is just to make sure EndRound() doesn't trigger twice.
+        if (game.getScore() <= 21)
+        {
+            EndRoundUI();
+        }
+        //[todo] disable rest of buttons
     }
 
     public void InsuranceUI()
@@ -90,7 +113,9 @@ public class GameUI : MonoBehaviour
 
     public void SplitUI()
     {
-
+        //[todo] visually split hands
+        game.Split(ref this.player);
+        //[todo] disable buttons for split, double, insurance
     }
 
     public void Stand()
