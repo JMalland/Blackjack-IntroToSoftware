@@ -20,6 +20,10 @@ public class CardDisplay : MonoBehaviour
         spriteRenderer.sprite = Resources.Load<Sprite>("Cards/"+newCard.rank.ToLower()+"_of_"+newCard.suit.ToLower());
     }
 
+    public void HideCard() {
+        spriteRenderer.sprite = Resources.Load<Sprite>("Cards/backside");
+    }
+
     // Reset is called every time a component is added, or reset. This way changes appear in the editor.
     void Reset() {
         // Get or create the SpriteRenderer
@@ -30,6 +34,9 @@ public class CardDisplay : MonoBehaviour
 
         // Load the proper shader for drawing the sprite
         spriteRenderer.material = Resources.Load<Material>("Materials/Unlit_VectorGradient");
+        
+        // Set the Sprite to be rendered
+        spriteRenderer.sprite = Resources.Load<Sprite>("Cards/"+card.rank.ToLower()+"_of_"+card.suit.ToLower());
 
         // Set the card to be 13*13 scale.
         gameObject.transform.localScale = new Vector3(13, 13, 1);
@@ -51,8 +58,5 @@ public class CardDisplay : MonoBehaviour
             Debug.LogError("There is no Card set.");
             return;
         }
-
-        // Set the Sprite to be rendered
-        spriteRenderer.sprite = Resources.Load<Sprite>("Cards/"+card.rank.ToLower()+"_of_"+card.suit.ToLower());
     }
 }
