@@ -43,7 +43,7 @@ public class BetDisplay : MonoBehaviour {
     }
 
     // Get the entered Bet amount
-    private int GetActiveBet() {
+    public int GetActiveBet() {
         // Try to parse the Integer value from the input
         Int32.TryParse(input.text, out currentBet);
         

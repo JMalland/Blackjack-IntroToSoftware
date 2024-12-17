@@ -227,17 +227,17 @@ public class GameUI : MonoBehaviour
         {
             if (blackjack)
             {
-                this.score += (this.bet.getCurrentBet() * 2);
-                this.score += (this.bet.getCurrentBet() / 2);
+                this.score += (this.bet.GetActiveBet() * 2);
+                this.score += (this.bet.GetActiveBet() / 2);
             }
             else
             {
-                this.score += (this.bet.getCurrentBet() * 2);
+                this.score += (this.bet.GetActiveBet() * 2);
             }
         }
         else if (playerScore == dealerScore && playerScore < 22 && dealerScore < 22)
         {
-            this.score += this.bet.getCurrentBet();
+            this.score += this.bet.GetActiveBet();
         }
         else
         {
@@ -254,17 +254,17 @@ public class GameUI : MonoBehaviour
                 {
                 if (splitBlackjack)
                 {
-                    this.score += (this.bet.getCurrentBet() * 2);
-                    this.score += (this.bet.getCurrentBet() / 2);
+                    this.score += (this.bet.GetActiveBet() * 2);
+                    this.score += (this.bet.GetActiveBet() / 2);
                 }
                 else
                 {
-                    this.score += (this.bet.getCurrentBet() * 2);
+                    this.score += (this.bet.GetActiveBet() * 2);
                 }
             }
             else if (playerScore == dealerScore && playerScore < 22 && dealerScore < 22)
             {
-                this.score += this.bet.getCurrentBet();
+                this.score += this.bet.GetActiveBet();
             }
             else
             {
